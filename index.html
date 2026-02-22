@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- **UPDATED TITLE** -->
-    <title>Pavan Gannoju | Generative AI & Backend Engineer specializing in Enterprise LLM Systems</title>
-    <meta name="description" content="Personal portfolio of Pavan Kumar Gannoju, a final-year Computer Science undergraduate specializing in building scalable, fault-tolerant backend systems.">
-    
+    <title>Pavan Gannoju | Generative AI Engineer | RAG & Agentic Systems</title>
+    <meta name="description"
+        content="Portfolio of Pavan Kumar Gannoju — Generative AI Engineer specializing in Retrieval-Augmented Generation (RAG) pipelines, agentic workflows, and role-aware AI governance layers.">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
-    
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+
     <!-- Custom Styles & Tailwind Directives -->
     <style type="text/tailwindcss">
         @layer base {
@@ -65,6 +72,19 @@
             .dark #theme-toggle #theme-toggle-dark-icon {
                 @apply opacity-0 rotate-90 scale-50;
             }
+            .ai-highlight {
+                @apply relative;
+            }
+            .ai-highlight::after {
+                content: '';
+                @apply absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full;
+            }
+            .project-card-ai {
+                @apply ring-2 ring-indigo-500/30 dark:ring-indigo-400/20;
+            }
+            .arch-note {
+                @apply text-xs italic text-slate-400 dark:text-slate-500 mt-4 flex items-center gap-1;
+            }
         }
     </style>
 
@@ -76,101 +96,161 @@
         }
     </script>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 font-sans antialiased selection:bg-indigo-500/20">
+
+<body
+    class="bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 font-sans antialiased selection:bg-indigo-500/20">
 
     <!-- Header & Navigation -->
-    <header id="header" class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-shadow duration-300">
+    <header id="header"
+        class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-shadow duration-300">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold text-indigo-600 dark:text-indigo-400">Pavan Gannoju</a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a>
-                <a href="#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a>
-                <a href="#experience" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
+                <a href="#projects"
+                    class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a>
+                <a href="#experience"
+                    class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
                 <a href="#skills" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a>
-                <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
+                <a href="#contact"
+                    class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
             </div>
             <div class="flex items-center">
-                <button id="theme-toggle" class="relative p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-slate-900 focus:ring-indigo-500 transition-colors" aria-label="Toggle theme">
-                    <svg id="theme-toggle-light-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zm7.536 2.464a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414z"></path></svg>
-                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <button id="theme-toggle"
+                    class="relative p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-slate-900 focus:ring-indigo-500 transition-colors"
+                    aria-label="Toggle theme">
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zm7.536 2.464a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414z">
+                        </path>
+                    </svg>
+                    <svg id="theme-toggle-dark-icon"
+                        class="w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" fill="currentColor"
+                        viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
                 </button>
-                <button id="mobile-menu-button" class="md:hidden ml-4 p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-800" aria-label="Open menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <button id="mobile-menu-button"
+                    class="md:hidden ml-4 p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-800"
+                    aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
                 </button>
             </div>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-slate-100 dark:bg-slate-800">
             <a href="#about" class="block py-2 px-6 text-sm hover:bg-slate-200 dark:hover:bg-slate-700">About</a>
             <a href="#projects" class="block py-2 px-6 text-sm hover:bg-slate-200 dark:hover:bg-slate-700">Projects</a>
-            <a href="#experience" class="block py-2 px-6 text-sm hover:bg-slate-200 dark:hover:bg-slate-700">Experience</a>
+            <a href="#experience"
+                class="block py-2 px-6 text-sm hover:bg-slate-200 dark:hover:bg-slate-700">Experience</a>
             <a href="#skills" class="block py-2 px-6 text-sm hover:bg-slate-200 dark:hover:bg-slate-700">Skills</a>
             <a href="#contact" class="block py-2 px-6 text-sm hover:bg-slate-200 dark:hover:bg-slate-700">Contact</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6 pt-24">
-        
-        <!-- =================================================================== -->
-        <!-- START: UPDATED HOME SECTION -->
-        <!-- =================================================================== -->
+
+        <!-- ================================================================= -->
+        <!-- HERO SECTION — Generative AI Engineer Identity -->
+        <!-- ================================================================= -->
         <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center -mt-16">
             <div class="fade-in-section">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white">Pavan Kumar Gannoju</h1>
-                <p class="mt-4 text-lg md:text-xl text-indigo-600 dark:text-indigo-400 font-semibold">Generative AI & Backend Engineer specializing in Enterprise LLM Systems</p>
+                <p
+                    class="mt-4 text-lg md:text-2xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+                    Generative AI Engineer | RAG &amp; Agentic Systems</p>
                 <p class="mt-6 max-w-3xl mx-auto text-base md:text-lg text-slate-600 dark:text-slate-400">
-                    I'm a final-year Computer Science undergraduate specializing in building reliable, scalable Generative AI systems. I design and deploy Retrieval-Augmented Generation (RAG) pipelines, Agentic workflows, and role-aware governance layers using Python, FastAPI, and LLM APIs to drive enterprise automation.
+                    I design and build production-oriented Generative AI systems, including Retrieval-Augmented
+                    Generation (RAG) pipelines, agentic workflows, and role-aware AI governance layers. My work focuses
+                    on scalable backend architecture, structured validation, and reliable LLM orchestration for
+                    enterprise-grade applications.
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#projects" class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105">View My Projects</a>
-                    <!-- **IMPORTANT**: Replace with the filename of your finalized Master Resume -->
-                    <a href="Pavan_Gannoju_Master_Resume_SDE_2026.pdf" download class="px-8 py-3 bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-200 font-semibold rounded-lg shadow-md hover:bg-slate-300 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-400 transition-all duration-300 transform hover:scale-105">Download Resume</a>
+                    <a href="#projects"
+                        class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105">View
+                        My Projects</a>
+                    <a href="https://github.com/Pavann19" target="_blank" rel="noopener noreferrer"
+                        class="px-8 py-3 bg-slate-800 text-white dark:bg-white dark:text-slate-900 font-semibold rounded-lg shadow-md hover:bg-slate-700 dark:hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                        View GitHub
+                    </a>
+                    <a href="pdfs/Pavan_Kumar_Gannoju_AI_Intern.pdf" download
+                        class="px-8 py-3 bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-200 font-semibold rounded-lg shadow-md hover:bg-slate-300 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-400 transition-all duration-300 transform hover:scale-105">View
+                        Resume</a>
                 </div>
             </div>
         </section>
-        <!-- =================================================================== -->
-        <!-- END: UPDATED HOME SECTION -->
-        <!-- =================================================================== -->
+        <!-- END: HERO SECTION -->
 
 
-        <!-- =================================================================== -->
-        <!-- START: UPDATED ABOUT SECTION -->
-        <!-- =================================================================== -->
+        <!-- ================================================================= -->
+        <!-- ABOUT SECTION -->
+        <!-- ================================================================= -->
         <section id="about" class="py-20 md:py-32">
             <div class="fade-in-section max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">About Me</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">About Me
+                </h2>
                 <div>
                     <h3 class="text-2xl font-semibold mb-4 text-indigo-600 dark:text-indigo-400">My Story</h3>
-                     <div class="space-y-4 text-slate-600 dark:text-slate-400 text-left md:text-center max-w-2xl mx-auto">
+                    <div
+                        class="space-y-4 text-slate-600 dark:text-slate-400 text-left md:text-center max-w-2xl mx-auto">
                         <p>
-                            As a backend engineer, my passion lies in solving complex engineering challenges and building the robust, scalable infrastructure that powers intelligent applications. I'm particularly interested in the intersection of distributed systems and AI, and I am driven by the opportunity to build technology that has a meaningful impact.
+                            As a Generative AI engineer, my passion lies in designing intelligent systems that combine
+                            scalable backend architecture with cutting-edge LLM capabilities. I specialize in building
+                            Retrieval-Augmented Generation pipelines, agentic task orchestration, and governance
+                            frameworks that make AI systems reliable and production-ready.
                         </p>
                         <p>
-                            I am currently completing my B.Tech in Computer Science (AI/ML) at Visvesvaraya College, complemented by a Minor in Artificial Intelligence from IIT Ropar. Outside of technology, I enjoy exploring historical temples, creating 3D environments, and competitive gaming.
+                            I am currently completing my B.Tech in Computer Science (AI/ML) at Visvesvaraya College,
+                            complemented by a Minor in Artificial Intelligence from IIT Ropar. Outside of technology, I
+                            enjoy exploring historical temples, creating 3D environments, and competitive gaming.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- =================================================================== -->
-        <!-- END: UPDATED ABOUT SECTION -->
-        <!-- =================================================================== -->
+        <!-- END: ABOUT SECTION -->
 
 
-        <!-- =================================================================== -->
-        <!-- START: UPDATED PROJECTS SECTION -->
-        <!-- =================================================================== -->
+        <!-- ================================================================= -->
+        <!-- FEATURED PROJECTS — AI Projects First -->
+        <!-- ================================================================= -->
         <section id="projects" class="py-20 md:py-32 bg-slate-100 dark:bg-slate-800/50 rounded-lg">
             <div class="fade-in-section max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900 dark:text-white">Featured Projects</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-slate-900 dark:text-white">Featured
+                    Projects</h2>
+                <p class="text-center text-indigo-600 dark:text-indigo-400 font-medium mb-16">Production-Oriented AI
+                    Systems</p>
                 <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <!-- Project Card 1: Microservices -->
-                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden flex flex-col justify-between border border-slate-200 dark:border-slate-700">
+
+                    <!-- =============================================== -->
+                    <!-- AI PROJECT 1: Enterprise RAG System -->
+                    <!-- =============================================== -->
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden flex flex-col justify-between border border-slate-200 dark:border-slate-700 project-card-ai">
                         <div class="p-8">
-                            <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">Enterprise RAG & Knowledge Retrieval System</h3>
-                            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-400">
-                                <li>Designed an end-to-end RAG pipeline to extract and synthesize structured insights from unstructured documents.</li>
-                                <li>Developed semantic chunking, vector search integration, and modular backend pipelines with deterministic JSON output enforcement.</li>
+                            <div class="flex items-center gap-2 mb-4">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/40 px-3 py-1 rounded-full">Generative
+                                    AI</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">Enterprise RAG &amp;
+                                Knowledge Retrieval System</h3>
+                            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-400 text-sm">
+                                <li>Designed an end-to-end Retrieval-Augmented Generation (RAG) pipeline to extract
+                                    structured insights from unstructured documents.</li>
+                                <li>Implemented semantic chunking, embedding generation, and vector database retrieval
+                                    to improve contextual relevance.</li>
+                                <li>Built modular backend workflows for ingestion, retrieval, LLM orchestration, and
+                                    deterministic JSON output enforcement.</li>
+                                <li>Optimized retrieval and response pipelines for consistent, production-style
+                                    reasoning across dynamic queries.</li>
                             </ul>
                             <div class="mt-6 flex flex-wrap gap-2">
                                 <span class="skill-badge">Python</span>
@@ -178,80 +258,207 @@
                                 <span class="skill-badge">LLM APIs</span>
                                 <span class="skill-badge">RAG</span>
                                 <span class="skill-badge">FastAPI</span>
+                                <span class="skill-badge">Embeddings</span>
                             </div>
+                            <p class="arch-note">
+                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                Architecture diagram available in project documentation.
+                            </p>
                         </div>
                         <div class="p-6 bg-slate-50 dark:bg-slate-800/50 flex gap-4">
-                            <a href="https://github.com/pavann19/resilient-microservices" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">View Code</a>
-                            <a href="#" class="text-sm font-semibold text-slate-400 dark:text-slate-500 cursor-not-allowed">Demo (Private)</a>
+                            <a href="https://github.com/pavann19/enterprise-rag-system" target="_blank" rel="noopener noreferrer"
+                                class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                                View Code
+                            </a>
+                            <a href="https://github.com/pavann19/enterprise-rag-system" target="_blank" rel="noopener noreferrer"
+                                class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">View
+                                Architecture</a>
                         </div>
                     </div>
 
-                    <!-- Project Card 2: Auto-Scaler -->
-                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden flex flex-col justify-between border border-slate-200 dark:border-slate-700">
+                    <!-- =============================================== -->
+                    <!-- AI PROJECT 2: SentinAL Governance Layer -->
+                    <!-- =============================================== -->
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden flex flex-col justify-between border border-slate-200 dark:border-slate-700 project-card-ai">
                         <div class="p-8">
-                            <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">SentinAL – Role-Aware AI Governance Layer</h3>
-                            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-400">
-                                <li>Engineered a governance layer to monitor, validate, and control outputs from underlying LLM systems within multi-step workflows.</li>
-                                <li>Built validation pipelines enforcing policy compliance, prompt injection mitigation, and human-in-the-loop escalation.</li>
+                            <div class="flex items-center gap-2 mb-4">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/40 px-3 py-1 rounded-full">Agentic
+                                    AI</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">SentinAL – Role-Aware AI
+                                Governance Layer</h3>
+                            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-400 text-sm">
+                                <li>Engineered a role-aware validation layer to monitor and control LLM outputs in
+                                    multi-step agentic workflows.</li>
+                                <li>Built structured policy enforcement pipelines with strict JSON schema validation.
+                                </li>
+                                <li>Implemented prompt injection mitigation and human-in-the-loop escalation for
+                                    high-risk cases.</li>
+                                <li>Simulated production-style deployment using REST APIs and token-based
+                                    authentication.</li>
                             </ul>
-                             <div class="mt-6 flex flex-wrap gap-2">
+                            <div class="mt-6 flex flex-wrap gap-2">
                                 <span class="skill-badge">Python</span>
-                                <span class="skill-badge">SQL</span>
+                                <span class="skill-badge">Agentic AI</span>
                                 <span class="skill-badge">REST APIs</span>
                                 <span class="skill-badge">JWT</span>
-                                <span class="skill-badge">Agentic AI</span>
+                                <span class="skill-badge">Policy Engine</span>
+                            </div>
+                            <p class="arch-note">
+                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                Architecture diagram available in project documentation.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800/50 flex gap-4">
+                            <a href="https://github.com/Pavann19" target="_blank" rel="noopener noreferrer"
+                                class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                                View Code
+                            </a>
+                            <a href="https://github.com/Pavann19" target="_blank" rel="noopener noreferrer"
+                                class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">Documentation</a>
+                        </div>
+                    </div>
+
+                    <!-- =============================================== -->
+                    <!-- BACKEND PROJECT 1: Microservices (moved below) -->
+                    <!-- =============================================== -->
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden flex flex-col justify-between border border-slate-200 dark:border-slate-700">
+                        <div class="p-8">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full">Backend</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">Fault-Tolerant
+                                Microservices Platform</h3>
+                            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-400 text-sm">
+                                <li>Designed a resilient microservices platform implementing circuit-breaker patterns,
+                                    horizontal auto-scaling, and centralized health monitoring.</li>
+                                <li>Built with Python, FastAPI, Docker, Redis, and Prometheus for production-grade
+                                    reliability.</li>
+                            </ul>
+                            <div class="mt-6 flex flex-wrap gap-2">
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">Docker</span>
+                                <span class="skill-badge">Redis</span>
+                                <span class="skill-badge">FastAPI</span>
+                                <span class="skill-badge">Microservices</span>
                             </div>
                         </div>
                         <div class="p-6 bg-slate-50 dark:bg-slate-800/50 flex gap-4">
-                            <a href="#" class="text-sm font-semibold text-slate-400 dark:text-slate-500 cursor-not-allowed">Code (Private)</a>
-                             <a href="#" class="text-sm font-semibold text-slate-400 dark:text-slate-500 cursor-not-allowed">Demo (Private)</a>
+                            <a href="https://github.com/pavann19/resilient-microservices" target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">View
+                                Code</a>
                         </div>
                     </div>
+
+                    <!-- =============================================== -->
+                    <!-- BACKEND PROJECT 2: Cloud Auto-Scaler (moved below) -->
+                    <!-- =============================================== -->
+                    <div
+                        class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden flex flex-col justify-between border border-slate-200 dark:border-slate-700">
+                        <div class="p-8">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full">Cloud</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">Cloud Auto-Scaler</h3>
+                            <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-400 text-sm">
+                                <li>Built an auto-scaling orchestration layer using AWS Lambda, CloudWatch, and custom
+                                    metric-driven policies.</li>
+                                <li>Implemented threshold-based scaling triggers and cooldown logic for cost-efficient
+                                    resource management.</li>
+                            </ul>
+                            <div class="mt-6 flex flex-wrap gap-2">
+                                <span class="skill-badge">AWS Lambda</span>
+                                <span class="skill-badge">CloudWatch</span>
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">CI/CD</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800/50 flex gap-4">
+                            <a href="https://github.com/Pavann19" target="_blank" rel="noopener noreferrer"
+                                class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">View
+                                Code</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
-        <!-- =================================================================== -->
-        <!-- END: UPDATED PROJECTS SECTION -->
-        <!-- =================================================================== -->
+        <!-- END: PROJECTS SECTION -->
 
 
-        <!-- =================================================================== -->
-        <!-- START: UPDATED EXPERIENCE SECTION -->
-        <!-- =================================================================== -->
+        <!-- ================================================================= -->
+        <!-- EXPERIENCE SECTION -->
+        <!-- ================================================================= -->
         <section id="experience" class="py-20 md:py-32">
             <div class="fade-in-section max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900 dark:text-white">Experience</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900 dark:text-white">Experience
+                </h2>
                 <div class="relative">
-                    <div class="absolute w-0.5 h-full bg-slate-200 dark:bg-slate-700 left-5 md:left-1/2 -translate-x-1/2"></div>
-                    
+                    <div
+                        class="absolute w-0.5 h-full bg-slate-200 dark:bg-slate-700 left-5 md:left-1/2 -translate-x-1/2">
+                    </div>
+
                     <div class="space-y-16">
-                        
+
                         <!-- Experience Item 1: Digital Nexus AI -->
                         <div class="relative">
                             <div class="md:flex items-start">
                                 <div class="w-full md:w-1/2 md:text-right md:pr-12">
-                                    <p class="font-semibold text-indigo-600 dark:text-indigo-400">May 2025 – Sep 2025</p>
+                                    <p class="font-semibold text-indigo-600 dark:text-indigo-400">May 2025 – Sep 2025
+                                    </p>
                                 </div>
                             </div>
                             <div class="absolute left-5 md:left-1/2 -translate-x-1/2 -top-1">
-                                <div class="w-6 h-6 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center ring-2 ring-indigo-500/50">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center ring-2 ring-indigo-500/50">
                                     <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
                                 </div>
                             </div>
                             <div class="mt-4 md:mt-0 md:flex">
                                 <div class="md:w-1/2"></div>
                                 <div class="w-full md:w-1/2 md:pl-12">
-                                    <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-6 rounded-lg">
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Gen AI / LLM Intern</h3>
-                                        <p class="font-semibold text-slate-600 dark:text-slate-300">Digital Nexus AI (Full-Time Internship)</p>
-                                        <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-slate-500 dark:text-slate-400">
-                                            <li>Designed and integrated LLM-powered backend components into production-oriented systems using REST APIs with structured input validation and deterministic JSON output enforcement.
-</li>
-                                            <li>Implemented Retrieval-Augmented Generation (RAG) components and multi-stage AI workflows to handle complex enterprise query patterns.</li>
-                                            <li>Prototyped agentic task pipelines to support structured multi-step reasoning across dynamic request flows.
-</li>
-                                            <li>Improved response reliability by implementing validation layers and optimized processing logic, reducing recurring errors by ~20%.</li>
-                                            <li>Documented system architecture and workflow diagrams to support cross-functional engineering collaboration and feature deployment.</li>
+                                    <div
+                                        class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-6 rounded-lg">
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Gen AI / LLM Intern
+                                        </h3>
+                                        <p class="font-semibold text-slate-600 dark:text-slate-300">Digital Nexus AI
+                                            (Full-Time Internship)</p>
+                                        <ul
+                                            class="mt-4 list-disc list-outside pl-5 space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                                            <li>Designed and integrated LLM-powered backend components into
+                                                production-oriented systems using REST APIs with structured input
+                                                validation and deterministic JSON output enforcement.</li>
+                                            <li>Implemented Retrieval-Augmented Generation (RAG) components and
+                                                multi-stage AI workflows to handle complex enterprise query patterns.
+                                            </li>
+                                            <li>Prototyped agentic task pipelines to support structured multi-step
+                                                reasoning across dynamic request flows.</li>
+                                            <li>Improved response reliability by implementing validation layers and
+                                                optimized processing logic, reducing recurring errors by ~20%.</li>
+                                            <li>Documented system architecture and workflow diagrams to support
+                                                cross-functional engineering collaboration and feature deployment.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -260,29 +467,39 @@
 
                         <!-- Experience Item 2: Prodigal AI -->
                         <div class="relative">
-                             <div class="md:flex items-start md:flex-row-reverse">
+                            <div class="md:flex items-start md:flex-row-reverse">
                                 <div class="w-full md:w-1/2 md:text-left md:pl-12">
                                     <p class="font-semibold text-slate-600 dark:text-slate-400">Mar 2025 – Nov 2025</p>
                                 </div>
                             </div>
                             <div class="absolute left-5 md:left-1/2 -translate-x-1/2 -top-1">
-                                <div class="w-6 h-6 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center ring-2 ring-indigo-500/50">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center ring-2 ring-indigo-500/50">
                                     <div class="w-3 h-3 bg-indigo-500 rounded-full blinking-dot"></div>
                                 </div>
                             </div>
                             <div class="mt-4 md:mt-0 md:flex">
                                 <div class="w-full md:w-1/2 md:pr-12">
-                                     <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-6 rounded-lg md:text-right">
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">AI Intern – Research Team Lead</h3>
-                                        <p class="font-semibold text-slate-600 dark:text-slate-300">Prodigal AI Technologies (Part-Time)</p>
-                                        <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-slate-500 dark:text-slate-400">
-                                            <li>Led research focused on reliability, governance, and control mechanisms for LLM-integrated enterprise systems.</li>
-                                            <li>Developed structured evaluation frameworks to assess prompt injection resilience and multi-step agentic reasoning integrity.</li>
-                                            <li>Designed benchmarking protocols to measure consistency, edge-case handling, and overall system robustness.
-</li>
-                                            <li>Built modular experimentation pipelines enabling reproducible testing and controlled task orchestration.
-</li>
-                                            <li>Presented mitigation strategies and architectural improvements to engineering stakeholders.</li>
+                                    <div
+                                        class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-6 rounded-lg">
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white md:text-right">AI
+                                            Intern –
+                                            Research Team Lead</h3>
+                                        <p class="font-semibold text-slate-600 dark:text-slate-300 md:text-right">
+                                            Prodigal AI
+                                            Technologies (Part-Time)</p>
+                                        <ul
+                                            class="mt-4 list-disc list-outside pl-5 space-y-2 text-sm text-slate-500 dark:text-slate-400 text-left">
+                                            <li>Led research focused on reliability, governance, and control mechanisms
+                                                for LLM-integrated enterprise systems.</li>
+                                            <li>Developed structured evaluation frameworks to assess prompt injection
+                                                resilience and multi-step agentic reasoning integrity.</li>
+                                            <li>Designed benchmarking protocols to measure consistency, edge-case
+                                                handling, and overall system robustness.</li>
+                                            <li>Built modular experimentation pipelines enabling reproducible testing
+                                                and controlled task orchestration.</li>
+                                            <li>Presented mitigation strategies and architectural improvements to
+                                                engineering stakeholders.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -298,20 +515,28 @@
                                 </div>
                             </div>
                             <div class="absolute left-5 md:left-1/2 -translate-x-1/2 -top-1">
-                               <div class="w-6 h-6 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center ring-2 ring-slate-300 dark:ring-slate-700">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center ring-2 ring-slate-300 dark:ring-slate-700">
                                     <div class="w-3 h-3 bg-slate-400 dark:bg-slate-600 rounded-full"></div>
                                 </div>
                             </div>
                             <div class="mt-4 md:mt-0 md:flex">
                                 <div class="md:w-1/2"></div>
                                 <div class="w-full md:w-1/2 md:pl-12">
-                                    <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-6 rounded-lg">
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Project Contributor</h3>
-                                        <p class="font-semibold text-slate-600 dark:text-slate-300">JNTUH - Autonomous Vehicle Data Pipeline</p>
-                                        <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-slate-500 dark:text-slate-400">
-                                            <li>Implemented a data pipeline to process >1.5M vehicle sensor logs using Python & SQL.</li>
-                                            <li>Enhanced anomaly detection accuracy by 10% via optimized time-windowing logic.</li>
-                                            <li>Developed analytics dashboards, reducing manual data inspection time by 45%.</li>
+                                    <div
+                                        class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-6 rounded-lg">
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Project Contributor
+                                        </h3>
+                                        <p class="font-semibold text-slate-600 dark:text-slate-300">JNTUH - Autonomous
+                                            Vehicle Data Pipeline</p>
+                                        <ul
+                                            class="mt-4 list-disc list-outside pl-5 space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                                            <li>Implemented a data pipeline to process >1.5M vehicle sensor logs using
+                                                Python & SQL.</li>
+                                            <li>Enhanced anomaly detection accuracy by 10% via optimized time-windowing
+                                                logic.</li>
+                                            <li>Developed analytics dashboards, reducing manual data inspection time by
+                                                45%.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -322,67 +547,165 @@
                 </div>
             </div>
         </section>
-        <!-- =================================================================== -->
-        <!-- END: UPDATED EXPERIENCE SECTION -->
-        <!-- =================================================================== -->
+        <!-- END: EXPERIENCE SECTION -->
 
 
-        <!-- =================================================================== -->
-        <!-- START: UPDATED SKILLS SECTION -->
-        <!-- =================================================================== -->
+        <!-- ================================================================= -->
+        <!-- SKILLS SECTION — Premium Card Grid -->
+        <!-- ================================================================= -->
         <section id="skills" class="py-20 md:py-32 bg-slate-100 dark:bg-slate-800/50 rounded-lg">
             <div class="fade-in-section max-w-6xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-16 text-slate-900 dark:text-white">Technical Skills</h2>
-                <div class="space-y-12">
-                   <div>
-                        <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Generative AI & LLMs</h3>
-                        <div class="flex flex-wrap justify-center gap-3">
-                            <span class="skill-badge">RAG</span>
-                            <span class="skill-badge">Agentic Workflows</span>
-                            <span class="skill-badge">LLM APIs (OpenAI/Gemini)</span>
-                            <span class="skill-badge">Vector Databases</span>
-                            <span class="skill-badge">Prompt Engineering.</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Technical Skills</h2>
+                <p class="text-slate-500 dark:text-slate-400 mb-16 max-w-xl mx-auto">Core competencies across AI systems
+                    engineering, backend architecture, and production reliability.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- ★ Card 1: Generative AI & LLM Systems (Primary) -->
+                    <div
+                        class="relative group bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-xl border border-indigo-200 dark:border-indigo-500/30 p-8 text-left transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                        <!-- Gradient accent bar -->
+                        <div
+                            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
                         </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Backend & Systems</h3>
-                        <div class="flex flex-wrap justify-center gap-3">
-                            <span class="skill-badge">FastAPI</span><span class="skill-badge">Docker</span><span class="skill-badge">Microservices</span><span class="skill-badge">Redis</span><span class="skill-badge">System Design</span>
+                        <!-- Subtle glow -->
+                        <div
+                            class="absolute -top-20 -right-20 w-40 h-40 bg-indigo-500/10 dark:bg-indigo-400/5 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all duration-500">
+                        </div>
+
+                        <div class="relative">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Generative AI &amp; LLM
+                                    Systems</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">RAG</span>
+                                <span class="skill-badge">Agentic AI</span>
+                                <span class="skill-badge">LLM API Integration</span>
+                                <span class="skill-badge">Embeddings</span>
+                                <span class="skill-badge">Vector Databases</span>
+                                <span class="skill-badge">Structured Output Enforcement</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div>
-                         <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Cloud & DevOps</h3>
-                        <div class="flex flex-wrap justify-center gap-3">
-                            <span class="skill-badge">AWS (Lambda, CloudWatch)</span><span class="skill-badge">CI/CD</span><span class="skill-badge">GitHub Actions</span><span class="skill-badge">Prometheus</span>
+                    <!-- Card 2: Backend & System Design -->
+                    <div
+                        class="relative group bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-xl border border-slate-200 dark:border-slate-700 p-8 text-left transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 to-cyan-500"></div>
+
+                        <div class="relative">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center shadow-lg shadow-sky-500/25">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Backend &amp; System Design
+                                </h3>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">REST APIs</span>
+                                <span class="skill-badge">System Design</span>
+                                <span class="skill-badge">Workflow Orchestration</span>
+                                <span class="skill-badge">JWT</span>
+                                <span class="skill-badge">FastAPI</span>
+                                <span class="skill-badge">SQL</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-white">Programming & Databases</h3>
-                        <div class="flex flex-wrap justify-center gap-3">
-                            <span class="skill-badge">Python</span><span class="skill-badge">Java</span><span class="skill-badge">C/C++</span><span class="skill-badge">SQL</span><span class="skill-badge">PostgreSQL</span><span class="skill-badge">SQLite</span>
+                    <!-- Card 3: Reliability & Evaluation -->
+                    <div
+                        class="relative group bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-xl border border-slate-200 dark:border-slate-700 p-8 text-left transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500">
+                        </div>
+
+                        <div class="relative">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Reliability &amp;
+                                    Evaluation</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">Input Validation</span>
+                                <span class="skill-badge">Prompt Injection Mitigation</span>
+                                <span class="skill-badge">Benchmarking</span>
+                                <span class="skill-badge">Edge-Case Testing</span>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Card 4: Cloud & DevOps -->
+                    <div
+                        class="relative group bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-xl border border-slate-200 dark:border-slate-700 p-8 text-left transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-orange-500">
+                        </div>
+
+                        <div class="relative">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/25">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Cloud &amp; DevOps</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">AWS</span>
+                                <span class="skill-badge">Docker</span>
+                                <span class="skill-badge">CI/CD</span>
+                                <span class="skill-badge">GitHub Actions</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
-        <!-- =================================================================== -->
-        <!-- END: UPDATED SKILLS SECTION -->
-        <!-- =================================================================== -->
+        <!-- END: SKILLS SECTION -->
 
 
-        <!-- Contact Section -->
+        <!-- ================================================================= -->
+        <!-- CONTACT SECTION -->
+        <!-- ================================================================= -->
         <section id="contact" class="py-20 md:py-32">
             <div class="fade-in-section max-w-2xl mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Get In Touch</h2>
-                <p class="text-slate-600 dark:text-slate-400 mb-10">I'm currently seeking new graduate opportunities for 2026. Have a question or an opportunity? Feel free to connect.</p>
+                <p class="text-slate-600 dark:text-slate-400 mb-10">Open to Generative AI and backend engineering
+                    internships focused on intelligent automation and AI systems. Have a question or an opportunity?
+                    Feel free to connect.</p>
                 <div class="flex justify-center items-center space-x-6">
-                     <a href="mailto:pavan9542644804@gmail.com" class="font-medium text-indigo-600 dark:text-indigo-400 hover:underline">pavan9542644804@gmail.com</a>
-                     <span>&bull;</span>
-                     <a href="https://www.linkedin.com/in/pavan-gannoju/" target="_blank" rel="noopener noreferrer" class="font-medium text-indigo-600 dark:text-indigo-400 hover:underline">LinkedIn</a>
-                     <span>&bull;</span>
-                     <a href="https://github.com/Pavann19" target="_blank" rel="noopener noreferrer" class="font-medium text-indigo-600 dark:text-indigo-400 hover:underline">GitHub</a>
+                    <a href="mailto:pavan9542644804@gmail.com"
+                        class="font-medium text-indigo-600 dark:text-indigo-400 hover:underline">pavan9542644804@gmail.com</a>
+                    <span>&bull;</span>
+                    <a href="https://www.linkedin.com/in/pavan-gannoju/" target="_blank" rel="noopener noreferrer"
+                        class="font-medium text-indigo-600 dark:text-indigo-400 hover:underline">LinkedIn</a>
+                    <span>&bull;</span>
+                    <a href="https://github.com/Pavann19" target="_blank" rel="noopener noreferrer"
+                        class="font-medium text-indigo-600 dark:text-indigo-400 hover:underline">GitHub</a>
                 </div>
             </div>
         </section>
@@ -411,7 +734,7 @@
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
-            
+
             mobileMenu.addEventListener('click', (e) => {
                 if (e.target.tagName === 'A') {
                     mobileMenu.classList.add('hidden');
@@ -446,5 +769,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>
