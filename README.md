@@ -2,7 +2,7 @@
 
 This repository contains the source code for my personal portfolio, a fully responsive website designed to showcase my skills, projects, and professional experience in the fields of AI/ML and Software Development.
 
-### 🚀 **[View Live Demo](https://pavann19.github.io/Pava_kumar_gannoju_portfolio/)**
+### 🚀 **[View Live Demo](https://pavann19.github.io/Pavan_kumar_gannoju_portfolio/)**
 
 ---
 
@@ -57,6 +57,6 @@ To get a local copy up and running, follow these simple steps.
 
 **Pavan Gannoju**
 
--   **LinkedIn:** [https://linkedin.com/in/pavangannoju](https://linkedin.com/in/pavangannoju)
+-   **LinkedIn:** [https://linkedin.com/in/pavangannoju]([(https://www.linkedin.com/in/pavan-gannoju/)])
 -   **GitHub:** [https://github.com/pavann19](https://github.com/pavann19)
 -   **Email:** pavan.gannoju.work@gmail.com
