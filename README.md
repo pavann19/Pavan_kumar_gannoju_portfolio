@@ -1,62 +1,36 @@
-# Pavan Gannoju - Personal Portfolio Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This repository contains the source code for my personal portfolio, a fully responsive website designed to showcase my skills, projects, and professional experience in the fields of AI/ML and Software Development.
+## Getting Started
 
-### 🚀 **[View Live Demo](https://pavann19.github.io/Pavan_kumar_gannoju_portfolio/)**
+First, run the development server:
 
----
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-![Portfolio Screenshot](./screenshot.png)
-*(**Suggestion:** Add a screenshot of your portfolio named `screenshot.png` to the repository for a visual preview here.)*
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 📖 About The Project
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This portfolio is a clean, modern, single-page application built from scratch using fundamental web technologies. It serves as a central hub for my professional journey, highlighting key projects I've worked on and the technical skills I've acquired. The design is minimalist, fast-loading, and focuses on providing a great user experience on any device.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
----
+## Learn More
 
-## ✨ Key Features
+To learn more about Next.js, take a look at the following resources:
 
-- **Fully Responsive Design:** Adapts seamlessly to all screen sizes, from mobile phones to desktops.
-- **Dark & Light Mode:** A smooth theme toggle that respects the user's system preference and saves their choice in local storage.
-- **Interactive Experience Timeline:** A two-sided vertical timeline that visually represents my career progression and highlights my current role with a blinking indicator.
-- **Dynamic Scroll Animations:** Subtle fade-in animations for each section to create an engaging and professional user experience as you scroll.
-- **Clean & Modern UI:** Built with Tailwind CSS for a professional, utility-first, and easily maintainable design.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## 🛠️ Technologies Used
+## Deploy on Vercel
 
-* **Frontend:** HTML5, CSS3, JavaScript (ES6+)
-* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-* **Version Control:** Git & GitHub
-* **Deployment:** GitHub Pages
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-## 📂 Getting Started
-
-To get a local copy up and running, follow these simple steps.
-
-1.  **Clone the repository:**
-    ```sh
-    git clone [https://github.com/pavann19/Pava_kumar_gannoju_portfolio.git](https://github.com/pavann19/Pava_kumar_gannoju_portfolio.git)
-    ```
-2.  **Navigate to the project directory:**
-    ```sh
-    cd Pava_kumar_gannoju_portfolio
-    ```
-3.  **Open `index.html` in your browser:**
-    Simply open the `index.html` file in your favorite web browser to view the portfolio.
-
-    *To make the "Download Resume" button functional, please ensure your resume file, named `Pavan_Gannoju_SDE_Resume.pdf`, is placed in the root of the project directory.*
-
----
-
-## 📬 Contact
-
-**Pavan Gannoju**
-
--   **LinkedIn:** [https://linkedin.com/in/pavangannoju]([(https://www.linkedin.com/in/pavan-gannoju/)])
--   **GitHub:** [https://github.com/pavann19](https://github.com/pavann19)
--   **Email:** pavan.gannoju.work@gmail.com
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
