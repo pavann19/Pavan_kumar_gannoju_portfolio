@@ -40,8 +40,10 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-4" : "py-6"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 border-b ${
+        scrolled 
+          ? "py-4 bg-[#030712]/70 backdrop-blur-xl border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" 
+          : "py-6 bg-transparent border-transparent"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
@@ -52,7 +54,7 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <nav className={`hidden md:flex items-center gap-8 px-8 py-3 rounded-full transition-all duration-500 ${
-          scrolled ? "glass-panel" : "bg-transparent"
+          scrolled ? "bg-white/5 border border-white/5" : "bg-transparent"
         }`}>
           {navItems.map((item) => (
             <Link
