@@ -30,7 +30,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className="text-5xl md:text-7xl font-extrabold tracking-tight text-[#F9FAFB] mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#F9FAFB] mb-6 px-4"
         >
           Pavan Kumar Gannoju
         </motion.h1>
@@ -40,7 +40,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="text-xl md:text-3xl font-semibold text-gradient mb-8"
+          className="text-lg sm:text-xl md:text-3xl font-semibold text-gradient mb-8 px-4"
         >
           Software Engineer | Backend & AI Systems | Scalable Applications
         </motion.h2>
@@ -50,7 +50,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          className="text-lg md:text-xl text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed mb-12"
+          className="text-base sm:text-lg md:text-xl text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed mb-12 px-6"
         >
           Computer Science (AI/ML) student focused on backend engineering, scalable applications, and AI-powered systems. Interested in distributed systems, APIs, AI infrastructure, and production-style software engineering.
         </motion.p>

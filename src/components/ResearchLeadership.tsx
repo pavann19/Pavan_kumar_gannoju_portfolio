@@ -14,7 +14,7 @@ export function ResearchLeadership() {
         />
 
         <div className="grid md:grid-cols-2 gap-8">
-          <GlassCard className="p-8" delay={0.1}>
+          <GlassCard className="p-6 sm:p-8" delay={0.1}>
             <div className="flex items-center gap-4 mb-6">
               <div className="p-3 bg-white/5 rounded-xl border border-white/10">
                 <Shield className="w-6 h-6 text-[#8B5CF6]" />
@@ -34,7 +34,7 @@ export function ResearchLeadership() {
             </ul>
           </GlassCard>
 
-          <GlassCard className="p-8" delay={0.2}>
+          <GlassCard className="p-6 sm:p-8" delay={0.2}>
             <div className="flex items-center gap-4 mb-6">
               <div className="p-3 bg-white/5 rounded-xl border border-white/10">
                 <FlaskConical className="w-6 h-6 text-[#06B6D4]" />

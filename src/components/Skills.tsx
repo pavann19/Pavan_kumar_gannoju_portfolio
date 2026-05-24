@@ -44,7 +44,7 @@ export function Skills() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillsData.map((category, idx) => (
-            <GlassCard key={idx} className="p-8" delay={idx * 0.1}>
+            <GlassCard key={idx} className="p-6 sm:p-8" delay={idx * 0.1}>
               <div className="flex items-center gap-4 mb-8">
                 <div className="p-3 bg-white/5 rounded-xl border border-white/10 shadow-inner">
                   {category.icon}

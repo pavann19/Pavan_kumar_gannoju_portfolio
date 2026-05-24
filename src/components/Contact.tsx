@@ -17,7 +17,7 @@ export function Contact() {
         <div className="flex flex-col md:flex-row gap-12">
           {/* Contact Info */}
           <div className="w-full md:w-1/3">
-            <GlassCard className="p-8 h-full" delay={0.1}>
+            <GlassCard className="p-6 sm:p-8 h-full" delay={0.1}>
               <h3 className="text-xl font-bold text-[#F9FAFB] mb-8">Direct Channels</h3>
               <div className="space-y-6">
                 <a href="mailto:pavan.gannoju.work@gmail.com" className="flex items-center gap-4 text-[#9CA3AF] hover:text-[#3B82F6] transition-colors group">
@@ -38,9 +38,9 @@ export function Contact() {
 
           {/* Form */}
           <div className="w-full md:w-2/3">
-            <GlassCard className="p-8 md:p-12" delay={0.2}>
+            <GlassCard className="p-6 sm:p-8 md:p-12" delay={0.2}>
               <form action="https://formspree.io/f/xyyllpkd" method="POST" className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                   <div className="relative group">
                     <input 
                       type="text" 

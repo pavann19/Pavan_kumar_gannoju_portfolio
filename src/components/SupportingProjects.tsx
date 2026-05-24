@@ -37,7 +37,7 @@ export function SupportingProjects() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {supportingProjects.map((project, idx) => (
-            <GlassCard key={idx} className="p-8 flex flex-col justify-between" delay={idx * 0.1}>
+            <GlassCard key={idx} className="p-6 sm:p-8 flex flex-col justify-between" delay={idx * 0.1}>
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <div className="p-3 bg-white/5 rounded-xl border border-white/10">

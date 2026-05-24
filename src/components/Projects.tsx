@@ -66,7 +66,7 @@ export function Projects() {
               <div className="flex flex-col lg:flex-row">
                 
                 {/* Left Content Area */}
-                <div className="w-full lg:w-[45%] p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between relative">
+                <div className="w-full lg:w-[45%] p-6 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   
                   <div className="relative z-10">
@@ -99,14 +99,14 @@ export function Projects() {
                 </div>
 
                 {/* Right Architecture Area */}
-                <div className="w-full lg:w-[55%] p-8 lg:p-12 bg-black/40 flex items-center justify-center relative overflow-hidden">
+                <div className="w-full lg:w-[55%] p-6 sm:p-8 lg:p-12 bg-black/40 flex items-center justify-center relative overflow-hidden">
                   {/* Subtle Grid Background */}
                   <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(90deg, #3B82F6 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
                   
                   <motion.div 
                     whileHover={{ scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative z-10 w-full glass-panel p-6 rounded-2xl border border-white/10 shadow-2xl"
+                    className="relative z-10 w-full glass-panel p-4 sm:p-6 rounded-2xl border border-white/10 shadow-2xl"
                   >
                     <div className="flex items-center gap-2 mb-4">
                       <div className="w-3 h-3 rounded-full bg-[#ef4444]" />
@@ -114,8 +114,8 @@ export function Projects() {
                       <div className="w-3 h-3 rounded-full bg-[#22c55e]" />
                       <span className="ml-2 text-xs font-mono text-[#9CA3AF] uppercase tracking-wider">Architecture Flow</span>
                     </div>
-                    <div className="p-6 bg-[#0B0F19] rounded-xl border border-white/5">
-                      <code className="text-[#38bdf8] font-mono text-sm md:text-base leading-loose block break-words">
+                    <div className="p-4 sm:p-6 bg-[#0B0F19] rounded-xl border border-white/5">
+                      <code className="text-[#38bdf8] font-mono text-xs sm:text-sm md:text-base leading-loose block break-words">
                         {project.architecture.split(' → ').map((step, i, arr) => (
                           <React.Fragment key={i}>
                             <span className="text-[#F9FAFB]">{step}</span>

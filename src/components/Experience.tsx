@@ -54,7 +54,7 @@ export function Experience() {
 
                 <div className="w-full pl-20 md:pl-0 md:w-1/2 relative">
                   <div className={`md:px-12 ${idx % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
-                    <GlassCard delay={idx * 0.2} className="p-8 text-left">
+                    <GlassCard delay={idx * 0.2} className="p-6 sm:p-8 text-left">
                       
                       <div className="flex items-center gap-2 text-[#06B6D4] text-sm font-bold tracking-wider uppercase mb-3">
                         <Briefcase className="w-4 h-4" />

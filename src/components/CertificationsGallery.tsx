@@ -49,7 +49,7 @@ export function CertificationsGallery() {
           subtitle="Professional credentials and hackathon participation validating my expertise."
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {featuredCerts.map((cert, idx) => {
             const cardContent = (
               <>
@@ -72,7 +72,7 @@ export function CertificationsGallery() {
                   rel="noopener noreferrer" 
                   className="block group cursor-pointer focus:outline-none"
                 >
-                  <GlassCard className="p-8 text-center flex flex-col items-center justify-center gap-4 h-full hover:border-[#3B82F6]/50 transition-colors" delay={idx * 0.1}>
+                  <GlassCard className="p-6 sm:p-8 text-center flex flex-col items-center justify-center gap-4 h-full hover:border-[#3B82F6]/50 transition-colors" delay={idx * 0.1}>
                     {cardContent}
                     <span className="text-xs font-mono text-[#3B82F6] opacity-75 group-hover:opacity-100 transition-opacity mt-2">
                       View Certificate →
@@ -83,14 +83,14 @@ export function CertificationsGallery() {
             }
 
             return (
-              <GlassCard key={idx} className="p-8 text-center flex flex-col items-center justify-center gap-4 h-full" delay={idx * 0.1}>
+              <GlassCard key={idx} className="p-6 sm:p-8 text-center flex flex-col items-center justify-center gap-4 h-full" delay={idx * 0.1}>
                 {cardContent}
               </GlassCard>
             );
           })}
         </div>
 
-        <div className="glass-panel p-8 rounded-2xl">
+        <div className="glass-panel p-6 sm:p-8 rounded-2xl">
           <h4 className="text-sm font-bold text-[#9CA3AF] uppercase tracking-wider mb-6 text-center">Supporting Credentials</h4>
           <div className="flex flex-wrap justify-center gap-3">
             {supportingCerts.map((cert, idx) => (

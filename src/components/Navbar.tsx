@@ -19,6 +19,17 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -63,10 +74,10 @@ export function Navbar() {
         </button>
 
         {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-[#0B0F19]/95 backdrop-blur-xl z-10 flex flex-col items-center justify-center transition-all duration-500 md:hidden ${
+        <div className={`fixed inset-0 bg-[#0B0F19]/95 backdrop-blur-xl z-10 flex flex-col items-center justify-center transition-all duration-500 md:hidden overflow-y-auto py-20 ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}>
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col items-center gap-8 my-auto">
             {navItems.map((item) => (
               <Link
                 key={item.name}

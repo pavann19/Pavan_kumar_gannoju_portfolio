@@ -14,7 +14,7 @@ export function About() {
         />
 
         <div className="grid md:grid-cols-12 gap-8">
-          <GlassCard className="md:col-span-7 p-8 md:p-10" delay={0.1}>
+          <GlassCard className="md:col-span-7 p-6 sm:p-8 md:p-10" delay={0.1}>
             <div className="flex items-center gap-3 mb-8">
               <div className="p-3 bg-white/5 rounded-xl border border-white/10">
                 <Code2 className="w-6 h-6 text-[#3B82F6]" />
@@ -34,7 +34,7 @@ export function About() {
             </div>
           </GlassCard>
 
-          <GlassCard className="md:col-span-5 p-8 md:p-10" delay={0.2}>
+          <GlassCard className="md:col-span-5 p-6 sm:p-8 md:p-10" delay={0.2}>
             <div className="flex items-center gap-3 mb-8">
               <div className="p-3 bg-white/5 rounded-xl border border-white/10">
                 <Target className="w-6 h-6 text-[#06B6D4]" />
