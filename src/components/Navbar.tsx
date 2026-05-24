@@ -34,8 +34,9 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="#home" className="text-2xl font-bold tracking-tighter text-[#F9FAFB] relative z-20">
-          PKG<span className="text-[#3B82F6]">.</span>
+        <Link href="#home" className="group flex items-center gap-1.5 text-2xl font-black tracking-tight text-[#F9FAFB] relative z-20">
+          <span className="bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#8B5CF6] bg-clip-text text-transparent group-hover:opacity-85 transition-opacity">Pavan</span>
+          <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-[#3B82F6] to-[#06B6D4] group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
         </Link>
 
         {/* Desktop Nav */}
