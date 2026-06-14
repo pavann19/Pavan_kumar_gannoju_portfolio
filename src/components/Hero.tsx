@@ -75,7 +75,7 @@ export function Hero() {
             <FaGithub className="w-5 h-5" />
           </MagneticButton>
 
-          <MagneticButton variant="glass" className="px-4" href="https://linkedin.com/in/pavangannoju" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <MagneticButton variant="glass" className="px-4" href="https://www.linkedin.com/in/pavan-gannoju/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FaLinkedin className="w-5 h-5" />
           </MagneticButton>
         </motion.div>
