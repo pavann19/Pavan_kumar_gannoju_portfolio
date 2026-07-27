@@ -9,11 +9,9 @@ Welcome to the source code of my personal portfolio website, built to showcase m
 
 ## 🛠️ Featured Projects & Research
 My portfolio highlights my focus on dependable AI, runtime verification, and LLM security:
-- **SentinAL — Secure AI Desktop Orchestration**: My thesis project (4-person team), where I led the security and governance layer. It achieved 99.33% intent classification accuracy and 94.2% fast-path resolution on held-out queries.
-- **Gatekeeper**: A solo-built LLM guardrail gateway achieving 98 req/sec throughput and P95 latency of 33ms, highlighting critical blind spots in AI safety classifiers.
+- **[SentinAL — Secure AI Desktop Orchestration](https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration)**: My thesis project (4-person team), where I led the security and governance layer. It achieved 99.33% intent classification accuracy and 94.2% fast-path resolution on held-out queries.
+- **[Gatekeeper](https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway)**: A solo-built LLM guardrail gateway achieving 98 req/sec throughput and P95 latency of 33ms, highlighting critical blind spots in AI safety classifiers.
 - **Research**: Two unpublished manuscripts from my industry R&D work at Prodigal AI Technologies on zero-shot voice cloning (MoE) and AI tamper-proofing/adversarial defense.
-
-> **⚠️ Missing Repositories Flag**: The separate public repositories for **SentinAL** and **Gatekeeper** could not be found at `github.com/pavann19`. This is a critical gap as these projects should have their own visible, documented repositories for admissions committees to review.
 
 ## 💻 Tech Stack
 This portfolio site is built with modern web technologies:

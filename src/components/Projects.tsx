@@ -15,7 +15,7 @@ const featuredProjects = [
     description: "Validation-based execution pipeline. Classifier intent accuracy: 99.33% test-split / 92.00% out-of-distribution (up from 54.55%/70.67% zero-shot baseline). Fast-path resolution rate: 94.2% of held-out queries (up from 57.4% baseline).",
     architecture: "Request → Validation Layer → Role Auth → Execution Engine → Audit Logger",
     tech: ["Python", "FastAPI", "SQLite", "LLM APIs"],
-    link: "https://github.com/pavann19"
+    link: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration"
   },
   {
     title: "Gatekeeper",
@@ -23,7 +23,7 @@ const featuredProjects = [
     description: "Solo-built LLM guardrail gateway achieving 98 requests/sec sustained throughput and P95 latency of 33ms. Evaluated against a 6,900-prompt benchmark, identifying a blind spot where the best individual classifier missed 98% of dangerous-capability requests despite over 90% aggregate accuracy.",
     architecture: "Client → Guardrail Gateway → Classifier Ensemble → Evaluation Engine → Safe LLM Request",
     tech: ["Python", "FastAPI", "LLM Security", "Benchmarking"],
-    link: "https://github.com/pavann19"
+    link: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway"
   },
   {
     title: "API Traffic Control Platform",
