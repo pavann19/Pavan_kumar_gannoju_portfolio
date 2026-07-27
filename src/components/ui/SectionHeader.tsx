@@ -11,18 +11,19 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, subtitle, align = "center" }: SectionHeaderProps) {
   return (
-    <div className={`mb-16 md:mb-24 ${align === "center" ? "text-center" : "text-left"}`}>
+    <div className={`mb-16 md:mb-20 ${align === "center" ? "text-center" : "text-left"}`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.7 }}
       >
-        <h2 className="text-3xl md:text-5xl font-extrabold text-[#f8fafc] tracking-tight mb-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#f8fafc] tracking-tight mb-4">
           {title}
         </h2>
+        <div className={`w-12 h-0.5 bg-[#3b82f6] mb-6 ${align === "center" ? "mx-auto" : ""}`} />
         {subtitle && (
-          <p className="text-[#cbd5e1] max-w-2xl text-lg md:text-xl font-medium mx-auto">
+          <p className={`text-[#94a3b8] max-w-xl text-base md:text-lg font-medium ${align === "center" ? "mx-auto" : ""}`}>
             {subtitle}
           </p>
         )}

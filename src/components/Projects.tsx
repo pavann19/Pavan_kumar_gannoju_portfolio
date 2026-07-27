@@ -121,7 +121,7 @@ export function Projects() {
                   <div className="space-y-8 mt-4">
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((t, tIdx) => (
-                        <span key={tIdx} className="tech-pill">
+                        <span key={tIdx} className="px-3 py-1 text-xs font-mono rounded-lg bg-[#0f172a] text-[#cbd5e1] border border-[#334155]">
                           {t}
                         </span>
                       ))}

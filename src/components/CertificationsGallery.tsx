@@ -4,7 +4,8 @@ import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
 import { Award, ShieldCheck, MonitorPlay, CloudCog, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { assetPath } from "@/lib/assetPath";
 
 const featuredCerts = [
   {
@@ -44,6 +45,22 @@ const supportingCerts = [
 export function CertificationsGallery() {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
 
+  // Close modal on Escape key
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') setSelectedCert(null);
+  }, []);
+
+  useEffect(() => {
+    if (selectedCert) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedCert, handleKeyDown]);
+
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -70,7 +87,7 @@ export function CertificationsGallery() {
               return (
                 <button 
                   key={idx} 
-                  onClick={() => setSelectedCert(cert.file)}
+                  onClick={() => setSelectedCert(assetPath(cert.file!))}
                   className="block group focus:outline-none text-left w-full h-full"
                 >
                   <GlassCard className="p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-4 h-full transition-colors" delay={idx * 0.1}>
@@ -97,7 +114,7 @@ export function CertificationsGallery() {
             {supportingCerts.map((cert, idx) => (
               <motion.button 
                 key={idx} 
-                onClick={() => setSelectedCert(cert.file)}
+                onClick={() => setSelectedCert(assetPath(cert.file))}
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 className="px-4 py-2 bg-[#0f172a] text-[#cbd5e1] hover:text-[#f8fafc] hover:border-[#60a5fa] hover:bg-[#1e293b] text-sm font-medium rounded-lg border border-[#334155] cursor-pointer transition-colors focus:outline-none"

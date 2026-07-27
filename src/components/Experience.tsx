@@ -4,6 +4,7 @@ import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
 import { Briefcase, FileBadge } from "lucide-react";
 import { motion } from "framer-motion";
+import { assetPath } from "@/lib/assetPath";
 
 const experiences = [
   {
@@ -40,7 +41,7 @@ export function Experience() {
         />
 
         <div className="relative">
-          {/* Spatial Timeline Line */}
+          {/* Timeline Line */}
           <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-[#334155] rounded-full" />
 
           <div className="space-y-16">
@@ -68,7 +69,7 @@ export function Experience() {
                         <h5 className="text-sm font-bold text-[#f8fafc] uppercase tracking-wider">Key Focus</h5>
                         <div className="flex flex-wrap gap-2">
                           {exp.focus.map((f, fIdx) => (
-                            <span key={fIdx} className="tech-pill px-3 py-1 rounded-full text-xs font-mono">
+                            <span key={fIdx} className="px-3 py-1 rounded-lg text-xs font-mono bg-[#0f172a] text-[#cbd5e1] border border-[#334155]">
                               {f}
                             </span>
                           ))}
@@ -81,7 +82,7 @@ export function Experience() {
                           {exp.proofs.map((proof, pIdx) => (
                             <motion.a
                               key={pIdx}
-                              href={proof.file}
+                              href={assetPath(proof.file)}
                               target="_blank"
                               rel="noopener noreferrer"
                               whileHover={{ scale: 1.05 }}

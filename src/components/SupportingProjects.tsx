@@ -55,7 +55,7 @@ export function SupportingProjects() {
               
               <div className="flex flex-wrap gap-2 mt-auto">
                 {project.tech.map((t, tIdx) => (
-                  <span key={tIdx} className="text-xs font-mono text-[#60a5fa] bg-[#06B6D4]/10 px-2 py-1 rounded">
+                  <span key={tIdx} className="text-xs font-mono text-[#cbd5e1] bg-[#0f172a] border border-[#334155] px-3 py-1 rounded-lg">
                     {t}
                   </span>
                 ))}

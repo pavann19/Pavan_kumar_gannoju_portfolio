@@ -46,20 +46,9 @@ html, body {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Tech Pills */
-.tech-pill {
-  background: var(--accent-muted);
-  border: 1px solid var(--accent-primary);
-  color: var(--text-primary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  transition: all 0.2s ease;
-}
-
-.tech-pill:hover {
-  background: var(--accent-primary);
+/* Selection styling */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
   color: #fff;
 }
 
@@ -69,11 +58,21 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* Grid Background (Subtle) */
+/* Grid Background (Subtle) — uses pseudo-element so children stay fully opaque */
 .bg-tech-grid {
+  position: relative;
+}
+
+.bg-tech-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
     linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: center center;
   opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
 }
+
