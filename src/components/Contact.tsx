@@ -20,7 +20,7 @@ export function Contact() {
     emailjs
       .sendForm(
         "service_ip7ds88", // Service ID
-        "service_ip7ds88", // Template ID
+        "template_1uf6496", // Template ID
         formRef.current,
         "N4DtI3p9JrVOZRKQL" // Public Key
       )
