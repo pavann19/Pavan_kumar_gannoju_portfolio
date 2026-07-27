@@ -57,7 +57,7 @@ export function Skills() {
                     key={i}
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    className="tech-pill px-4 py-2 text-sm font-medium rounded-full font-mono cursor-default"
+                    className="px-4 py-2 text-sm font-medium rounded-lg font-mono bg-[#0f172a] text-[#cbd5e1] hover:bg-[#334155] hover:text-[#f8fafc] transition-colors cursor-default"
                   >
                     {skill}
                   </motion.span>

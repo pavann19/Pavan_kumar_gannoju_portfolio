@@ -2,8 +2,9 @@
 
 import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
-import { Award, ShieldCheck, MonitorPlay, CloudCog } from "lucide-react";
-import { motion } from "framer-motion";
+import { Award, ShieldCheck, MonitorPlay, CloudCog, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const featuredCerts = [
   {
@@ -41,6 +42,8 @@ const supportingCerts = [
 ];
 
 export function CertificationsGallery() {
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
+
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -65,20 +68,18 @@ export function CertificationsGallery() {
 
             if (cert.file) {
               return (
-                <a 
+                <button 
                   key={idx} 
-                  href={cert.file} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="block group cursor-pointer focus:outline-none"
+                  onClick={() => setSelectedCert(cert.file)}
+                  className="block group focus:outline-none text-left w-full h-full"
                 >
-                  <GlassCard className="p-6 sm:p-8 text-center flex flex-col items-center justify-center gap-4 h-full hover:border-[#3B82F6]/50 transition-colors" delay={idx * 0.1}>
+                  <GlassCard className="p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-4 h-full transition-colors" delay={idx * 0.1}>
                     {cardContent}
                     <span className="text-xs font-mono text-[#60a5fa] opacity-75 group-hover:opacity-100 transition-opacity mt-2">
                       View Certificate →
                     </span>
                   </GlassCard>
-                </a>
+                </button>
               );
             }
 
@@ -94,21 +95,58 @@ export function CertificationsGallery() {
           <h4 className="text-sm font-bold text-[#cbd5e1] uppercase tracking-wider mb-6 text-center">Supporting Credentials</h4>
           <div className="flex flex-wrap justify-center gap-3">
             {supportingCerts.map((cert, idx) => (
-              <motion.a 
+              <motion.button 
                 key={idx} 
-                href={cert.file}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => setSelectedCert(cert.file)}
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="px-4 py-2 bg-[#111827] text-[#cbd5e1] hover:text-[#f8fafc] hover:border-[#3B82F6]/30 hover:bg-[#3B82F6]/5 text-sm font-medium rounded-full border border-white/5 cursor-pointer transition-colors"
+                className="px-4 py-2 bg-[#0f172a] text-[#cbd5e1] hover:text-[#f8fafc] hover:border-[#60a5fa] hover:bg-[#1e293b] text-sm font-medium rounded-lg border border-[#334155] cursor-pointer transition-colors focus:outline-none"
               >
                 {cert.name}
-              </motion.a>
+              </motion.button>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Modal for PDF/Image preview */}
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-[#0f172a]/90 backdrop-blur-sm"
+            onClick={() => setSelectedCert(null)}
+          >
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", duration: 0.5, bounce: 0 }}
+              className="relative w-full max-w-5xl h-[85vh] bg-[#1e293b] border border-[#334155] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between p-4 border-b border-[#334155] bg-[#0f172a]">
+                <h3 className="text-[#f8fafc] font-medium font-mono text-sm">Certificate Viewer</h3>
+                <button 
+                  onClick={() => setSelectedCert(null)}
+                  className="p-2 bg-[#1e293b] hover:bg-[#334155] border border-[#334155] rounded-lg text-[#cbd5e1] hover:text-white transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="flex-1 w-full h-full bg-white/5">
+                <iframe 
+                  src={selectedCert} 
+                  className="w-full h-full border-none bg-transparent"
+                  title="Certificate Document"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

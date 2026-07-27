@@ -14,7 +14,7 @@ export function About() {
         />
 
         <div className="grid md:grid-cols-12 gap-8">
-          <GlassCard className="md:col-span-7 p-6 sm:p-8 md:p-10" delay={0.1}>
+          <GlassCard className="md:col-span-7 p-6 sm:p-8 md:p-10 border-t-4 border-t-[#3b82f6]" delay={0.1}>
             <div className="flex items-center gap-3 mb-8">
               <div className="p-3 bg-[#0f172a] rounded-xl border border-[#334155]">
                 <Code2 className="w-6 h-6 text-[#60a5fa]" />

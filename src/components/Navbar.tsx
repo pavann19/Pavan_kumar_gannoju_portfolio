@@ -17,6 +17,7 @@ const navItems = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -30,8 +31,28 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      // Scroll Spy Logic
+      const sections = navItems.map(item => item.href.substring(1));
+      let current = "";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // if the top of the section is above the middle of the screen
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            current = section;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+
     window.addEventListener("scroll", handleScroll);
+    // trigger once to set initial state
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -42,29 +63,41 @@ export function Navbar() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 border-b ${
         scrolled 
-          ? "py-4 bg-[#030712]/70 backdrop-blur-xl border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" 
+          ? "py-4 bg-[#0f172a]/90 backdrop-blur-xl border-[#334155] shadow-lg" 
           : "py-6 bg-transparent border-transparent"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link href="#home" className="group flex items-center gap-1.5 text-2xl font-black tracking-tight text-[#f8fafc] relative z-20">
-          <span className="bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#8B5CF6] bg-clip-text text-transparent group-hover:opacity-85 transition-opacity">Pavan</span>
-          <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-[#3B82F6] to-[#06B6D4] group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+          <span className="text-[#f8fafc] group-hover:text-[#60a5fa] transition-colors">Pavan</span>
+          <span className="w-2.5 h-2.5 rounded-full bg-[#60a5fa] group-hover:scale-125 transition-transform duration-300" />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className={`hidden md:flex items-center gap-8 px-8 py-3 rounded-full transition-all duration-500 ${
-          scrolled ? "bg-[#1e293b] border border-white/5" : "bg-transparent"
+        <nav className={`hidden md:flex items-center gap-2 px-6 py-2 rounded-full transition-all duration-500 ${
+          scrolled ? "bg-[#1e293b] border border-[#334155]" : "bg-transparent"
         }`}>
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-[#cbd5e1] hover:text-[#f8fafc] transition-colors"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href.substring(1);
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+                  isActive ? "text-[#f8fafc]" : "text-[#cbd5e1] hover:text-[#f8fafc]"
+                }`}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNavIndicator"
+                    className="absolute inset-0 bg-[#334155] rounded-full z-[-1]"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                {item.name}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Mobile Toggle */}
@@ -76,7 +109,7 @@ export function Navbar() {
         </button>
 
         {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-[#0B0F19]/95 backdrop-blur-xl z-10 flex flex-col items-center justify-center transition-all duration-500 md:hidden overflow-y-auto py-20 ${
+        <div className={`fixed inset-0 bg-[#0f172a]/95 backdrop-blur-xl z-10 flex flex-col items-center justify-center transition-all duration-500 md:hidden overflow-y-auto py-20 ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}>
           <div className="flex flex-col items-center gap-8 my-auto">
@@ -84,7 +117,9 @@ export function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-2xl font-bold text-[#f8fafc] hover:text-[#60a5fa] transition-colors"
+                className={`text-2xl font-bold transition-colors ${
+                  activeSection === item.href.substring(1) ? "text-[#60a5fa]" : "text-[#f8fafc] hover:text-[#60a5fa]"
+                }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}

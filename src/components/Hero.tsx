@@ -12,7 +12,8 @@ export function Hero() {
         {/* Animated Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="px-4 py-2 mb-8 rounded-full border border-[#334155] bg-[#1e293b] shadow-sm"
         >
@@ -22,7 +23,8 @@ export function Hero() {
         {/* Main Title */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#f8fafc] mb-6 px-4"
         >
@@ -32,7 +34,8 @@ export function Hero() {
         {/* Subtitle */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           className="text-lg sm:text-xl md:text-2xl font-semibold text-[#cbd5e1] mb-8 px-4"
         >
@@ -42,7 +45,8 @@ export function Hero() {
         {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           className="text-base sm:text-lg md:text-xl text-[#cbd5e1] max-w-2xl mx-auto leading-relaxed mb-12 px-6"
         >
@@ -53,7 +57,8 @@ export function Hero() {
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
           className="flex flex-wrap justify-center gap-4"
         >
