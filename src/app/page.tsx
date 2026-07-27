@@ -1,9 +1,14 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
-import { News } from '@/components/News';
-import { Projects } from '@/components/Projects';
-import { Publications } from '@/components/Publications';
+import { About } from '@/components/About';
+import { Skills } from '@/components/Skills';
 import { Experience } from '@/components/Experience';
+import { Projects } from '@/components/Projects';
+import { SupportingProjects } from '@/components/SupportingProjects';
+import { ResearchLeadership } from '@/components/ResearchLeadership';
+import { TechnicalWriting } from '@/components/TechnicalWriting';
+import { CertificationsGallery } from '@/components/CertificationsGallery';
+import { GithubActivity } from '@/components/GithubActivity';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
@@ -13,10 +18,15 @@ export default function Home() {
       <Navbar />
       <main className="relative z-10">
         <Hero />
-        <News />
-        <Projects />
-        <Publications />
+        <About />
+        <Skills />
         <Experience />
+        <Projects />
+        <SupportingProjects />
+        <ResearchLeadership />
+        <TechnicalWriting />
+        <CertificationsGallery />
+        <GithubActivity />
         <Contact />
       </main>
       <Footer />
