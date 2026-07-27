@@ -4,21 +4,47 @@ import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
 import { Send, Mail, MapPin, CheckCircle, XCircle } from "lucide-react";
 import { MagneticButton } from "./ui/MagneticButton";
-import { useForm, ValidationError } from "@formspree/react";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export function Contact() {
-  const [state, handleSubmit] = useForm("xvzedbzk");
-  const [showSuccess, setShowSuccess] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  useEffect(() => {
-    if (state.succeeded) {
-      setShowSuccess(true);
-      // Optional: hide success message after 5 seconds and let them send another
-      const timer = setTimeout(() => setShowSuccess(false), 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [state.succeeded]);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    
+    setStatus("submitting");
+
+    emailjs
+      .sendForm(
+        "service_ip7ds88", // Service ID
+        "service_ip7ds88", // Template ID
+        formRef.current,
+        "N4DtI3p9JrVOZRKQL" // Public Key
+      )
+      .then(
+        () => {
+          setStatus("success");
+          if (formRef.current) formRef.current.reset();
+          
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            setStatus("idle");
+          }, 5000);
+        },
+        (error) => {
+          console.error("EmailJS Error:", error);
+          setStatus("error");
+          
+          // Hide error message after 5 seconds
+          setTimeout(() => {
+            setStatus("idle");
+          }, 5000);
+        }
+      );
+  };
 
   return (
     <section id="contact" className="py-24 relative">
@@ -53,7 +79,7 @@ export function Contact() {
           {/* Form */}
           <div className="w-full md:w-2/3">
             <GlassCard className="p-6 sm:p-8 md:p-12" delay={0.2}>
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                   <div className="relative group">
                     <input 
@@ -67,7 +93,6 @@ export function Contact() {
                     <label htmlFor="name" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
                       Name
                     </label>
-                    <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-400 text-xs mt-1 absolute" />
                   </div>
                   <div className="relative group">
                     <input 
@@ -81,7 +106,6 @@ export function Contact() {
                     <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
                       Email
                     </label>
-                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-xs mt-1 absolute" />
                   </div>
                 </div>
                 
@@ -97,23 +121,22 @@ export function Contact() {
                   <label htmlFor="message" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
                     Message
                   </label>
-                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-xs mt-1 absolute" />
                 </div>
                 
                 <div className="flex justify-end pt-4 h-14">
-                  {showSuccess ? (
+                  {status === "success" ? (
                     <div className="flex items-center gap-2 text-green-400 font-medium px-6 py-3 border border-green-400/30 bg-green-400/10 rounded-full animate-in fade-in zoom-in duration-300">
                       <CheckCircle className="w-5 h-5" />
                       Message Sent
                     </div>
-                  ) : state.errors && !state.submitting ? (
+                  ) : status === "error" ? (
                     <div className="flex items-center gap-2 text-red-400 font-medium px-6 py-3 border border-red-400/30 bg-red-400/10 rounded-full animate-in fade-in zoom-in duration-300">
                       <XCircle className="w-5 h-5" />
                       Submission Error
                     </div>
                   ) : (
-                    <MagneticButton type="submit" variant="primary" disabled={state.submitting}>
-                      {state.submitting ? "Transmitting..." : "Transmit Message"}
+                    <MagneticButton type="submit" variant="primary" disabled={status === "submitting"}>
+                      {status === "submitting" ? "Transmitting..." : "Transmit Message"}
                       <Send className="w-4 h-4 ml-2" />
                     </MagneticButton>
                   )}
