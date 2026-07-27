@@ -11,25 +11,25 @@ const featuredCerts = [
   {
     name: "Google Cybersecurity",
     issuer: "Google",
-    icon: <ShieldCheck className="w-8 h-8 text-[#2563eb]" />,
+    icon: <ShieldCheck className="w-8 h-8 text-[#60a5fa]" />,
     file: "/proofs/foundation of cybersecurity.pdf"
   },
   {
     name: "Microsoft Security / OS",
     issuer: "Microsoft",
-    icon: <MonitorPlay className="w-8 h-8 text-[#2563eb]" />,
+    icon: <MonitorPlay className="w-8 h-8 text-[#60a5fa]" />,
     file: "/proofs/intro to computers and os and security.pdf"
   },
   {
     name: "SAP Code Unnati",
     issuer: "SAP",
-    icon: <CloudCog className="w-8 h-8 text-[#2563eb]" />,
+    icon: <CloudCog className="w-8 h-8 text-[#60a5fa]" />,
     file: null
   },
   {
     name: "Smart India Hackathon",
     issuer: "MoE, Govt of India",
-    icon: <Award className="w-8 h-8 text-[#2563eb]" />,
+    icon: <Award className="w-8 h-8 text-[#60a5fa]" />,
     file: null
   }
 ];
@@ -73,12 +73,12 @@ export function CertificationsGallery() {
           {featuredCerts.map((cert, idx) => {
             const cardContent = (
               <>
-                <div className="p-4 bg-[#0f172a] rounded-2xl border border-[#e2e8f0] shadow-inner">
+                <div className="p-4 bg-[#1e293b] rounded-2xl border border-[#334155] shadow-inner">
                   {cert.icon}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0f172a] leading-tight mb-1">{cert.name}</h3>
-                  <p className="text-sm text-[#2563eb] font-medium tracking-wide uppercase">{cert.issuer}</p>
+                  <h3 className="text-lg font-bold text-[#f8fafc] leading-tight mb-1">{cert.name}</h3>
+                  <p className="text-sm text-[#60a5fa] font-medium tracking-wide uppercase">{cert.issuer}</p>
                 </div>
               </>
             );
@@ -92,7 +92,7 @@ export function CertificationsGallery() {
                 >
                   <GlassCard className="p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-4 h-full transition-colors" delay={idx * 0.1}>
                     {cardContent}
-                    <span className="text-xs font-mono text-[#2563eb] opacity-75 group-hover:opacity-100 transition-opacity mt-2">
+                    <span className="text-xs font-mono text-[#60a5fa] opacity-75 group-hover:opacity-100 transition-opacity mt-2">
                       View Certificate →
                     </span>
                   </GlassCard>
@@ -109,7 +109,7 @@ export function CertificationsGallery() {
         </div>
 
         <div className="tech-card p-6 sm:p-8 rounded-2xl">
-          <h4 className="text-sm font-bold text-[#334155] uppercase tracking-wider mb-6 text-center">Supporting Credentials</h4>
+          <h4 className="text-sm font-bold text-[#cbd5e1] uppercase tracking-wider mb-6 text-center">Supporting Credentials</h4>
           <div className="flex flex-wrap justify-center gap-3">
             {supportingCerts.map((cert, idx) => (
               <motion.button 
@@ -117,7 +117,7 @@ export function CertificationsGallery() {
                 onClick={() => setSelectedCert(assetPath(cert.file))}
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="px-4 py-2 bg-[#ffffff] text-[#334155] hover:text-[#0f172a] hover:border-[#2563eb] hover:bg-[#0f172a] text-sm font-medium rounded-lg border border-[#e2e8f0] cursor-pointer transition-colors focus:outline-none"
+                className="px-4 py-2 bg-[#0f172a] text-[#cbd5e1] hover:text-[#f8fafc] hover:border-[#60a5fa] hover:bg-[#1e293b] text-sm font-medium rounded-lg border border-[#334155] cursor-pointer transition-colors focus:outline-none"
               >
                 {cert.name}
               </motion.button>
@@ -133,7 +133,7 @@ export function CertificationsGallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-[#ffffff]/90 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-[#0f172a]/90 backdrop-blur-sm"
             onClick={() => setSelectedCert(null)}
           >
             <motion.div 
@@ -141,14 +141,14 @@ export function CertificationsGallery() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: "spring", duration: 0.5, bounce: 0 }}
-              className="relative w-full max-w-5xl h-[85vh] bg-[#0f172a] border border-[#e2e8f0] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+              className="relative w-full max-w-5xl h-[85vh] bg-[#1e293b] border border-[#334155] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-between p-4 border-b border-[#e2e8f0] bg-[#ffffff]">
-                <h3 className="text-[#0f172a] font-medium font-mono text-sm">Certificate Viewer</h3>
+              <div className="flex items-center justify-between p-4 border-b border-[#334155] bg-[#0f172a]">
+                <h3 className="text-[#f8fafc] font-medium font-mono text-sm">Certificate Viewer</h3>
                 <button 
                   onClick={() => setSelectedCert(null)}
-                  className="p-2 bg-[#0f172a] hover:bg-[#e2e8f0] border border-[#e2e8f0] rounded-lg text-[#334155] hover:text-white transition-colors"
+                  className="p-2 bg-[#1e293b] hover:bg-[#334155] border border-[#334155] rounded-lg text-[#cbd5e1] hover:text-white transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
