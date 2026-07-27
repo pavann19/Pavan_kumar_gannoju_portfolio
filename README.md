@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pavan Kumar Gannoju — Portfolio
 
-## Getting Started
+Welcome to the source code of my personal portfolio website, built to showcase my academic research, software engineering experience, and technical projects. I am a Master's applicant in Computer Science / AI Security (B.Tech CSE, AI & ML, graduated April 2026), specifically targeting Summer 2027 admissions in Germany.
 
-First, run the development server:
+## 🚀 Live Site
+**[View the deployed portfolio here](https://pavann19.github.io/Pavan_kumar_gannoju_portfolio/)**
 
+> **Note:** The site is deployed via GitHub Pages.
+
+## 🛠️ Featured Projects & Research
+My portfolio highlights my focus on dependable AI, runtime verification, and LLM security:
+- **SentinAL — Secure AI Desktop Orchestration**: My thesis project (4-person team), where I led the security and governance layer. It achieved 99.33% intent classification accuracy and 94.2% fast-path resolution on held-out queries.
+- **Gatekeeper**: A solo-built LLM guardrail gateway achieving 98 req/sec throughput and P95 latency of 33ms, highlighting critical blind spots in AI safety classifiers.
+- **Research**: Two unpublished manuscripts from my industry R&D work at Prodigal AI Technologies on zero-shot voice cloning (MoE) and AI tamper-proofing/adversarial defense.
+
+> **⚠️ Missing Repositories Flag**: The separate public repositories for **SentinAL** and **Gatekeeper** could not be found at `github.com/pavann19`. This is a critical gap as these projects should have their own visible, documented repositories for admissions committees to review.
+
+## 💻 Tech Stack
+This portfolio site is built with modern web technologies:
+- **Framework**: Next.js (React)
+- **Styling**: Tailwind CSS
+- **Deployment**: GitHub Pages (via GitHub Actions)
+
+## ⚙️ Running Locally
+
+First, install dependencies:
+```bash
+npm install
+```
+
+Then, run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

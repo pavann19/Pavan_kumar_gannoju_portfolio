@@ -22,7 +22,7 @@ export function ResearchLeadership() {
               <h3 className="text-2xl font-bold text-[#F9FAFB]">AI Security Research</h3>
             </div>
             <p className="text-[#9CA3AF] leading-relaxed mb-6">
-              Conducted specialized research focusing on the reliability and security of enterprise-integrated LLMs. Explored prompt injection defense mechanisms and the development of role-aware execution models to prevent unauthorized tool access.
+              Authored two unpublished manuscripts during my industry R&D work at Prodigal AI Technologies. My research focused on zero-shot voice cloning using Mixture of Experts (MoE) architectures, as well as AI tamper-proofing and adversarial defense mechanisms.
             </p>
             <ul className="space-y-3">
               {["Prompt Injection Defense", "Role-Aware Execution Models", "Trustworthy AI Architecture"].map((item, i) => (

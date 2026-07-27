@@ -22,7 +22,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="px-4 py-2 mb-8 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-lg"
         >
-          <span className="text-sm font-medium text-[#9CA3AF]">Available for Software Engineering Roles</span>
+          <span className="text-sm font-medium text-[#9CA3AF]">German Master's Applicant (Summer 2027)</span>
         </motion.div>
 
         {/* Main Title */}
@@ -52,7 +52,8 @@ export function Hero() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           className="text-base sm:text-lg md:text-xl text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed mb-12 px-6"
         >
-          Computer Science (AI/ML) student focused on backend engineering, scalable applications, and AI-powered systems. Interested in distributed systems, APIs, AI infrastructure, and production-style software engineering.
+          Computer Science (AI/ML) graduate (April 2026) focused on backend engineering, scalable applications, and AI-powered systems. 
+          <br/><span className="text-[#06B6D4] font-semibold mt-2 inline-block">CGPA: 8.01/10 (German equivalent 2.1–2.2) | IELTS: 6.5 (Academic, taken 03.07.2026)</span>
         </motion.p>
 
         {/* CTA Buttons */}
@@ -66,9 +67,9 @@ export function Hero() {
             View Projects
           </MagneticButton>
           
-          <MagneticButton variant="glass" href="/Pavan_Kumar_Gannoju_Software_Engineer_A.pdf" target="_blank" rel="noopener noreferrer">
+          <MagneticButton variant="glass" href="/Pavan_Kumar_Gannoju_CV.pdf" target="_blank" rel="noopener noreferrer">
             <FileText className="w-5 h-5" />
-            Download Resume
+            Download CV
           </MagneticButton>
 
           <MagneticButton variant="glass" className="px-4" href="https://github.com/pavann19" target="_blank" rel="noopener noreferrer" aria-label="GitHub">

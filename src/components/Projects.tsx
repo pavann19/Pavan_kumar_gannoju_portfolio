@@ -10,19 +10,19 @@ import { motion } from "framer-motion";
 
 const featuredProjects = [
   {
-    title: "SentinAL",
+    title: "SentinAL — Secure AI Desktop Orchestration",
     icon: <Network className="w-8 h-8 text-[#3B82F6]" />,
-    description: "Validation-based execution pipeline with role-aware action handling and modular backend architecture.",
+    description: "Validation-based execution pipeline. Classifier intent accuracy: 99.33% test-split / 92.00% out-of-distribution (up from 54.55%/70.67% zero-shot baseline). Fast-path resolution rate: 94.2% of held-out queries (up from 57.4% baseline).",
     architecture: "Request → Validation Layer → Role Auth → Execution Engine → Audit Logger",
     tech: ["Python", "FastAPI", "SQLite", "LLM APIs"],
     link: "https://github.com/pavann19"
   },
   {
-    title: "Secure RBAC System",
+    title: "Gatekeeper",
     icon: <Lock className="w-8 h-8 text-[#06B6D4]" />,
-    description: "JWT authentication framework with session isolation, role-based access control, and audit logging integration.",
-    architecture: "Client → API Gateway → JWT Middleware → Auth Service → PostgreSQL",
-    tech: ["FastAPI", "PostgreSQL", "JWT", "Python"],
+    description: "Solo-built LLM guardrail gateway achieving 98 requests/sec sustained throughput and P95 latency of 33ms. Evaluated against a 6,900-prompt benchmark, identifying a blind spot where the best individual classifier missed 98% of dangerous-capability requests despite over 90% aggregate accuracy.",
+    architecture: "Client → Guardrail Gateway → Classifier Ensemble → Evaluation Engine → Safe LLM Request",
+    tech: ["Python", "FastAPI", "LLM Security", "Benchmarking"],
     link: "https://github.com/pavann19"
   },
   {

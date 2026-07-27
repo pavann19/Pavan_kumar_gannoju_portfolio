@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    role: "Gen AI / LLM Intern",
+    role: "Gen AI/LLM Intern",
     company: "Digital Nexus AI",
-    date: "May 2025 – September 2025",
+    date: "May 2025 – September 2025 (Part-Time)",
     focus: ["Backend APIs", "REST Services", "AI Workflow Systems", "Backend Integrations", "Testing & Validation"],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Digital_Nexus_AI_Completion_Certificate - Gannoju Pavan Kumar.png" },
@@ -18,9 +18,9 @@ const experiences = [
     ]
   },
   {
-    role: "AI Intern + Research Team Lead",
+    role: "AI Intern → Research Team Lead",
     company: "Prodigal AI Technologies Pvt. Ltd.",
-    date: "March 2025 – April 2025",
+    date: "March 2025 – November 2025 (Part-Time)",
     focus: ["Backend Orchestration", "AI Workflow Systems", "Modular Engineering", "AI Security", "Research Coordination"],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Prodigal_ai_Completion Certificate.png" },
