@@ -4,35 +4,21 @@ import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
 import { Send, Mail, MapPin, CheckCircle, XCircle } from "lucide-react";
 import { MagneticButton } from "./ui/MagneticButton";
-import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
+import { useEffect, useState } from "react";
 
 export function Contact() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [state, handleSubmit] = useForm("xvzedbzk");
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("submitting");
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    
-    try {
-      const response = await fetch("https://formspree.io/f/xvzedbzk", {
-        method: "POST",
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      if (response.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch (error) {
-      setStatus("error");
+  useEffect(() => {
+    if (state.succeeded) {
+      setShowSuccess(true);
+      // Optional: hide success message after 5 seconds and let them send another
+      const timer = setTimeout(() => setShowSuccess(false), 5000);
+      return () => clearTimeout(timer);
     }
-  };
+  }, [state.succeeded]);
 
   return (
     <section id="contact" className="py-24 relative">
@@ -81,6 +67,7 @@ export function Contact() {
                     <label htmlFor="name" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
                       Name
                     </label>
+                    <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-400 text-xs mt-1 absolute" />
                   </div>
                   <div className="relative group">
                     <input 
@@ -94,6 +81,7 @@ export function Contact() {
                     <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
                       Email
                     </label>
+                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-xs mt-1 absolute" />
                   </div>
                 </div>
                 
@@ -109,22 +97,23 @@ export function Contact() {
                   <label htmlFor="message" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
                     Message
                   </label>
+                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-xs mt-1 absolute" />
                 </div>
                 
-                <div className="flex justify-end pt-4">
-                  {status === "success" ? (
-                    <div className="flex items-center gap-2 text-green-400 font-medium px-6 py-3 border border-green-400/30 bg-green-400/10 rounded-full">
+                <div className="flex justify-end pt-4 h-14">
+                  {showSuccess ? (
+                    <div className="flex items-center gap-2 text-green-400 font-medium px-6 py-3 border border-green-400/30 bg-green-400/10 rounded-full animate-in fade-in zoom-in duration-300">
                       <CheckCircle className="w-5 h-5" />
                       Message Sent
                     </div>
-                  ) : status === "error" ? (
-                    <div className="flex items-center gap-2 text-red-400 font-medium px-6 py-3 border border-red-400/30 bg-red-400/10 rounded-full">
+                  ) : state.errors && !state.submitting ? (
+                    <div className="flex items-center gap-2 text-red-400 font-medium px-6 py-3 border border-red-400/30 bg-red-400/10 rounded-full animate-in fade-in zoom-in duration-300">
                       <XCircle className="w-5 h-5" />
-                      Error Sending
+                      Submission Error
                     </div>
                   ) : (
-                    <MagneticButton type="submit" variant="primary" disabled={status === "submitting"}>
-                      {status === "submitting" ? "Transmitting..." : "Transmit Message"}
+                    <MagneticButton type="submit" variant="primary" disabled={state.submitting}>
+                      {state.submitting ? "Transmitting..." : "Transmit Message"}
                       <Send className="w-4 h-4 ml-2" />
                     </MagneticButton>
                   )}
