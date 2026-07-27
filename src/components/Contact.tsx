@@ -48,11 +48,11 @@ export function Contact() {
             <GlassCard className="p-6 sm:p-8 h-full" delay={0.1}>
               <h3 className="text-xl font-bold text-[#f8fafc] mb-8">Direct Channels</h3>
               <div className="space-y-6">
-                <a href="mailto:pavan.gannoju.work@gmail.com" className="flex items-center gap-4 text-[#cbd5e1] hover:text-[#60a5fa] transition-colors group">
+                <a href="mailto:pavangannoju.germany@gmail.com" className="flex items-center gap-4 text-[#cbd5e1] hover:text-[#60a5fa] transition-colors group">
                   <div className="p-3 bg-[#1e293b] rounded-xl border border-[#334155] group-hover:border-[#3b82f6] transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <span className="font-medium text-sm">pavan.gannoju.work@gmail.com</span>
+                  <span className="font-medium text-sm">pavangannoju.germany@gmail.com</span>
                 </a>
                 <div className="flex items-center gap-4 text-[#cbd5e1]">
                   <div className="p-3 bg-[#1e293b] rounded-xl border border-[#334155]">
