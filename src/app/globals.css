@@ -7,21 +7,21 @@
 
 :root {
   /* Core Colors */
-  --bg-primary: #0f172a; /* Slate 900 */
-  --bg-secondary: #1e293b; /* Slate 800 */
+  --bg-primary: #ffffff; /* Slate 900 */
+  --bg-secondary: #f8fafc; /* Slate 800 */
   
   /* Text Colors (WCAG AA Compliant) */
-  --text-primary: #f8fafc; /* Slate 50 (High contrast) */
-  --text-secondary: #cbd5e1; /* Slate 300 (Good contrast > 4.5:1) */
-  --text-muted: #94a3b8; /* Slate 400 (For decorative/non-essential text only) */
+  --text-primary: #0f172a; /* Slate 50 (High contrast) */
+  --text-secondary: #334155; /* Slate 300 (Good contrast > 4.5:1) */
+  --text-muted: #64748b; /* Slate 400 (For decorative/non-essential text only) */
   
   /* Accent Colors */
-  --accent-primary: #3b82f6; /* Blue 500 */
+  --accent-primary: #1d4ed8; /* Blue 500 */
   --accent-muted: rgba(59, 130, 246, 0.15);
   
   /* UI Elements */
-  --border-color: #334155; /* Slate 700 */
-  --border-hover: #475569; /* Slate 600 */
+  --border-color: #e2e8f0; /* Slate 700 */
+  --border-hover: #cbd5e1; /* Slate 600 */
 }
 
 html, body {

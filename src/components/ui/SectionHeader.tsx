@@ -18,12 +18,12 @@ export function SectionHeader({ title, subtitle, align = "center" }: SectionHead
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.7 }}
       >
-        <h2 className="text-3xl md:text-4xl font-extrabold text-[#f8fafc] tracking-tight mb-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#0f172a] tracking-tight mb-4">
           {title}
         </h2>
-        <div className={`w-12 h-0.5 bg-[#3b82f6] mb-6 ${align === "center" ? "mx-auto" : ""}`} />
+        <div className={`w-12 h-0.5 bg-[#1d4ed8] mb-6 ${align === "center" ? "mx-auto" : ""}`} />
         {subtitle && (
-          <p className={`text-[#94a3b8] max-w-xl text-base md:text-lg font-medium ${align === "center" ? "mx-auto" : ""}`}>
+          <p className={`text-[#64748b] max-w-xl text-base md:text-lg font-medium ${align === "center" ? "mx-auto" : ""}`}>
             {subtitle}
           </p>
         )}

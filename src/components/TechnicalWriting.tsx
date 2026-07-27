@@ -8,23 +8,23 @@ import { motion } from "framer-motion";
 const articles = [
   {
     title: "Designing Reliable AI Workflow Systems",
-    icon: <Cpu className="w-5 h-5 text-[#60a5fa]" />,
+    icon: <Cpu className="w-5 h-5 text-[#2563eb]" />,
   },
   {
     title: "Backend Validation Pipelines",
-    icon: <ShieldAlert className="w-5 h-5 text-[#60a5fa]" />,
+    icon: <ShieldAlert className="w-5 h-5 text-[#2563eb]" />,
   },
   {
     title: "Scalable FastAPI Patterns",
-    icon: <LayoutTemplate className="w-5 h-5 text-[#60a5fa]" />,
+    icon: <LayoutTemplate className="w-5 h-5 text-[#2563eb]" />,
   },
   {
     title: "Secure API Architectures",
-    icon: <Lock className="w-5 h-5 text-[#60a5fa]" />,
+    icon: <Lock className="w-5 h-5 text-[#2563eb]" />,
   },
   {
     title: "AI Workflow Orchestration Concepts",
-    icon: <FileText className="w-5 h-5 text-[#60a5fa]" />,
+    icon: <FileText className="w-5 h-5 text-[#2563eb]" />,
   }
 ];
 
@@ -39,12 +39,12 @@ export function TechnicalWriting() {
 
         <GlassCard className="p-8 sm:p-12 relative overflow-hidden">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
-            <div className="p-3 bg-[#0f172a] rounded-xl border border-[#334155]">
-              <Pencil className="w-6 h-6 text-[#60a5fa]" />
+            <div className="p-3 bg-[#ffffff] rounded-xl border border-[#e2e8f0]">
+              <Pencil className="w-6 h-6 text-[#2563eb]" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-[#f8fafc] mb-1">Upcoming Architecture Notes</h3>
-              <p className="text-sm text-[#94a3b8]">Drafts in progress — topics I plan to write about based on my project work.</p>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-1">Upcoming Architecture Notes</h3>
+              <p className="text-sm text-[#64748b]">Drafts in progress — topics I plan to write about based on my project work.</p>
             </div>
           </div>
 
@@ -56,10 +56,10 @@ export function TechnicalWriting() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
-                className="flex items-center gap-3 px-4 py-3 bg-[#0f172a] border border-[#334155] rounded-xl hover:border-[#475569] transition-colors"
+                className="flex items-center gap-3 px-4 py-3 bg-[#ffffff] border border-[#e2e8f0] rounded-xl hover:border-[#cbd5e1] transition-colors"
               >
                 {article.icon}
-                <span className="text-[#cbd5e1] text-sm font-medium">{article.title}</span>
+                <span className="text-[#334155] text-sm font-medium">{article.title}</span>
               </motion.div>
             ))}
           </div>
