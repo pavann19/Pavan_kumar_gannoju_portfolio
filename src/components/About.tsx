@@ -16,12 +16,12 @@ export function About() {
         <div className="grid md:grid-cols-12 gap-8">
           <GlassCard className="md:col-span-7 p-6 sm:p-8 md:p-10" delay={0.1}>
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-                <Code2 className="w-6 h-6 text-[#3B82F6]" />
+              <div className="p-3 bg-[#0f172a] rounded-xl border border-[#334155]">
+                <Code2 className="w-6 h-6 text-[#60a5fa]" />
               </div>
-              <h3 className="text-2xl font-bold text-[#F9FAFB]">Background</h3>
+              <h3 className="text-2xl font-bold text-[#f8fafc]">Background</h3>
             </div>
-            <div className="space-y-6 text-[#9CA3AF] leading-relaxed text-lg font-medium">
+            <div className="space-y-6 text-[#cbd5e1] leading-relaxed text-lg font-medium">
               <p>
                 I enjoy building practical software systems that combine backend engineering, automation, and AI-powered workflows. My primary interests are backend development, scalable application architecture, AI infrastructure, and secure software systems.
               </p>
@@ -36,10 +36,10 @@ export function About() {
 
           <GlassCard className="md:col-span-5 p-6 sm:p-8 md:p-10" delay={0.2}>
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-                <Target className="w-6 h-6 text-[#06B6D4]" />
+              <div className="p-3 bg-[#0f172a] rounded-xl border border-[#334155]">
+                <Target className="w-6 h-6 text-[#cbd5e1]" />
               </div>
-              <h3 className="text-2xl font-bold text-[#F9FAFB]">Current Focus</h3>
+              <h3 className="text-2xl font-bold text-[#f8fafc]">Current Focus</h3>
             </div>
             <ul className="space-y-5">
               {[
@@ -50,10 +50,10 @@ export function About() {
                 "Production-ready software engineering"
               ].map((focus, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <div className="mt-1 p-1 bg-white/5 rounded border border-white/10">
-                    <Cpu className="w-4 h-4 text-[#06B6D4]" />
+                  <div className="mt-1 p-1 bg-[#0f172a] rounded border border-[#334155]">
+                    <Cpu className="w-4 h-4 text-[#cbd5e1]" />
                   </div>
-                  <span className="text-[#F9FAFB] font-medium leading-snug">{focus}</span>
+                  <span className="text-[#cbd5e1] font-medium leading-snug">{focus}</span>
                 </li>
               ))}
             </ul>

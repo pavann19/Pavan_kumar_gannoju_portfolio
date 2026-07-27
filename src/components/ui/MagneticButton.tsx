@@ -38,9 +38,9 @@ export function MagneticButton({
   };
 
   const variants = {
-    primary: "bg-[#3B82F6] hover:bg-[#2563EB] text-white border border-blue-400/30 shadow-[0_0_20px_rgba(59,130,246,0.3)]",
-    secondary: "bg-[#111827] hover:bg-[#1F2937] text-[#F9FAFB] border border-[#374151]",
-    glass: "glass-panel hover:bg-white/10 text-[#F9FAFB] border-white/10",
+    primary: "bg-[#2563EB] hover:bg-[#1d4ed8] text-white border border-[#3b82f6]",
+    secondary: "bg-[#1e293b] hover:bg-[#334155] text-[#f8fafc] border border-[#334155]",
+    glass: "tech-card hover:bg-[#334155] text-[#f8fafc]",
   };
 
   const Component = href ? motion.a : motion.button;

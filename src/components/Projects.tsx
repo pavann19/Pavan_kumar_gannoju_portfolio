@@ -5,29 +5,56 @@ import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
 import { MagneticButton } from "./ui/MagneticButton";
 import { FaGithub } from "react-icons/fa";
-import { Network, Lock, Database, Bot, FileCode2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { Network, Lock, Database, Bot, FileCode2, ArrowRight } from "lucide-react";
+
+const ArchitectureDiagram = ({ flow }: { flow: string }) => {
+  const steps = flow.split(' → ');
+  return (
+    <div className="flex flex-wrap items-center gap-2 mt-4">
+      {steps.map((step, i) => (
+        <React.Fragment key={i}>
+          <div className="bg-[#1e293b] border border-[#334155] px-3 py-2 rounded shadow-sm text-sm font-mono text-[#cbd5e1] whitespace-nowrap">
+            {step}
+          </div>
+          {i < steps.length - 1 && (
+            <ArrowRight className="w-4 h-4 text-[#475569] flex-shrink-0" />
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+};
 
 const featuredProjects = [
   {
     title: "SentinAL — Secure AI Desktop Orchestration",
-    icon: <Network className="w-8 h-8 text-[#3B82F6]" />,
-    description: "Validation-based execution pipeline. Classifier intent accuracy: 99.33% test-split / 92.00% out-of-distribution (up from 54.55%/70.67% zero-shot baseline). Fast-path resolution rate: 94.2% of held-out queries (up from 57.4% baseline).",
+    icon: <Network className="w-8 h-8 text-[#60a5fa]" />,
+    description: "Validation-based execution pipeline.",
+    stats: [
+      { label: "Intent Accuracy", value: "99.3%" },
+      { label: "OOD Accuracy", value: "92.0%" },
+      { label: "Fast-Path Res", value: "94.2%" }
+    ],
     architecture: "Request → Validation Layer → Role Auth → Execution Engine → Audit Logger",
     tech: ["Python", "FastAPI", "SQLite", "LLM APIs"],
     link: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration"
   },
   {
     title: "Gatekeeper",
-    icon: <Lock className="w-8 h-8 text-[#06B6D4]" />,
-    description: "Solo-built LLM guardrail gateway achieving 98 requests/sec sustained throughput and P95 latency of 33ms. Evaluated against a 6,900-prompt benchmark, identifying a blind spot where the best individual classifier missed 98% of dangerous-capability requests despite over 90% aggregate accuracy.",
+    icon: <Lock className="w-8 h-8 text-[#60a5fa]" />,
+    description: "Solo-built LLM guardrail gateway. Identified a blind spot where the best individual classifier missed 98% of dangerous-capability requests despite over 90% aggregate accuracy.",
+    stats: [
+      { label: "Throughput", value: "98 RPS" },
+      { label: "P95 Latency", value: "33ms" },
+      { label: "Benchmark", value: "6.9k" }
+    ],
     architecture: "Client → Guardrail Gateway → Classifier Ensemble → Evaluation Engine → Safe LLM Request",
     tech: ["Python", "FastAPI", "LLM Security", "Benchmarking"],
     link: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway"
   },
   {
     title: "API Traffic Control Platform",
-    icon: <Database className="w-8 h-8 text-[#8B5CF6]" />,
+    icon: <Database className="w-8 h-8 text-[#cbd5e1]" />,
     description: "Middleware platform for API rate limiting, request validation, and traffic monitoring in high-load environments.",
     architecture: "API Request → Rate Limiter (Redis) → Validation Middleware → Backend Service",
     tech: ["Python", "PostgreSQL", "Docker", "FastAPI"],
@@ -35,7 +62,7 @@ const featuredProjects = [
   },
   {
     title: "AI Chatbot & RAG System",
-    icon: <Bot className="w-8 h-8 text-[#3B82F6]" />,
+    icon: <Bot className="w-8 h-8 text-[#cbd5e1]" />,
     description: "Retrieval-Augmented Generation assistant with document indexing and context-aware response flows.",
     architecture: "User Query → Embedding Model → Vector Search → Context Synthesis → LLM",
     tech: ["Python", "Vector Search", "LLM APIs"],
@@ -43,7 +70,7 @@ const featuredProjects = [
   },
   {
     title: "Auto Documentation Tool",
-    icon: <FileCode2 className="w-8 h-8 text-[#06B6D4]" />,
+    icon: <FileCode2 className="w-8 h-8 text-[#cbd5e1]" />,
     description: "AI-assisted backend utility automating structured output generation for developer productivity.",
     architecture: "Source Code → Parser Engine → LLM Summarization → Markdown Generator",
     tech: ["Python", "APIs", "Automation Tools"],
@@ -53,7 +80,7 @@ const featuredProjects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative bg-[#0f172a]">
       <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeader 
           title="Featured Projects" 
@@ -62,36 +89,45 @@ export function Projects() {
 
         <div className="space-y-12">
           {featuredProjects.map((project, idx) => (
-            <GlassCard key={idx} className="p-0 overflow-hidden group" delay={idx * 0.1}>
+            <GlassCard key={idx} className="p-0 overflow-hidden group bg-[#1e293b] border-[#334155]" delay={idx * 0.1}>
               <div className="flex flex-col lg:flex-row">
                 
                 {/* Left Content Area */}
-                <div className="w-full lg:w-[45%] p-6 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
-                  <div className="relative z-10">
+                <div className="w-full lg:w-[45%] p-6 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#334155] flex flex-col justify-between">
+                  <div>
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="p-4 bg-white/5 rounded-2xl border border-white/10 shadow-inner">
+                      <div className="p-4 bg-[#0f172a] rounded-xl border border-[#334155]">
                         {project.icon}
                       </div>
-                      <h3 className="text-3xl font-extrabold text-[#F9FAFB] tracking-tight">{project.title}</h3>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-[#f8fafc] tracking-tight">{project.title}</h3>
                     </div>
                     
-                    <p className="text-lg text-[#9CA3AF] leading-relaxed mb-8">
+                    <p className="text-lg text-[#cbd5e1] leading-relaxed mb-8">
                       {project.description}
                     </p>
+
+                    {project.stats && (
+                      <div className="grid grid-cols-3 gap-4 mb-8">
+                        {project.stats.map((stat, sIdx) => (
+                          <div key={sIdx} className="p-3 bg-[#0f172a] rounded-lg border border-[#334155] text-center">
+                            <div className="text-xl sm:text-2xl font-bold font-mono text-[#f8fafc]">{stat.value}</div>
+                            <div className="text-xs font-semibold text-[#94a3b8] uppercase tracking-wider mt-1">{stat.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
-                  <div className="relative z-10 space-y-8">
+                  <div className="space-y-8 mt-4">
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((t, tIdx) => (
-                        <span key={tIdx} className="tech-pill px-3 py-1 text-sm rounded-full font-mono">
+                        <span key={tIdx} className="tech-pill">
                           {t}
                         </span>
                       ))}
                     </div>
 
-                    <MagneticButton variant="glass" className="w-fit" href={project.link} target="_blank" rel="noopener noreferrer">
+                    <MagneticButton variant="secondary" className="w-fit" href={project.link} target="_blank" rel="noopener noreferrer">
                       <FaGithub className="w-5 h-5" />
                       View Source
                     </MagneticButton>
@@ -99,32 +135,17 @@ export function Projects() {
                 </div>
 
                 {/* Right Architecture Area */}
-                <div className="w-full lg:w-[55%] p-6 sm:p-8 lg:p-12 bg-black/40 flex items-center justify-center relative overflow-hidden">
-                  {/* Subtle Grid Background */}
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(90deg, #3B82F6 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+                <div className="w-full lg:w-[55%] p-6 sm:p-8 lg:p-12 bg-[#0f172a] flex items-center justify-center relative overflow-hidden">
+                  <div className="bg-tech-grid absolute inset-0" />
                   
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative z-10 w-full glass-panel p-4 sm:p-6 rounded-2xl border border-white/10 shadow-2xl"
-                  >
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-3 h-3 rounded-full bg-[#ef4444]" />
-                      <div className="w-3 h-3 rounded-full bg-[#eab308]" />
-                      <div className="w-3 h-3 rounded-full bg-[#22c55e]" />
-                      <span className="ml-2 text-xs font-mono text-[#9CA3AF] uppercase tracking-wider">Architecture Flow</span>
+                  <div className="relative z-10 w-full p-4 sm:p-6 rounded-xl border border-[#334155] bg-[#1e293b] shadow-lg">
+                    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#334155]">
+                      <Network className="w-5 h-5 text-[#94a3b8]" />
+                      <span className="text-sm font-semibold text-[#cbd5e1] uppercase tracking-wider">Architecture Flow</span>
                     </div>
-                    <div className="p-4 sm:p-6 bg-[#0B0F19] rounded-xl border border-white/5">
-                      <code className="text-[#38bdf8] font-mono text-xs sm:text-sm md:text-base leading-loose block break-words">
-                        {project.architecture.split(' → ').map((step, i, arr) => (
-                          <React.Fragment key={i}>
-                            <span className="text-[#F9FAFB]">{step}</span>
-                            {i < arr.length - 1 && <span className="text-[#9CA3AF] mx-2">→</span>}
-                          </React.Fragment>
-                        ))}
-                      </code>
-                    </div>
-                  </motion.div>
+                    
+                    <ArchitectureDiagram flow={project.architecture} />
+                  </div>
                 </div>
               </div>
             </GlassCard>

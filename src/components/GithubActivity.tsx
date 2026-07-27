@@ -16,21 +16,21 @@ export function GithubActivity() {
 
         <GlassCard className="p-8 md:p-12 text-center" delay={0.1}>
           <div className="flex flex-col items-center justify-center gap-6">
-            <FaGithub className="w-12 h-12 text-[#F9FAFB]" />
-            <h3 className="text-2xl font-bold text-[#F9FAFB]">@pavann19</h3>
+            <FaGithub className="w-12 h-12 text-[#f8fafc]" />
+            <h3 className="text-2xl font-bold text-[#f8fafc]">@pavann19</h3>
             
             <div className="flex flex-wrap justify-center gap-8 mt-4">
               <div className="flex flex-col items-center gap-2">
-                <GitCommit className="w-6 h-6 text-[#3B82F6]" />
-                <span className="text-[#9CA3AF] text-sm font-medium">Consistent Commits</span>
+                <GitCommit className="w-6 h-6 text-[#60a5fa]" />
+                <span className="text-[#cbd5e1] text-sm font-medium">Consistent Commits</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <GitPullRequest className="w-6 h-6 text-[#06B6D4]" />
-                <span className="text-[#9CA3AF] text-sm font-medium">Active PRs</span>
+                <GitPullRequest className="w-6 h-6 text-[#60a5fa]" />
+                <span className="text-[#cbd5e1] text-sm font-medium">Active PRs</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <GitMerge className="w-6 h-6 text-[#8B5CF6]" />
-                <span className="text-[#9CA3AF] text-sm font-medium">Code Reviews</span>
+                <GitMerge className="w-6 h-6 text-[#60a5fa]" />
+                <span className="text-[#cbd5e1] text-sm font-medium">Code Reviews</span>
               </div>
             </div>
 
@@ -38,7 +38,7 @@ export function GithubActivity() {
               href="https://github.com/pavann19" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="mt-8 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-sm font-medium text-[#F9FAFB] transition-colors"
+              className="mt-8 px-6 py-3 bg-[#1e293b] hover:bg-white/10 border border-[#334155] rounded-full text-sm font-medium text-[#f8fafc] transition-colors"
             >
               View Full Profile
             </a>

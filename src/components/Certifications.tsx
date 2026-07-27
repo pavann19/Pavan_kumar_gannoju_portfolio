@@ -29,7 +29,7 @@ export function Certifications() {
           
           <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
             {certs.map((cert, idx) => (
-              <div key={idx} className="glass-panel p-6 rounded-2xl card-hover flex flex-col items-center sm:items-start text-center sm:text-left gap-4">
+              <div key={idx} className="tech-card p-6 rounded-2xl card-hover flex flex-col items-center sm:items-start text-center sm:text-left gap-4">
                 <div className="p-3 bg-slate-800 rounded-xl border border-slate-700">
                   {cert.icon}
                 </div>

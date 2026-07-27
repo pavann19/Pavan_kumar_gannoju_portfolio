@@ -7,22 +7,16 @@ import { MagneticButton } from "./ui/MagneticButton";
 
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-      {/* Immersive Spatial Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#3B82F6]/20 rounded-full blur-[150px] mix-blend-screen opacity-50 animate-pulse-slow" />
-        <div className="absolute top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#06B6D4]/15 rounded-full blur-[120px] mix-blend-screen opacity-40" />
-      </div>
-
+    <section id="home" className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-tech-grid">
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
         {/* Animated Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="px-4 py-2 mb-8 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-lg"
+          className="px-4 py-2 mb-8 rounded-full border border-[#334155] bg-[#1e293b] shadow-sm"
         >
-          <span className="text-sm font-medium text-[#9CA3AF]">German Master's Applicant (Summer 2027)</span>
+          <span className="text-sm font-medium text-[#cbd5e1]">German Master's Applicant (Summer 2027)</span>
         </motion.div>
 
         {/* Main Title */}
@@ -30,7 +24,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#F9FAFB] mb-6 px-4"
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#f8fafc] mb-6 px-4"
         >
           Pavan Kumar Gannoju
         </motion.h1>
@@ -40,7 +34,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="text-lg sm:text-xl md:text-3xl font-semibold text-gradient mb-8 px-4"
+          className="text-lg sm:text-xl md:text-2xl font-semibold text-[#cbd5e1] mb-8 px-4"
         >
           Software Engineer | Backend & AI Systems | Scalable Applications
         </motion.h2>
@@ -50,10 +44,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          className="text-base sm:text-lg md:text-xl text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed mb-12 px-6"
+          className="text-base sm:text-lg md:text-xl text-[#cbd5e1] max-w-2xl mx-auto leading-relaxed mb-12 px-6"
         >
           Computer Science (AI/ML) graduate (April 2026) focused on backend engineering, scalable applications, and AI-powered systems. 
-          <br/><span className="text-[#06B6D4] font-semibold mt-2 inline-block">CGPA: 8.01/10 (German equivalent 2.1–2.2) | IELTS: 6.5 (Academic, taken 03.07.2026)</span>
+          <br/><span className="text-[#60a5fa] font-mono text-sm mt-4 inline-block font-semibold bg-[#1e293b] border border-[#334155] px-4 py-2 rounded-lg">CGPA: 8.01/10 (German eq. 2.1–2.2) | IELTS: 6.5</span>
         </motion.p>
 
         {/* CTA Buttons */}
@@ -67,7 +61,7 @@ export function Hero() {
             View Projects
           </MagneticButton>
           
-          <MagneticButton variant="glass" href="/Pavan_Kumar_Gannoju_CV.pdf" target="_blank" rel="noopener noreferrer">
+          <MagneticButton variant="secondary" href="/Pavan_Kumar_Gannoju_CV.pdf" target="_blank" rel="noopener noreferrer">
             <FileText className="w-5 h-5" />
             Download CV
           </MagneticButton>

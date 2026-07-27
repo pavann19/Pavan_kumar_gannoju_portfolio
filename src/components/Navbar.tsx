@@ -47,20 +47,20 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="#home" className="group flex items-center gap-1.5 text-2xl font-black tracking-tight text-[#F9FAFB] relative z-20">
+        <Link href="#home" className="group flex items-center gap-1.5 text-2xl font-black tracking-tight text-[#f8fafc] relative z-20">
           <span className="bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#8B5CF6] bg-clip-text text-transparent group-hover:opacity-85 transition-opacity">Pavan</span>
           <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-[#3B82F6] to-[#06B6D4] group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
         </Link>
 
         {/* Desktop Nav */}
         <nav className={`hidden md:flex items-center gap-8 px-8 py-3 rounded-full transition-all duration-500 ${
-          scrolled ? "bg-white/5 border border-white/5" : "bg-transparent"
+          scrolled ? "bg-[#1e293b] border border-white/5" : "bg-transparent"
         }`}>
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-[#9CA3AF] hover:text-[#F9FAFB] transition-colors"
+              className="text-sm font-medium text-[#cbd5e1] hover:text-[#f8fafc] transition-colors"
             >
               {item.name}
             </Link>
@@ -69,7 +69,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden relative z-20 p-2 text-[#F9FAFB]"
+          className="md:hidden relative z-20 p-2 text-[#f8fafc]"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
@@ -84,7 +84,7 @@ export function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-2xl font-bold text-[#F9FAFB] hover:text-[#3B82F6] transition-colors"
+                className="text-2xl font-bold text-[#f8fafc] hover:text-[#60a5fa] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}

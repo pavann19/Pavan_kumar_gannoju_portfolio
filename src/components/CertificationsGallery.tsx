@@ -9,25 +9,25 @@ const featuredCerts = [
   {
     name: "Google Cybersecurity",
     issuer: "Google",
-    icon: <ShieldCheck className="w-8 h-8 text-[#3B82F6]" />,
+    icon: <ShieldCheck className="w-8 h-8 text-[#60a5fa]" />,
     file: "/proofs/foundation of cybersecurity.pdf"
   },
   {
     name: "Microsoft Security / OS",
     issuer: "Microsoft",
-    icon: <MonitorPlay className="w-8 h-8 text-[#06B6D4]" />,
+    icon: <MonitorPlay className="w-8 h-8 text-[#60a5fa]" />,
     file: "/proofs/intro to computers and os and security.pdf"
   },
   {
     name: "SAP Code Unnati",
     issuer: "SAP",
-    icon: <CloudCog className="w-8 h-8 text-[#8B5CF6]" />,
+    icon: <CloudCog className="w-8 h-8 text-[#60a5fa]" />,
     file: null
   },
   {
     name: "Smart India Hackathon",
     issuer: "MoE, Govt of India",
-    icon: <Award className="w-8 h-8 text-[#3B82F6]" />,
+    icon: <Award className="w-8 h-8 text-[#60a5fa]" />,
     file: null
   }
 ];
@@ -53,12 +53,12 @@ export function CertificationsGallery() {
           {featuredCerts.map((cert, idx) => {
             const cardContent = (
               <>
-                <div className="p-4 bg-white/5 rounded-2xl border border-white/10 shadow-inner">
+                <div className="p-4 bg-[#1e293b] rounded-2xl border border-[#334155] shadow-inner">
                   {cert.icon}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#F9FAFB] leading-tight mb-1">{cert.name}</h3>
-                  <p className="text-sm text-[#06B6D4] font-medium tracking-wide uppercase">{cert.issuer}</p>
+                  <h3 className="text-lg font-bold text-[#f8fafc] leading-tight mb-1">{cert.name}</h3>
+                  <p className="text-sm text-[#60a5fa] font-medium tracking-wide uppercase">{cert.issuer}</p>
                 </div>
               </>
             );
@@ -74,7 +74,7 @@ export function CertificationsGallery() {
                 >
                   <GlassCard className="p-6 sm:p-8 text-center flex flex-col items-center justify-center gap-4 h-full hover:border-[#3B82F6]/50 transition-colors" delay={idx * 0.1}>
                     {cardContent}
-                    <span className="text-xs font-mono text-[#3B82F6] opacity-75 group-hover:opacity-100 transition-opacity mt-2">
+                    <span className="text-xs font-mono text-[#60a5fa] opacity-75 group-hover:opacity-100 transition-opacity mt-2">
                       View Certificate →
                     </span>
                   </GlassCard>
@@ -90,8 +90,8 @@ export function CertificationsGallery() {
           })}
         </div>
 
-        <div className="glass-panel p-6 sm:p-8 rounded-2xl">
-          <h4 className="text-sm font-bold text-[#9CA3AF] uppercase tracking-wider mb-6 text-center">Supporting Credentials</h4>
+        <div className="tech-card p-6 sm:p-8 rounded-2xl">
+          <h4 className="text-sm font-bold text-[#cbd5e1] uppercase tracking-wider mb-6 text-center">Supporting Credentials</h4>
           <div className="flex flex-wrap justify-center gap-3">
             {supportingCerts.map((cert, idx) => (
               <motion.a 
@@ -101,7 +101,7 @@ export function CertificationsGallery() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="px-4 py-2 bg-[#111827] text-[#9CA3AF] hover:text-[#F9FAFB] hover:border-[#3B82F6]/30 hover:bg-[#3B82F6]/5 text-sm font-medium rounded-full border border-white/5 cursor-pointer transition-colors"
+                className="px-4 py-2 bg-[#111827] text-[#cbd5e1] hover:text-[#f8fafc] hover:border-[#3B82F6]/30 hover:bg-[#3B82F6]/5 text-sm font-medium rounded-full border border-white/5 cursor-pointer transition-colors"
               >
                 {cert.name}
               </motion.a>

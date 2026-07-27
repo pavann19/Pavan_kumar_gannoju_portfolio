@@ -18,16 +18,16 @@ export function Contact() {
           {/* Contact Info */}
           <div className="w-full md:w-1/3">
             <GlassCard className="p-6 sm:p-8 h-full" delay={0.1}>
-              <h3 className="text-xl font-bold text-[#F9FAFB] mb-8">Direct Channels</h3>
+              <h3 className="text-xl font-bold text-[#f8fafc] mb-8">Direct Channels</h3>
               <div className="space-y-6">
-                <a href="mailto:pavan.gannoju.work@gmail.com" className="flex items-center gap-4 text-[#9CA3AF] hover:text-[#3B82F6] transition-colors group">
-                  <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:border-[#3B82F6]/50 transition-colors">
+                <a href="mailto:pavan.gannoju.work@gmail.com" className="flex items-center gap-4 text-[#cbd5e1] hover:text-[#60a5fa] transition-colors group">
+                  <div className="p-3 bg-[#1e293b] rounded-xl border border-[#334155] group-hover:border-[#3B82F6]/50 transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
                   <span className="font-medium text-sm">pavan.gannoju.work@gmail.com</span>
                 </a>
-                <div className="flex items-center gap-4 text-[#9CA3AF]">
-                  <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+                <div className="flex items-center gap-4 text-[#cbd5e1]">
+                  <div className="p-3 bg-[#1e293b] rounded-xl border border-[#334155]">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <span className="font-medium text-sm">Hyderabad, India</span>
@@ -47,10 +47,10 @@ export function Contact() {
                       id="name" 
                       name="name" 
                       required 
-                      className="w-full bg-transparent border-b-2 border-white/10 px-0 py-3 text-[#F9FAFB] focus:outline-none focus:border-[#3B82F6] transition-colors peer placeholder-transparent"
+                      className="w-full bg-transparent border-b-2 border-[#334155] px-0 py-3 text-[#f8fafc] focus:outline-none focus:border-[#3B82F6] transition-colors peer placeholder-transparent"
                       placeholder="Name"
                     />
-                    <label htmlFor="name" className="absolute left-0 -top-3.5 text-xs text-[#9CA3AF] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#3B82F6]">
+                    <label htmlFor="name" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
                       Name
                     </label>
                   </div>
@@ -60,10 +60,10 @@ export function Contact() {
                       id="email" 
                       name="email" 
                       required 
-                      className="w-full bg-transparent border-b-2 border-white/10 px-0 py-3 text-[#F9FAFB] focus:outline-none focus:border-[#3B82F6] transition-colors peer placeholder-transparent"
+                      className="w-full bg-transparent border-b-2 border-[#334155] px-0 py-3 text-[#f8fafc] focus:outline-none focus:border-[#3B82F6] transition-colors peer placeholder-transparent"
                       placeholder="Email"
                     />
-                    <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs text-[#9CA3AF] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#3B82F6]">
+                    <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
                       Email
                     </label>
                   </div>
@@ -75,10 +75,10 @@ export function Contact() {
                     name="message" 
                     rows={4} 
                     required 
-                    className="w-full bg-transparent border-b-2 border-white/10 px-0 py-3 text-[#F9FAFB] focus:outline-none focus:border-[#3B82F6] transition-colors peer placeholder-transparent resize-none"
+                    className="w-full bg-transparent border-b-2 border-[#334155] px-0 py-3 text-[#f8fafc] focus:outline-none focus:border-[#3B82F6] transition-colors peer placeholder-transparent resize-none"
                     placeholder="Message"
                   ></textarea>
-                  <label htmlFor="message" className="absolute left-0 -top-3.5 text-xs text-[#9CA3AF] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#3B82F6]">
+                  <label htmlFor="message" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
                     Message
                   </label>
                 </div>

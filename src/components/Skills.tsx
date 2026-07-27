@@ -8,27 +8,27 @@ import { motion } from "framer-motion";
 const skillsData = [
   {
     title: "Languages",
-    icon: <Code2 className="w-6 h-6 text-[#3B82F6]" />,
+    icon: <Code2 className="w-6 h-6 text-[#60a5fa]" />,
     skills: ["Python", "Java", "C++", "SQL", "JavaScript"]
   },
   {
     title: "Backend & Infrastructure",
-    icon: <Server className="w-6 h-6 text-[#06B6D4]" />,
+    icon: <Server className="w-6 h-6 text-[#60a5fa]" />,
     skills: ["FastAPI", "REST APIs", "JWT", "Docker", "Git", "System Design"]
   },
   {
     title: "Databases",
-    icon: <Database className="w-6 h-6 text-[#8B5CF6]" />,
+    icon: <Database className="w-6 h-6 text-[#60a5fa]" />,
     skills: ["PostgreSQL", "MySQL", "SQLite", "Vector Databases"]
   },
   {
     title: "AI Systems",
-    icon: <BrainCircuit className="w-6 h-6 text-[#3B82F6]" />,
+    icon: <BrainCircuit className="w-6 h-6 text-[#60a5fa]" />,
     skills: ["LLM Applications", "RAG Pipelines", "Prompt Engineering", "Agentic AI Workflows", "PyTorch"]
   },
   {
     title: "Tools & Platforms",
-    icon: <Wrench className="w-6 h-6 text-[#06B6D4]" />,
+    icon: <Wrench className="w-6 h-6 text-[#60a5fa]" />,
     skills: ["AWS", "Vercel", "Streamlit", "Cursor AI"]
   }
 ];
@@ -46,10 +46,10 @@ export function Skills() {
           {skillsData.map((category, idx) => (
             <GlassCard key={idx} className="p-6 sm:p-8" delay={idx * 0.1}>
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 bg-white/5 rounded-xl border border-white/10 shadow-inner">
+                <div className="p-3 bg-[#1e293b] rounded-xl border border-[#334155] shadow-inner">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold text-[#F9FAFB] tracking-tight">{category.title}</h3>
+                <h3 className="text-xl font-bold text-[#f8fafc] tracking-tight">{category.title}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
