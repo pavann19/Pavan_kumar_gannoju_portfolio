@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased dark`} style={{ colorScheme: 'dark' }}>
-      <body className="min-h-full flex flex-col bg-[#0f172a] text-[#cbd5e1] selection:bg-[#3b82f6]/30 selection:text-white overflow-x-hidden relative">
+      <body className="min-h-full flex flex-col bg-[#ffffff] text-[#334155] selection:bg-[#1d4ed8]/30 selection:text-white overflow-x-hidden relative">
         {/* Solid Background defined in body */}
         <div className="relative z-10 flex-grow flex flex-col">
           {children}

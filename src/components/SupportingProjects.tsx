@@ -40,22 +40,22 @@ export function SupportingProjects() {
             <GlassCard key={idx} className="p-6 sm:p-8 flex flex-col justify-between" delay={idx * 0.1}>
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="p-3 bg-[#1e293b] rounded-xl border border-[#334155]">
-                    <FolderGit2 className="w-6 h-6 text-[#60a5fa]" />
+                  <div className="p-3 bg-[#0f172a] rounded-xl border border-[#e2e8f0]">
+                    <FolderGit2 className="w-6 h-6 text-[#2563eb]" />
                   </div>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#cbd5e1] hover:text-[#f8fafc] transition-colors">
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#334155] hover:text-[#0f172a] transition-colors">
                     <FaGithub className="w-5 h-5" />
                   </a>
                 </div>
-                <h3 className="text-xl font-bold text-[#f8fafc] mb-3">{project.title}</h3>
-                <p className="text-sm text-[#cbd5e1] leading-relaxed mb-6">
+                <h3 className="text-xl font-bold text-[#0f172a] mb-3">{project.title}</h3>
+                <p className="text-sm text-[#334155] leading-relaxed mb-6">
                   {project.description}
                 </p>
               </div>
               
               <div className="flex flex-wrap gap-2 mt-auto">
                 {project.tech.map((t, tIdx) => (
-                  <span key={tIdx} className="text-xs font-mono text-[#cbd5e1] bg-[#0f172a] border border-[#334155] px-3 py-1 rounded-lg">
+                  <span key={tIdx} className="text-xs font-mono text-[#334155] bg-[#ffffff] border border-[#e2e8f0] px-3 py-1 rounded-lg">
                     {t}
                   </span>
                 ))}

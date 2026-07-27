@@ -31,29 +31,29 @@ export function Hero() {
         animate="visible"
       >
         {/* Badge */}
-        <motion.div variants={fadeUp} className="px-4 py-2 mb-8 rounded-full border border-[#334155] bg-[#1e293b] shadow-sm">
-          <span className="text-sm font-medium text-[#cbd5e1]">German Master's Applicant · Summer 2027</span>
+        <motion.div variants={fadeUp} className="px-4 py-2 mb-8 rounded-full border border-[#e2e8f0] bg-[#0f172a] shadow-sm">
+          <span className="text-sm font-medium text-[#334155]">German Master's Applicant · Summer 2027</span>
         </motion.div>
 
         {/* Name */}
-        <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#f8fafc] mb-6 px-4">
+        <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#0f172a] mb-6 px-4">
           Pavan Kumar Gannoju
         </motion.h1>
 
         {/* Tagline */}
-        <motion.h2 variants={fadeUp} className="text-lg sm:text-xl md:text-2xl font-semibold text-[#94a3b8] mb-8 px-4">
+        <motion.h2 variants={fadeUp} className="text-lg sm:text-xl md:text-2xl font-semibold text-[#64748b] mb-8 px-4">
           Software Engineer · Backend & AI Systems · Scalable Applications
         </motion.h2>
 
         {/* Bio + Stats */}
         <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6 space-y-4">
-          <p className="text-base sm:text-lg text-[#cbd5e1] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
             Computer Science (AI/ML) graduate focused on backend engineering, scalable applications, and AI-powered systems.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm font-mono">
-            <span className="px-4 py-2 rounded-lg bg-[#1e293b] border border-[#334155] text-[#f8fafc]">CGPA 8.01/10</span>
-            <span className="px-4 py-2 rounded-lg bg-[#1e293b] border border-[#334155] text-[#cbd5e1]">German eq. 2.1–2.2</span>
-            <span className="px-4 py-2 rounded-lg bg-[#1e293b] border border-[#334155] text-[#cbd5e1]">IELTS 6.5</span>
+            <span className="px-4 py-2 rounded-lg bg-[#0f172a] border border-[#e2e8f0] text-[#0f172a]">CGPA 8.01/10</span>
+            <span className="px-4 py-2 rounded-lg bg-[#0f172a] border border-[#e2e8f0] text-[#334155]">German eq. 2.1–2.2</span>
+            <span className="px-4 py-2 rounded-lg bg-[#0f172a] border border-[#e2e8f0] text-[#334155]">IELTS 6.5</span>
           </div>
         </motion.div>
 
@@ -89,7 +89,7 @@ export function Hero() {
           href="#about"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="text-[#475569] hover:text-[#94a3b8] transition-colors"
+          className="text-[#334155] hover:text-[#64748b] transition-colors"
         >
           <ChevronDown className="w-6 h-6" />
         </motion.a>
