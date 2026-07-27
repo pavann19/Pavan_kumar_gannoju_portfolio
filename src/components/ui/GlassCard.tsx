@@ -20,7 +20,7 @@ export function GlassCard({ children, hoverEffect = true, className, delay = 0, 
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay }}
       className={cn(
         "tech-card relative overflow-hidden transition-all duration-300",
-        hoverEffect && "hover:-translate-y-1 hover:shadow-lg hover:shadow-black/40 hover:border-[#475569]",
+        hoverEffect && "hover:-translate-y-1 hover:shadow-lg hover:shadow-black/40 hover:border-[#334155]",
         className
       )}
       {...props as any}

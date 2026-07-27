@@ -1,150 +1,41 @@
 "use client";
 
-import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
-import { Send, Mail, MapPin, CheckCircle, XCircle } from "lucide-react";
-import { MagneticButton } from "./ui/MagneticButton";
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export function Contact() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!formRef.current) return;
-    
-    setStatus("submitting");
-
-    emailjs
-      .sendForm(
-        "service_ip7ds88", // Service ID
-        "template_1uf6496", // Template ID
-        formRef.current,
-        "N4DtI3p9JrVOZRKQL" // Public Key
-      )
-      .then(
-        () => {
-          setStatus("success");
-          if (formRef.current) formRef.current.reset();
-          
-          // Hide success message after 5 seconds
-          setTimeout(() => {
-            setStatus("idle");
-          }, 5000);
-        },
-        (error) => {
-          console.error("EmailJS Error:", error);
-          setStatus("error");
-          
-          // Hide error message after 5 seconds
-          setTimeout(() => {
-            setStatus("idle");
-          }, 5000);
-        }
-      );
-  };
-
   return (
     <section id="contact" className="py-24 relative">
-      <div className="container mx-auto px-6 max-w-5xl">
-        <SectionHeader 
-          title="Initiate Contact" 
-          subtitle="Interested in backend architecture, AI systems, or scalable software engineering? Let's connect."
+      <div className="container mx-auto px-6 max-w-4xl">
+        <SectionHeader
+          title="Contact"
+          subtitle=""
         />
 
-        <div className="flex flex-col md:flex-row gap-12">
-          {/* Contact Info */}
-          <div className="w-full md:w-1/3">
-            <GlassCard className="p-6 sm:p-8 h-full" delay={0.1}>
-              <h3 className="text-xl font-bold text-[#f8fafc] mb-8">Direct Channels</h3>
-              <div className="space-y-6">
-                <a href="mailto:pavangannoju.germany@gmail.com" className="flex items-center gap-4 text-[#cbd5e1] hover:text-[#60a5fa] transition-colors group">
-                  <div className="p-3 bg-[#1e293b] rounded-xl border border-[#334155] group-hover:border-[#3b82f6] transition-colors">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <span className="font-medium text-sm">pavangannoju.germany@gmail.com</span>
-                </a>
-                <div className="flex items-center gap-4 text-[#cbd5e1]">
-                  <div className="p-3 bg-[#1e293b] rounded-xl border border-[#334155]">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <span className="font-medium text-sm">Hyderabad, India</span>
-                </div>
-              </div>
-            </GlassCard>
-          </div>
+        <div className="mt-12 flex flex-col gap-6 text-lg">
+          <p className="text-[#334155] leading-relaxed max-w-2xl">
+            I am currently open to discussions regarding Master's programmes, research opportunities, and collaborations in AI security.
+          </p>
 
-          {/* Form */}
-          <div className="w-full md:w-2/3">
-            <GlassCard className="p-6 sm:p-8 md:p-12" delay={0.2}>
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                  <div className="relative group">
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name" 
-                      required 
-                      className="w-full bg-transparent border-b-2 border-[#334155] px-0 py-3 text-[#f8fafc] focus:outline-none focus:border-[#60a5fa] transition-colors peer placeholder-transparent"
-                      placeholder="Name"
-                    />
-                    <label htmlFor="name" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
-                      Name
-                    </label>
-                  </div>
-                  <div className="relative group">
-                    <input 
-                      type="email" 
-                      id="email" 
-                      name="email" 
-                      required 
-                      className="w-full bg-transparent border-b-2 border-[#334155] px-0 py-3 text-[#f8fafc] focus:outline-none focus:border-[#60a5fa] transition-colors peer placeholder-transparent"
-                      placeholder="Email"
-                    />
-                    <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
-                      Email
-                    </label>
-                  </div>
-                </div>
-                
-                <div className="relative group">
-                  <textarea 
-                    id="message" 
-                    name="message" 
-                    rows={4} 
-                    required 
-                    className="w-full bg-transparent border-b-2 border-[#334155] px-0 py-3 text-[#f8fafc] focus:outline-none focus:border-[#60a5fa] transition-colors peer placeholder-transparent resize-none"
-                    placeholder="Message"
-                  ></textarea>
-                  <label htmlFor="message" className="absolute left-0 -top-3.5 text-xs text-[#cbd5e1] transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#60a5fa]">
-                    Message
-                  </label>
-                </div>
-                
-                <div className="flex justify-end pt-4 h-14">
-                  {status === "success" ? (
-                    <div className="flex items-center gap-2 text-green-400 font-medium px-6 py-3 border border-green-400/30 bg-green-400/10 rounded-full animate-in fade-in zoom-in duration-300">
-                      <CheckCircle className="w-5 h-5" />
-                      Message Sent
-                    </div>
-                  ) : status === "error" ? (
-                    <div className="flex items-center gap-2 text-red-400 font-medium px-6 py-3 border border-red-400/30 bg-red-400/10 rounded-full animate-in fade-in zoom-in duration-300">
-                      <XCircle className="w-5 h-5" />
-                      Submission Error
-                    </div>
-                  ) : (
-                    <MagneticButton type="submit" variant="primary" disabled={status === "submitting"}>
-                      {status === "submitting" ? "Transmitting..." : "Transmit Message"}
-                      <Send className="w-4 h-4 ml-2" />
-                    </MagneticButton>
-                  )}
-                </div>
-              </form>
-            </GlassCard>
+          <div className="flex flex-col gap-4 mt-4">
+            <a href="mailto:pavangannoju.germany@gmail.com" className="flex items-center gap-3 text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium w-fit">
+              <Mail className="w-6 h-6 text-[#64748b]" />
+              pavangannoju.germany@gmail.com
+            </a>
+            
+            <a href="https://github.com/pavann19" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium w-fit">
+              <FaGithub className="w-6 h-6 text-[#64748b]" />
+              github.com/pavann19
+            </a>
+            
+            <a href="https://linkedin.com/in/pavan-gannoju/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#0f172a] hover:text-[#0a66c2] transition-colors font-medium w-fit">
+              <FaLinkedin className="w-6 h-6 text-[#64748b]" />
+              linkedin.com/in/pavan-gannoju
+            </a>
           </div>
         </div>
+
       </div>
     </section>
   );
