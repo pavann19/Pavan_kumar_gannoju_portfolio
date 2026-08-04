@@ -20,7 +20,7 @@ export function MagneticButton({
   href,
   target,
   rel,
-  Download,
+  download,
   ...props 
 }: MagneticButtonProps) {
   const buttonRef = useRef<any>(null);
