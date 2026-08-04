@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FileText, ChevronDown } from "lucide-react";
 import { MagneticButton } from "./ui/MagneticButton";
@@ -22,6 +22,7 @@ const fadeUp = {
 };
 
 export function Hero() {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-tech-grid">
       <motion.div 
@@ -32,7 +33,7 @@ export function Hero() {
       >
         {/* Badge */}
         <motion.div variants={fadeUp} className="px-4 py-2 mb-8 rounded-full border border-[#e2e8f0] bg-[#f8fafc] shadow-sm">
-          <span className="text-sm font-medium text-[#334155]">German Master's Applicant · Summer 2027</span>
+             <span className="text-sm font-medium text-[#334155]">Graduated April 2026 · Pursuing Master's in Germany, Summer 2027</span>
         </motion.div>
 
         {/* Name */}
@@ -48,11 +49,11 @@ export function Hero() {
         {/* Bio + Stats */}
         <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6 space-y-4">
           <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
-            Computer Science (AI/ML) graduate focused on backend engineering, scalable applications, and AI-powered systems.
+            Computer Science (AI/ML) graduate building secure, production-grade AI systems — from LLM guardrail gateways to adversarial defense pipelines.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm font-mono">
             <span className="px-4 py-2 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a]">CGPA 8.01/10</span>
-            <span className="px-4 py-2 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-[#334155]">German eq. 2.1–2.2</span>
+            {/* <span className="px-4 py-2 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-[#334155]">German eq. 2.1–2.2</span>*/}
             <span className="px-4 py-2 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-[#334155]">IELTS 6.5</span>
           </div>
         </motion.div>
@@ -63,7 +64,7 @@ export function Hero() {
             View Projects
           </MagneticButton>
           
-          <MagneticButton variant="secondary" href={assetPath("/Pavan_Kumar_Gannoju_CV.pdf")} target="_blank" rel="noopener noreferrer">
+          <MagneticButton variant="secondary" href={assetPath("/Pavan_Kumar_Gannoju_CV.pdf")} download="Pavan_Kumar_Gannoju_CV.pdf" target="_blank" rel="noopener noreferrer">
             <FileText className="w-5 h-5" />
             Download CV
           </MagneticButton>
@@ -85,8 +86,9 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
       >
-        <motion.a
+      <motion.a
           href="#about"
+          aria-label="Scroll to About section"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           className="text-[#cbd5e1] hover:text-[#64748b] transition-colors"
