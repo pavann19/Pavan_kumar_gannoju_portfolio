@@ -11,8 +11,8 @@ interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
   href?: string;
   target?: string;
   rel?: string;
+  download?: string;
 }
-
 export function MagneticButton({ 
   children, 
   variant = "glass", 
