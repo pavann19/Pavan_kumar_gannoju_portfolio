@@ -7,28 +7,28 @@ import { motion } from "framer-motion";
 import { assetPath } from "@/lib/assetPath";
 
 const experiences = [
+    {
+    role: "AI Intern → Research Team Lead",
+    company: "Prodigal AI Technologies Pvt. Ltd.",
+    date: "March 2025 – November 2025 (Part-Time)",
+    focus: ["Backend Orchestration", "AI Workflow Systems", "Modular Engineering", "AI Security", "Research Coordination"],
+    proofs: [
+      { label: "Completion Certificate", file: "/proofs/Prodigal_AI_Completion_Certificate.png" },
+      { label: "Research Experience Letter", file: "/proofs/Research_Pavan_Gannoju_LoR.pdf" },
+      { label: "Recommendation Letter", file: "/proofs/Gannoju_Pavan_Kumar_LoR.pdf" },
+    ]
+  },
   {
     role: "Gen AI/LLM Intern",
     company: "Digital Nexus AI",
     date: "May 2025 – September 2025 (Part-Time)",
     focus: ["Backend APIs", "REST Services", "AI Workflow Systems", "Backend Integrations", "Testing & Validation"],
     proofs: [
-      { label: "Completion Certificate", file: "/proofs/Digital_Nexus_AI_Completion_Certificate - Gannoju Pavan Kumar.png" },
-      { label: "Internship Letter", file: "/proofs/_Pavan Kumar Gannoju - DigitalNexusAI Internship Letter - Gen AI_LLM.docx (1).pdf" },
-      { label: "Exit Letter", file: "/proofs/Digital Nexus AI Exit Letter - Gannoju Pavan Kumar.pdf" },
+      { label: "Completion Certificate", file: "/proofs/Digital_Nexus_AI_Completion_Certificate.png" },
+      { label: "Internship Letter", file: "/proofs/Digital_Nexus_AI_Internship_Letter.pdf" },
+      { label: "Exit Letter", file: "/proofs/Digital_Nexus_AI_Exit_Letter.pdf" },
     ]
   },
-  {
-    role: "AI Intern → Research Team Lead",
-    company: "Prodigal AI Technologies Pvt. Ltd.",
-    date: "March 2025 – November 2025 (Part-Time)",
-    focus: ["Backend Orchestration", "AI Workflow Systems", "Modular Engineering", "AI Security", "Research Coordination"],
-    proofs: [
-      { label: "Completion Certificate", file: "/proofs/Prodigal_ai_Completion Certificate.png" },
-      { label: "Research Experience Letter", file: "/proofs/Research_Pavan_gannoju_LoR.pdf" },
-      { label: "Recommendation Letter", file: "/proofs/Gannoju Pavan Kumar LoR.pdf" },
-    ]
-  }
 ];
 
 export function Experience() {
@@ -58,7 +58,7 @@ export function Experience() {
                     <GlassCard delay={idx * 0.2} className="p-6 sm:p-8 text-left">
                       
                       <div className="flex items-center gap-2 text-[#2563eb] text-sm font-bold tracking-wider uppercase mb-3">
-                        <Briefcase className="w-4 h-4" />
+                        <Briefcase className="w-4 h-4" aria-hidden="true" />
                         <span>{exp.date}</span>
                       </div>
                       
@@ -89,7 +89,7 @@ export function Experience() {
                               whileTap={{ scale: 0.95 }}
                               className="flex items-center gap-2 px-4 py-2 bg-[#f8fafc] hover:bg-[#e2e8f0] border border-[#e2e8f0] rounded-lg text-sm text-[#334155] font-medium transition-colors"
                             >
-                              <FileBadge className="w-4 h-4" />
+                            <FileBadge className="w-4 h-4" aria-hidden="true" />
                               {proof.label}
                             </motion.a>
                           ))}
