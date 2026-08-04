@@ -16,27 +16,27 @@ export function About() {
         <div className="grid md:grid-cols-12 gap-8">
           <GlassCard className="md:col-span-7 p-6 sm:p-8 md:p-10 border-t-4 border-t-[#1d4ed8]" delay={0.1}>
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-[#ffffff] rounded-xl border border-[#e2e8f0]">
+              <div className="p-3 bg-[#ffffff] rounded-xl border border-[#e2e8f0]" aria-hidden="true">
                 <Code2 className="w-6 h-6 text-[#2563eb]" />
               </div>
               <h3 className="text-2xl font-bold text-[#0f172a]">Background</h3>
             </div>
             <div className="space-y-6 text-[#334155] leading-relaxed text-lg font-medium">
               <p>
-                I enjoy building practical software systems that combine backend engineering, automation, and AI-powered workflows. My primary interests are backend development, scalable application architecture, AI infrastructure, and secure software systems.
+                I build practical software systems that combine backend engineering with AI-powered workflows — from secure orchestration layers to LLM guardrail gateways. My focus areas are backend development, scalable architecture, AI infrastructure, and secure system design.
               </p>
               <p>
-                I have worked on AI-integrated applications, RESTful backend services, authentication systems, workflow automation, and modular system architectures through internships, research collaborations, and personal projects.
+                Through internships, my thesis, and independent projects, I've worked on AI security research, RESTful backend services, authentication systems, and modular architectures — including a 5-gate guardrail gateway handling real production-grade throughput.
               </p>
               <p>
-                My goal is to become a strong software engineer capable of building reliable, scalable, and production-ready systems that integrate modern AI technologies with solid engineering practices.
+                My goal is to build reliable, scalable, production-ready systems that combine modern AI with solid engineering fundamentals — not just prototypes, but things that hold up under real conditions.
               </p>
             </div>
           </GlassCard>
 
           <GlassCard className="md:col-span-5 p-6 sm:p-8 md:p-10" delay={0.2}>
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-[#ffffff] rounded-xl border border-[#e2e8f0]">
+              <div className="p-3 bg-[#ffffff] rounded-xl border border-[#e2e8f0]" aria-hidden="true">
                 <Target className="w-6 h-6 text-[#334155]" />
               </div>
               <h3 className="text-2xl font-bold text-[#0f172a]">Current Focus</h3>
@@ -44,13 +44,13 @@ export function About() {
             <ul className="space-y-5">
               {[
                 "Backend system design",
-                "AI infrastructure",
+                "AI security & guardrails",
                 "Scalable APIs",
-                "Distributed systems fundamentals",
+                "LLM orchestration systems",
                 "Production-ready software engineering"
               ].map((focus, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <div className="mt-1 p-1 bg-[#ffffff] rounded border border-[#e2e8f0]">
+                  <div className="mt-1 p-1 bg-[#ffffff] rounded border border-[#e2e8f0]" aria-hidden="true">
                     <Cpu className="w-4 h-4 text-[#334155]" />
                   </div>
                   <span className="text-[#334155] font-medium leading-snug">{focus}</span>
