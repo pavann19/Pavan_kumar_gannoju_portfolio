@@ -29,7 +29,7 @@ const featuredProjects = [
   {
     title: "SentinAL — Secure AI Desktop Orchestration",
     icon: <Network className="w-8 h-8 text-[#2563eb]" />,
-    description: "Validation-based execution pipeline.",
+    description: "Thesis project — a secure AI desktop orchestration system built with a 4-person team, using a validation-based execution pipeline benchmarked against 704 real-world utterances.",
     stats: [
       { label: "Intent Accuracy", value: "99.3%" },
       { label: "OOD Accuracy", value: "92.0%" },
@@ -58,7 +58,7 @@ const featuredProjects = [
     description: "Middleware platform for API rate limiting, request validation, and traffic monitoring in high-load environments.",
     architecture: "API Request → Rate Limiter (Redis) → Validation Middleware → Backend Service",
     tech: ["Python", "PostgreSQL", "Docker", "FastAPI"],
-    link: "https://github.com/pavann19"
+    link: "https://github.com/pavann19/resilient-microservices"
   },
   {
     title: "AI Chatbot & RAG System",
@@ -96,7 +96,7 @@ export function Projects() {
                 <div className="w-full lg:w-[45%] p-6 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#e2e8f0] flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="p-4 bg-[#ffffff] rounded-xl border border-[#e2e8f0]">
+                      <div className="p-4 bg-[#ffffff] rounded-xl border border-[#e2e8f0]" aria-hidden="true">
                         {project.icon}
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] tracking-tight">{project.title}</h3>
@@ -140,7 +140,7 @@ export function Projects() {
                   
                   <div className="relative z-10 w-full p-4 sm:p-6 rounded-xl border border-[#e2e8f0] bg-[#f8fafc] shadow-lg">
                     <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#e2e8f0]">
-                      <Network className="w-5 h-5 text-[#64748b]" />
+                      <Network className="w-5 h-5 text-[#64748b]" aria-hidden="true"/>
                       <span className="text-sm font-semibold text-[#334155] uppercase tracking-wider">Architecture Flow</span>
                     </div>
                     
