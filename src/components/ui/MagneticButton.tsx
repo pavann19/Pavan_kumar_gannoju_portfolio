@@ -51,6 +51,7 @@ export function MagneticButton({
       href={href}
       target={target}
       rel={rel}
+      download={download}
       ref={buttonRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
