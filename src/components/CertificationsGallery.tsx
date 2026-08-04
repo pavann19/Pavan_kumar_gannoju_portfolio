@@ -37,9 +37,9 @@ const featuredCerts = [
 const supportingCerts = [
   { name: "Python Data Structures", file: "/proofs/Python_Data_Structures.pdf" },
   { name: "Data Scientist Toolbox", file: "/proofs/Data_Scientist_Toolbox.pdf" },
-  { name: "Networks & Cisco Devices", file: "/proofs/Networks & Cisco Devices_posted.pdf" },
-  { name: "Google Data Analytics", file: "/proofs/google data analytics_posted.pdf" },
-  { name: "Security Risk Management", file: "/proofs/playitsafe.pdf" }
+  { name: "Networks & Cisco Devices", file: "/proofs/Networks_Cisco_Devices.pdf" },
+  { name: "Google Data Analytics", file: "/proofs/Google_Data_Analytics.pdf" },
+  { name: "Security Risk Management", file: "/proofs/Security_Risk_Management.pdf" }
 ];
 
 export function CertificationsGallery() {
