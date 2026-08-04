@@ -19,7 +19,7 @@ const skillsData = [
   {
     title: "Databases",
     icon: <Database className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["PostgreSQL", "MySQL", "SQLite", "Vector Databases"]
+    skills: ["PostgreSQL", "MySQL", "SQLite", "FAISS"]
   },
   {
     title: "AI Systems",
