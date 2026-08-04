@@ -12,13 +12,13 @@ const featuredCerts = [
     name: "Google Cybersecurity",
     issuer: "Google",
     icon: <ShieldCheck className="w-8 h-8 text-[#2563eb]" />,
-    file: "/proofs/foundation of cybersecurity.pdf"
+    file: "/proofs/Google_Cybersecurity_Foundations.pdf"
   },
   {
     name: "Microsoft Security / OS",
     issuer: "Microsoft",
     icon: <MonitorPlay className="w-8 h-8 text-[#2563eb]" />,
-    file: "/proofs/intro to computers and os and security.pdf"
+    file: "/proofs/Microsoft_Security_OS_Fundamentals.pdf"
   },
   {
     name: "SAP Code Unnati",
@@ -35,8 +35,8 @@ const featuredCerts = [
 ];
 
 const supportingCerts = [
-  { name: "Python Data Structures", file: "/proofs/python data structures.pdf" },
-  { name: "Data Scientist Toolbox", file: "/proofs/data scientist toolbox.pdf" },
+  { name: "Python Data Structures", file: "/proofs/Python_Data_Structures.pdf" },
+  { name: "Data Scientist Toolbox", file: "/proofs/Data_Scientist_Toolbox.pdf" },
   { name: "Networks & Cisco Devices", file: "/proofs/Networks & Cisco Devices_posted.pdf" },
   { name: "Google Data Analytics", file: "/proofs/google data analytics_posted.pdf" },
   { name: "Security Risk Management", file: "/proofs/playitsafe.pdf" }
@@ -73,7 +73,7 @@ export function CertificationsGallery() {
           {featuredCerts.map((cert, idx) => {
             const cardContent = (
               <>
-                <div className="p-4 bg-[#f8fafc] rounded-2xl border border-[#e2e8f0] shadow-inner">
+                <div className="p-4 bg-[#f8fafc] rounded-2xl border border-[#e2e8f0] shadow-inner" aria-hidden="true">
                   {cert.icon}
                 </div>
                 <div>
@@ -143,14 +143,18 @@ export function CertificationsGallery() {
               transition={{ type: "spring", duration: 0.5, bounce: 0 }}
               className="relative w-full max-w-5xl h-[85vh] bg-[#f8fafc] border border-[#e2e8f0] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
               onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Certificate viewer"
             >
               <div className="flex items-center justify-between p-4 border-b border-[#e2e8f0] bg-[#ffffff]">
                 <h3 className="text-[#0f172a] font-medium font-mono text-sm">Certificate Viewer</h3>
                 <button 
                   onClick={() => setSelectedCert(null)}
-                  className="p-2 bg-[#f8fafc] hover:bg-[#e2e8f0] border border-[#e2e8f0] rounded-lg text-[#334155] hover:text-white transition-colors"
+                   aria-label="Close certificate viewer"
+                   className="p-2 bg-[#f8fafc] hover:bg-[#e2e8f0] border border-[#e2e8f0] rounded-lg text-[#334155] hover:text-[#0f172a] transition-colors"
                 >
-                  <X className="w-5 h-5" />
+                 <X className="w-5 h-5" aria-hidden="true" />
                 </button>
               </div>
               <div className="flex-1 w-full h-full bg-white/5">
