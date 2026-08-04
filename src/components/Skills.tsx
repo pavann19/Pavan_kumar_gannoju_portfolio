@@ -24,7 +24,7 @@ const skillsData = [
   {
     title: "AI Systems",
     icon: <BrainCircuit className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["LLM Applications", "RAG Pipelines", "Prompt Engineering", "Agentic AI Workflows", "PyTorch"]
+    skills: ["LLM Guardrails & Safety", "RAG Pipelines", "Prompt Engineering", "Agentic AI Workflows", "PyTorch"]
   },
   {
     title: "Tools & Platforms",
@@ -46,7 +46,7 @@ export function Skills() {
           {skillsData.map((category, idx) => (
             <GlassCard key={idx} className="p-6 sm:p-8" delay={idx * 0.1}>
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 bg-[#f8fafc] rounded-xl border border-[#e2e8f0] shadow-inner">
+                <div className="p-3 bg-[#f8fafc] rounded-xl border border-[#e2e8f0] shadow-inner" aria-hidden="true">
                   {category.icon}
                 </div>
                 <h3 className="text-xl font-bold text-[#0f172a] tracking-tight">{category.title}</h3>
