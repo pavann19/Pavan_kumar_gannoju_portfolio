@@ -20,7 +20,7 @@ export function Footer() {
             <FaLinkedin className="w-5 h-5" />
             <span className="sr-only">LinkedIn</span>
           </a>
-          <a href="mailto:pavangannoju.germany@gmail.com" className="text-[#64748b] hover:text-[#0f172a] transition-colors">
+          <a href="mailto:pavan9542644804@gmail.com" className="text-[#64748b] hover:text-[#0f172a] transition-colors">
             <Mail className="w-5 h-5" />
             <span className="sr-only">Email</span>
           </a>
