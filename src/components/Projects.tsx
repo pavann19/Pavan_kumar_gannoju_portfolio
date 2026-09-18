@@ -94,7 +94,7 @@ const featuredProjects = [
   {
     title: "SentinAL — Secure AI Desktop Orchestration",
     icon: <Bot className="w-8 h-8 text-[#2563eb]" />,
-    description: "Thesis project: a desktop agent that treats the LLM as untrusted. Every action passes an allowlist, filesystem sandbox and confirmation gate outside the model, and task success is scored by checking OS state rather than the agent's own report. Runs fully offline (SENTINAL_OFFLINE=1).",
+    description: "Thesis project led as a 5-member team: a desktop agent that treats the LLM as untrusted. Every action passes an allowlist, filesystem sandbox and confirmation gate outside the model, and task success is scored by checking OS state rather than the agent's own report. Runs fully offline (SENTINAL_OFFLINE=1).",
     stats: [
       { label: "E2E task success", value: "96.7%" },
       { label: "Fast-path, no LLM", value: "88.45%" },
