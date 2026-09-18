@@ -7,22 +7,22 @@ import { FolderGit2 } from "lucide-react";
 
 const supportingProjects = [
   {
-    title: "Data Processing Pipeline",
-    description: "Automated ETL pipeline processing vehicle sensor logs using Python and SQL for anomaly detection.",
-    tech: ["Python", "SQL", "Pandas"],
-    link: "https://github.com/pavann19"
+    title: "Enterprise RAG System",
+    description: "Retrieval pipeline over policy documents with pluggable vector backends (NumPy, FAISS, Qdrant), schema-validated output, streaming, rate limiting and a Next.js frontend, covered by property-based tests.",
+    tech: ["Python", "FastAPI", "FAISS", "Next.js"],
+    link: "https://github.com/pavann19/enterprise-rag-system"
   },
   {
-    title: "Cloud Auto-Scaler",
-    description: "Serverless auto-scaling orchestration layer using AWS Lambda and CloudWatch custom metrics.",
-    tech: ["AWS Lambda", "CloudWatch", "Python"],
-    link: "https://github.com/pavann19"
+    title: "DDS — Driving Decision System",
+    description: "Driving-decision simulator: XGBoost and SHAP behaviour analytics on OBD-II telemetry, Frenet-frame planning and IDM car-following, streamed to a 3D browser HMI.",
+    tech: ["Python", "FastAPI", "XGBoost", "Three.js"],
+    link: "https://github.com/pavann19/DDS"
   },
   {
-    title: "Fault-Tolerant Microservices",
-    description: "Resilient backend architecture implementing circuit breakers and centralized health monitoring.",
-    tech: ["FastAPI", "Redis", "Docker"],
-    link: "https://github.com/pavann19"
+    title: "SoundIntelligence",
+    description: "Adaptive EQ for Windows: captures the audio that is playing, classifies it with FFT and YAMNet, and writes a system-wide Equalizer APO profile.",
+    tech: ["Python", "WASAPI", "YAMNet", "Qt"],
+    link: "https://github.com/pavann19/AI-powered-Sound-EQ"
   }
 ];
 

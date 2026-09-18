@@ -5,7 +5,7 @@ import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
 import { MagneticButton } from "./ui/MagneticButton";
 import { FaGithub } from "react-icons/fa";
-import { Network, Lock, Database, Bot, FileCode2, ArrowRight } from "lucide-react";
+import { Network, Lock, Database, Bot, Cpu, ShieldCheck, ArrowRight } from "lucide-react";
 
 const ArchitectureDiagram = ({ flow }: { flow: string }) => {
   const steps = flow.split(' → ');
@@ -27,54 +27,82 @@ const ArchitectureDiagram = ({ flow }: { flow: string }) => {
 
 const featuredProjects = [
   {
-    title: "SentinAL — Secure AI Desktop Orchestration",
-    icon: <Network className="w-8 h-8 text-[#2563eb]" />,
-    description: "Thesis project — a secure AI desktop orchestration system built with a 4-person team, using a validation-based execution pipeline benchmarked against 704 real-world utterances.",
-    stats: [
-      { label: "Intent Accuracy", value: "99.3%" },
-      { label: "OOD Accuracy", value: "92.0%" },
-      { label: "Fast-Path Res", value: "94.2%" }
-    ],
-    architecture: "Request → Validation Layer → Role Auth → Execution Engine → Audit Logger",
-    tech: ["Python", "FastAPI", "SQLite", "LLM APIs"],
-    link: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration"
-  },
-  {
-    title: "Gatekeeper",
+    title: "Gatekeeper — Fail-Closed AI Security Gateway",
     icon: <Lock className="w-8 h-8 text-[#2563eb]" />,
-    description: "Solo-built LLM guardrail gateway. Identified a blind spot where the best individual classifier missed 98% of dangerous-capability requests despite over 90% aggregate accuracy.",
+    description: "Solo-built gateway that screens prompts for injection and PII before they reach an LLM, using a learned fusion of 8 detectors with German-language calibration. Profiling showed the ensemble oversubscribing CPU under concurrency; pinning torch threads and re-running the same workload raised throughput from about 10.3 to 16.0 rps and cut p95 from about 2.1 s to 1.3 s at 16 concurrent requests (p99 did not improve; one dev laptop). Trivy and SBOM run in CI.",
     stats: [
-      { label: "Throughput", value: "98 RPS" },
-      { label: "P95 Latency", value: "33ms" },
-      { label: "Benchmark", value: "6.9k" }
+      { label: "Throughput @16", value: "16.0 rps" },
+      { label: "p95 @16", value: "1.3 s" },
+      { label: "Detectors", value: "8" }
     ],
-    architecture: "Client → Guardrail Gateway → Classifier Ensemble → Evaluation Engine → Safe LLM Request",
-    tech: ["Python", "FastAPI", "LLM Security", "Benchmarking"],
+    architecture: "Client → Auth & Rate Limit → PII + Symbolic Filter → Semantic Cache → 8-Detector Fusion → Policy Decision",
+    tech: ["Python", "FastAPI", "PyTorch", "Redis", "Prometheus"],
     link: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway"
   },
   {
-    title: "API Traffic Control Platform",
-    icon: <Database className="w-8 h-8 text-[#334155]" />,
-    description: "Middleware platform for API rate limiting, request validation, and traffic monitoring in high-load environments.",
-    architecture: "API Request → Rate Limiter (Redis) → Validation Middleware → Backend Service",
-    tech: ["Python", "PostgreSQL", "Docker", "FastAPI"],
-    link: "https://github.com/pavann19/resilient-microservices"
+    title: "Agentic-OS — Capability-Based OS in Rust",
+    icon: <Cpu className="w-8 h-8 text-[#2563eb]" />,
+    description: "From-scratch x86_64 UEFI kernel where every resource is reached through an explicit, revocable capability. GitHub Actions builds it, runs host tests, boots it in QEMU and asserts that revocation is enforced; ext2 parsers are fuzzed. A CI-only kernel crash was traced to a timer handler that never sent the LAPIC end-of-interrupt. Runs under QEMU only; docs/VERIFICATION.md lists which subsystems are verified in CI.",
+    stats: [
+      { label: "Core subsystems in CI", value: "4" },
+      { label: "Fuzz targets", value: "3" },
+      { label: "Real-hardware runs", value: "0" }
+    ],
+    architecture: "UEFI Boot → Kernel → Capability Table → Syscall / IPC → User-Space Drivers",
+    tech: ["Rust", "no_std", "UEFI", "QEMU", "GitHub Actions"],
+    link: "https://github.com/pavann19/Agentic-OS"
   },
   {
-    title: "AI Chatbot & RAG System",
-    icon: <Bot className="w-8 h-8 text-[#334155]" />,
-    description: "Retrieval-Augmented Generation assistant with document indexing and context-aware response flows.",
-    architecture: "User Query → Embedding Model → Vector Search → Context Synthesis → LLM",
-    tech: ["Python", "Vector Search", "LLM APIs"],
-    link: "https://github.com/pavann19"
+    title: "LedgerLine — Double-Entry Ledger",
+    icon: <Database className="w-8 h-8 text-[#2563eb]" />,
+    description: "Ledger where the database enforces zero-sum postings and non-negative balances. Four transfer strategies (unprotected, pessimistic, optimistic, serializable) were benchmarked with k6 on a laptop with raw output committed; the deliberately broken variant produced measurable balance drift. Transactional outbox to Kafka to a deduplicating projection, tested against a real Kafka container. The AWS deployment is defined in Terraform but has not been run yet.",
+    stats: [
+      { label: "Pessimistic p95 (hot)", value: "171 ms" },
+      { label: "Optimistic p95 (hot)", value: "1.4 s" },
+      { label: "Broken: failed reqs", value: "89%" }
+    ],
+    architecture: "Client → Idempotent Transfer API → PostgreSQL (postings + outbox) → Outbox Relay → Kafka → Projection Service",
+    tech: ["Java 21", "Spring Boot", "PostgreSQL", "Kafka", "Testcontainers", "k6"],
+    link: "https://github.com/pavann19/LedgerLine"
   },
   {
-    title: "Auto Documentation Tool",
-    icon: <FileCode2 className="w-8 h-8 text-[#334155]" />,
-    description: "AI-assisted backend utility automating structured output generation for developer productivity.",
-    architecture: "Source Code → Parser Engine → LLM Summarization → Markdown Generator",
-    tech: ["Python", "APIs", "Automation Tools"],
-    link: "https://github.com/pavann19"
+    title: "QuorumKV — Replicated Key-Value Store",
+    icon: <Network className="w-8 h-8 text-[#2563eb]" />,
+    description: "Key-value store in Go on hashicorp/raft, with my own write-ahead log and fault-injection harness. Five fault scenarios (leader and minority partitions, rolling restarts, network delay, double-leader attempt) are recorded and checked with Porcupine, and the checker itself is validated against known-bad histories. Histories are small and benchmarks run on localhost processes.",
+    stats: [
+      { label: "Crash-recovery trials", value: "100/100" },
+      { label: "Fault scenarios", value: "5" },
+      { label: "Checker tests", value: "12" }
+    ],
+    architecture: "Client → gRPC → Raft Leader → Replicated Log → WAL + Store",
+    tech: ["Go", "gRPC", "Raft", "Porcupine"],
+    link: "https://github.com/pavann19/QuorumKV"
+  },
+  {
+    title: "ModelGate — Kubernetes Admission Control",
+    icon: <ShieldCheck className="w-8 h-8 text-[#2563eb]" />,
+    description: "Admission webhook that admits only cosign-signed images and hash-verified safetensors model artifacts, and denies privileged and host-access pods. Adversarial testing found two real bypasses (post-admission image swap, ephemeral containers), both fixed; fuzzing the pickle detector broke two attempted fixes before the third held. CI runs unit, envtest, real cosign, fuzz and kind-cluster jobs.",
+    stats: [
+      { label: "CI jobs", value: "5" },
+      { label: "Bypasses fixed", value: "2" },
+      { label: "Bypass tests", value: "4" }
+    ],
+    architecture: "kubectl apply → API Server → ModelGate Webhook → Signature + Artifact + Policy Checks → Admit / Deny",
+    tech: ["Go", "Kubernetes", "controller-runtime", "cosign", "envtest"],
+    link: "https://github.com/pavann19/ModelGate"
+  },
+  {
+    title: "SentinAL — Secure AI Desktop Orchestration",
+    icon: <Bot className="w-8 h-8 text-[#2563eb]" />,
+    description: "Thesis project: a desktop agent that treats the LLM as untrusted. Every action passes an allowlist, filesystem sandbox and confirmation gate outside the model, and task success is scored by checking OS state rather than the agent's own report. Runs fully offline (SENTINAL_OFFLINE=1).",
+    stats: [
+      { label: "E2E task success", value: "96.7%" },
+      { label: "Fast-path, no LLM", value: "88.45%" },
+      { label: "Tasks scored", value: "120" }
+    ],
+    architecture: "Request → Intent Router → Privacy Router → Validation Gate → Execution → Postcondition Check",
+    tech: ["Python", "FastAPI", "LLM APIs", "OpenTelemetry"],
+    link: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration"
   }
 ];
 

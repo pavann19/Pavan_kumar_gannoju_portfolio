@@ -23,10 +23,10 @@ export function About() {
             </div>
             <div className="space-y-6 text-[#334155] leading-relaxed text-lg font-medium">
               <p>
-                I build practical software systems that combine backend engineering with AI-powered workflows — from secure orchestration layers to LLM guardrail gateways. My focus areas are backend development, scalable architecture, AI infrastructure, and secure system design.
+                I build backend and systems software and verify it with tests, fault injection, fuzzing and CI — from an LLM guardrail gateway to a capability-based OS, a transactional ledger, a Raft-replicated store and a Kubernetes admission controller. My focus areas are backend development, distributed-systems correctness, security engineering, and AI infrastructure.
               </p>
               <p>
-                Through internships, my thesis, and independent projects, I've worked on AI security research, RESTful backend services, authentication systems, and modular architectures — including a 5-gate guardrail gateway handling real production-grade throughput.
+                Through internships, my thesis, and independent projects, I've worked on AI security research, RESTful backend services, authentication systems, and modular architectures. Each project documents what its tests and CI prove, and what they do not.
               </p>
               <p>
                 My goal is to build reliable, scalable, production-ready systems that combine modern AI with solid engineering fundamentals — not just prototypes, but things that hold up under real conditions.

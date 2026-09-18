@@ -23,7 +23,7 @@ export function GithubActivity() {
             <div className="space-y-4">
               <h3 className="text-3xl font-bold text-[#0f172a]">@pavann19</h3>
               <p className="text-[#64748b] max-w-lg mx-auto leading-relaxed">
-                I actively maintain repositories focusing on AI infrastructure, backend architecture, and modern web applications. Check out my code to see how I structure projects, write documentation, and solve complex problems.
+                My public repositories cover backend services, distributed-systems correctness, systems programming, and security. Check out my code to see how I structure projects, write documentation, and solve complex problems.
               </p>
             </div>
             
@@ -35,7 +35,13 @@ export function GithubActivity() {
                 <FaTerminal className="w-3 h-3" /> TypeScript
               </span>
               <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
-                <FaTerminal className="w-3 h-3" /> C++
+                <FaTerminal className="w-3 h-3" /> Java
+              </span>
+              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
+                <FaTerminal className="w-3 h-3" /> Go
+              </span>
+              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
+                <FaTerminal className="w-3 h-3" /> Rust
               </span>
               <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
                 <FaTerminal className="w-3 h-3" /> React & Next.js

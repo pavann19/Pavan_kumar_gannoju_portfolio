@@ -9,12 +9,12 @@ const skillsData = [
   {
     title: "Languages",
     icon: <Code2 className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["Python", "Java", "C++", "SQL", "JavaScript"]
+    skills: ["Python", "Java", "Go", "Rust", "C++", "SQL", "JavaScript"]
   },
   {
     title: "Backend & Infrastructure",
     icon: <Server className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["FastAPI", "REST APIs", "JWT", "Docker", "Git", "System Design"]
+    skills: ["Spring Boot", "FastAPI", "REST APIs", "Kafka", "JWT", "Docker", "Kubernetes", "GitHub Actions", "Git"]
   },
   {
     title: "Databases",
@@ -27,9 +27,14 @@ const skillsData = [
     skills: ["LLM Guardrails & Safety", "RAG Pipelines", "Prompt Engineering", "Agentic AI Workflows", "PyTorch"]
   },
   {
+    title: "Testing & Verification",
+    icon: <Wrench className="w-6 h-6 text-[#2563eb]" />,
+    skills: ["Testcontainers", "Property-Based Testing", "Fuzzing", "k6", "envtest", "Porcupine"]
+  },
+  {
     title: "Tools & Platforms",
     icon: <Wrench className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["AWS", "Vercel", "Streamlit", "Cursor AI"]
+    skills: ["Terraform", "AWS", "cosign", "Trivy", "Vercel", "Streamlit", "Cursor AI"]
   }
 ];
 

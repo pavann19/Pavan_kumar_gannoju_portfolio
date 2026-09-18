@@ -43,13 +43,13 @@ export function Hero() {
 
         {/* Tagline */}
         <motion.h2 variants={fadeUp} className="text-lg sm:text-xl md:text-2xl font-semibold text-[#64748b] mb-8 px-4">
-          Software Engineer · Backend & AI Systems · Scalable Applications
+          Software Engineer · Backend Systems · Distributed Correctness · Security
         </motion.h2>
 
         {/* Bio + Stats */}
         <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6 space-y-4">
           <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
-            Computer Science (AI/ML) graduate building secure, production-grade AI systems — from LLM guardrail gateways to adversarial defense pipelines.
+            Computer Science (AI/ML) graduate building backend and systems software, from an LLM guardrail gateway to a capability-based OS, and verifying it with tests, fuzzing and CI.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm font-mono">
             <span className="px-4 py-2 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a]">CGPA 8.01/10</span>
