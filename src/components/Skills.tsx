@@ -9,32 +9,32 @@ const skillsData = [
   {
     title: "Languages",
     icon: <Code2 className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["Python", "Java", "Go", "Rust", "C++", "SQL", "JavaScript"]
+    skills: ["Java", "Go", "Python", "Rust", "SQL"]
   },
   {
-    title: "Backend & Infrastructure",
+    title: "Backend",
     icon: <Server className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["Spring Boot", "FastAPI", "REST APIs", "Kafka", "JWT", "Docker", "Kubernetes", "GitHub Actions", "Git"]
+    skills: ["Spring Boot", "FastAPI", "REST APIs", "Kafka", "PostgreSQL", "JWT"]
   },
   {
-    title: "Databases",
+    title: "Cloud & Infrastructure",
     icon: <Database className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["PostgreSQL", "MySQL", "SQLite", "FAISS"]
+    skills: ["Docker", "Kubernetes", "Azure", "GitHub Actions", "Terraform"]
   },
   {
     title: "AI Systems",
     icon: <BrainCircuit className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["LLM Guardrails & Safety", "RAG Pipelines", "Prompt Engineering", "Agentic AI Workflows", "PyTorch"]
+    skills: ["RAG", "LLM Guardrails", "Agentic Workflows", "Model Security", "PyTorch"]
   },
   {
-    title: "Testing & Verification",
+    title: "Security & Validation",
     icon: <Wrench className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["Testcontainers", "Property-Based Testing", "Fuzzing", "k6", "envtest", "Porcupine"]
+    skills: ["cosign", "Trivy", "Fuzzing", "Property-Based Testing", "k6", "Porcupine"]
   },
   {
-    title: "Tools & Platforms",
+    title: "Datastores & Search",
     icon: <Wrench className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["Terraform", "AWS", "cosign", "Trivy", "Vercel", "Streamlit", "Cursor AI"]
+    skills: ["PostgreSQL", "MySQL", "SQLite", "FAISS"]
   }
 ];
 
@@ -43,8 +43,8 @@ export function Skills() {
     <section id="skills" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-6xl">
         <SectionHeader 
-          title="Technical Ecosystem" 
-          subtitle="Categorized overview of my core competencies in backend engineering, systems architecture, and AI integrations."
+          title="Technical Skills" 
+          subtitle="Core tools I use to build backend, platform, distributed-systems, and AI-security projects."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -50,15 +50,15 @@ export function Contact() {
     <section id="contact" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-5xl">
         <SectionHeader 
-          title="Initiate Contact" 
-          subtitle="Interested in backend architecture, AI systems, or scalable software engineering? Let's connect."
+          title="Contact" 
+          subtitle="Open to backend, platform, distributed systems, and AI infrastructure opportunities."
         />
 
         <div className="flex flex-col md:flex-row gap-12">
           {/* Contact Info */}
           <div className="w-full md:w-1/3">
             <GlassCard className="p-6 sm:p-8 h-full" delay={0.1}>
-              <h3 className="text-xl font-bold text-[#0f172a] mb-8">Direct Channels</h3>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-8">Contact Details</h3>
               <div className="space-y-6">
                 <a href="mailto:pavan9542644804@gmail.com" className="flex items-center gap-4 text-[#334155] hover:text-[#2563eb] transition-colors group">
                   <div className="p-3 bg-[#f8fafc] rounded-xl border border-[#e2e8f0] group-hover:border-[#1d4ed8] transition-colors">
@@ -127,16 +127,16 @@ export function Contact() {
                   {status === "success" ? (
                     <div className="flex items-center gap-2 text-green-400 font-medium px-6 py-3 border border-green-400/30 bg-green-400/10 rounded-full animate-in fade-in zoom-in duration-300">
                       <CheckCircle className="w-5 h-5" />
-                      Message Sent
+                      Message sent
                     </div>
                   ) : status === "error" ? (
                     <div className="flex items-center gap-2 text-red-400 font-medium px-6 py-3 border border-red-400/30 bg-red-400/10 rounded-full animate-in fade-in zoom-in duration-300">
                       <XCircle className="w-5 h-5" />
-                      Submission Error
+                      Could not send
                     </div>
                   ) : (
                     <MagneticButton type="submit" variant="primary" disabled={status === "submitting"}>
-                      {status === "submitting" ? "Transmitting..." : "Transmit Message"}
+                      {status === "submitting" ? "Sending..." : "Send Message"}
                       <Send className="w-4 h-4 ml-2" />
                     </MagneticButton>
                   )}

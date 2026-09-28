@@ -11,7 +11,11 @@ const experiences = [
     role: "AI Intern → Research Team Lead",
     company: "Prodigal AI Technologies Pvt. Ltd.",
     date: "March 2025 – November 2025 (Part-Time)",
-    focus: ["Backend Orchestration", "AI Workflow Systems", "Modular Engineering", "AI Security", "Research Coordination"],
+    highlights: [
+      "Built AI workflow and backend orchestration components for research-driven product prototypes.",
+      "Coordinated architecture reviews, experimentation planning, and delivery across an AI research team.",
+      "Developed research direction around LLM safety, voice-cloning systems, and AI tamper-resistance."
+    ],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Prodigal_AI_Completion_Certificate.png" },
       { label: "Research Experience Letter", file: "/proofs/Research_Pavan_Gannoju_LoR.pdf" },
@@ -22,7 +26,11 @@ const experiences = [
     role: "Gen AI/LLM Intern",
     company: "Digital Nexus AI",
     date: "May 2025 – September 2025 (Part-Time)",
-    focus: ["Backend APIs", "REST Services", "AI Workflow Systems", "Backend Integrations", "Testing & Validation"],
+    highlights: [
+      "Implemented backend API and LLM workflow components for GenAI application features.",
+      "Integrated retrieval, generation, validation, and service-layer logic into modular application flows.",
+      "Tested backend integrations and documented delivery artifacts for internship completion."
+    ],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Digital_Nexus_AI_Completion_Certificate.png" },
       { label: "Internship Letter", file: "/proofs/Digital_Nexus_AI_Internship_Letter.pdf" },
@@ -37,7 +45,7 @@ export function Experience() {
       <div className="container mx-auto px-6 max-w-4xl">
         <SectionHeader 
           title="Experience" 
-          subtitle="Internships and leadership roles focusing on scalable systems and research."
+          subtitle="Accomplishment-focused engineering and AI research work."
         />
 
         <div className="relative">
@@ -66,18 +74,19 @@ export function Experience() {
                       <h4 className="text-lg text-[#334155] font-medium mb-6">{exp.company}</h4>
                       
                       <div className="space-y-3 mb-8">
-                        <h5 className="text-sm font-bold text-[#0f172a] uppercase tracking-wider">Key Focus</h5>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.focus.map((f, fIdx) => (
-                            <span key={fIdx} className="px-3 py-1 rounded-lg text-xs font-mono bg-[#ffffff] text-[#334155] border border-[#e2e8f0]">
-                              {f}
-                            </span>
+                        <h5 className="text-sm font-bold text-[#0f172a] uppercase tracking-wider">Built & Delivered</h5>
+                        <ul className="space-y-3">
+                          {exp.highlights.map((item, hIdx) => (
+                            <li key={hIdx} className="text-sm text-[#334155] leading-relaxed flex gap-3">
+                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#2563eb] shrink-0" />
+                              <span>{item}</span>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
 
                       <div className="border-t border-[#e2e8f0] pt-6">
-                        <h5 className="text-sm font-bold text-[#0f172a] uppercase tracking-wider mb-4">Proof Assets</h5>
+                        <h5 className="text-sm font-bold text-[#0f172a] uppercase tracking-wider mb-4">Documents</h5>
                         <div className="flex flex-wrap gap-3">
                           {exp.proofs.map((proof, pIdx) => (
                             <motion.a

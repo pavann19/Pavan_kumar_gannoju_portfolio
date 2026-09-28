@@ -42,19 +42,14 @@ export function Hero() {
 
         {/* Tagline */}
         <motion.h2 variants={fadeUp} className="text-lg sm:text-xl md:text-2xl font-semibold text-[#64748b] mb-8 px-4">
-          Backend / Platform Engineer
+          Backend & Platform Engineer
         </motion.h2>
 
         {/* Bio + Stats */}
-        <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6 space-y-4">
+        <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6">
           <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
-            Building CI-backed backend, platform, and AI-security systems with honest evidence: Azure correctness runs, Kubernetes admission tests, fault injection, and QEMU-only systems work where applicable.
+            I build reliable backend and infrastructure systems using Java, Go, Kubernetes, and cloud-native tooling, with deep work across distributed systems and AI security.
           </p>
-          <div className="flex flex-wrap justify-center gap-3 text-sm font-mono">
-            <span className="px-4 py-2 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a]">CGPA 8.01/10</span>
-            {/* <span className="px-4 py-2 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-[#334155]">German eq. 2.1–2.2</span>*/}
-            <span className="px-4 py-2 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-[#334155]">IELTS 6.5</span>
-          </div>
         </motion.div>
 
         {/* CTA */}
@@ -65,12 +60,7 @@ export function Hero() {
           
           <MagneticButton variant="secondary" href={assetPath("/Pavan_Kumar_Gannoju_Backend_Germany_CV.pdf")} download="Pavan_Kumar_Gannoju_Backend_Germany_CV.pdf" target="_blank" rel="noopener noreferrer">
             <FileText className="w-5 h-5" />
-            Download CV
-          </MagneticButton>
-
-          <MagneticButton variant="secondary" href={assetPath("/Pavan_Kumar_Gannoju_AI_Security_Platform_CV.pdf")} download="Pavan_Kumar_Gannoju_AI_Security_Platform_CV.pdf" target="_blank" rel="noopener noreferrer">
-            <FileText className="w-5 h-5" />
-            AI Security / Platform CV
+            Download Resume
           </MagneticButton>
 
           <MagneticButton variant="glass" className="px-4" href="https://github.com/pavann19" target="_blank" rel="noopener noreferrer" aria-label="GitHub">

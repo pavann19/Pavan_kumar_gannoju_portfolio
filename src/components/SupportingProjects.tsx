@@ -31,8 +31,8 @@ export function SupportingProjects() {
     <section className="py-24 relative">
       <div className="container mx-auto px-6 max-w-6xl">
         <SectionHeader 
-          title="Supporting Architecture & Utilities" 
-          subtitle="Additional tools, experiments, and backend utilities built for system optimization."
+          title="Additional Projects" 
+          subtitle="Smaller projects that support the main backend, AI, and systems portfolio."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

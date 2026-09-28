@@ -6,7 +6,7 @@ Live site: https://pavann19.github.io/Pavan_kumar_gannoju_portfolio/
 
 ## Positioning
 
-Backend / Platform Engineer focused on Java, Go, Kubernetes, Azure, AI-security systems, and evidence-backed engineering.
+Backend & Platform Engineer building reliable backend, infrastructure, distributed-systems, and AI-security projects with Java, Go, Kubernetes, and Azure.
 
 ## Featured Projects
 

@@ -10,8 +10,8 @@ export function GithubActivity() {
     <section className="py-24 relative">
       <div className="container mx-auto px-6 max-w-5xl">
         <SectionHeader 
-          title="Open Source Activity" 
-          subtitle="Explore my public repositories, technical experiments, and contributions to the developer community."
+          title="GitHub" 
+          subtitle="Public repositories with implementation details, runbooks, CI workflows, and engineering notes."
         />
 
         <GlassCard className="p-8 md:p-12 text-center" delay={0.1}>
@@ -23,7 +23,7 @@ export function GithubActivity() {
             <div className="space-y-4">
               <h3 className="text-3xl font-bold text-[#0f172a]">@pavann19</h3>
               <p className="text-[#64748b] max-w-lg mx-auto leading-relaxed">
-                My public repositories cover backend services, distributed-systems correctness, systems programming, and security. Check out my code to see how I structure projects, write documentation, and solve complex problems.
+                My public repositories show how I structure backend services, validate distributed systems, document platform work, and package security-focused AI infrastructure.
               </p>
             </div>
             

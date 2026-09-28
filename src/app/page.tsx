@@ -4,8 +4,8 @@ import { About } from '@/components/About';
 import { Skills } from '@/components/Skills';
 import { Experience } from '@/components/Experience';
 import { Projects } from '@/components/Projects';
+import { SupportingProjects } from '@/components/SupportingProjects';
 import { ResearchLeadership } from '@/components/ResearchLeadership';
-import { TechnicalWriting } from '@/components/TechnicalWriting';
 import { CertificationsGallery } from '@/components/CertificationsGallery';
 import { GithubActivity } from '@/components/GithubActivity';
 import { Contact } from '@/components/Contact';
@@ -21,8 +21,8 @@ export default function Home() {
         <Skills />
         <Experience />
         <Projects />
+        <SupportingProjects />
         <ResearchLeadership />
-        <TechnicalWriting />
         <CertificationsGallery />
         <GithubActivity />
         <Contact />

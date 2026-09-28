@@ -10,7 +10,7 @@ export function ResearchLeadership() {
       <div className="container mx-auto px-6 max-w-5xl">
         <SectionHeader 
           title="Research & Leadership" 
-          subtitle="Explorations in trustworthy AI systems, security, and team orchestration."
+          subtitle="AI security research and hands-on engineering leadership."
         />
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -22,7 +22,7 @@ export function ResearchLeadership() {
               <h3 className="text-2xl font-bold text-[#0f172a]">AI Security Research</h3>
             </div>
             <p className="text-[#334155] leading-relaxed mb-6">
-              Authored two unpublished manuscripts during my industry R&D work at Prodigal AI Technologies. My research focused on zero-shot voice cloning using Mixture of Experts (MoE) architectures, as well as AI tamper-proofing and adversarial defense mechanisms.
+              Authored two unpublished manuscripts during industry R&D work at Prodigal AI Technologies, covering zero-shot voice cloning with Mixture of Experts architectures and adversarial defense mechanisms for trustworthy AI systems.
             </p>
             <ul className="space-y-3">
               {["Prompt Injection Defense", "Role-Aware Execution Models", "Trustworthy AI Architecture"].map((item, i) => (
@@ -42,7 +42,7 @@ export function ResearchLeadership() {
               <h3 className="text-2xl font-bold text-[#0f172a]">Engineering Leadership</h3>
             </div>
             <p className="text-[#334155] leading-relaxed mb-6">
-              Led a small engineering team at Prodigal AI in building modular AI workflows and backend integration systems. Focused on fostering collaborative research, establishing clean architectural guidelines, and orchestrating sprint delivery.
+              Led a small engineering team at Prodigal AI building modular AI workflows and backend integration systems. Coordinated research planning, architectural reviews, and sprint delivery.
             </p>
             <ul className="space-y-3">
               {["Team Orchestration", "Architectural Reviews", "Research Coordination"].map((item, i) => (

@@ -10,7 +10,7 @@ export function About() {
       <div className="container mx-auto px-6 max-w-6xl">
         <SectionHeader 
           title="About Me" 
-          subtitle="Engineering practical systems that combine scalable backend architecture with AI workflows."
+          subtitle="Backend, infrastructure, distributed systems, and secure AI applications."
         />
 
         <div className="grid md:grid-cols-12 gap-8">
@@ -23,13 +23,13 @@ export function About() {
             </div>
             <div className="space-y-6 text-[#334155] leading-relaxed text-lg font-medium">
               <p>
-                I build backend and systems software and verify it with tests, fault injection, fuzzing and CI — from an LLM guardrail gateway to a capability-based OS, a transactional ledger, a Raft-replicated store and a Kubernetes admission controller. My focus areas are backend development, distributed-systems correctness, security engineering, and AI infrastructure.
+                I build backend and platform systems where correctness, reliability, and security matter. My work spans transactional APIs, replicated services, Kubernetes admission control, LLM guardrails, and safe agent runtimes.
               </p>
               <p>
-                Through internships, my thesis, and independent projects, I've worked on AI security research, RESTful backend services, authentication systems, and modular architectures. Each project documents what its tests and CI prove, and what they do not.
+                I design and implement systems with measurable validation: automated tests, CI, fault injection, load experiments, fuzzing, and cloud-based deployments. The goal is practical engineering that a reviewer can inspect, run, and discuss.
               </p>
               <p>
-                My goal is to build reliable, scalable, production-ready systems that combine modern AI with solid engineering fundamentals — not just prototypes, but things that hold up under real conditions.
+                I am strongest at the intersection of backend engineering, platform infrastructure, distributed-systems behavior, and secure AI applications.
               </p>
             </div>
           </GlassCard>
@@ -39,15 +39,15 @@ export function About() {
               <div className="p-3 bg-[#ffffff] rounded-xl border border-[#e2e8f0]" aria-hidden="true">
                 <Target className="w-6 h-6 text-[#334155]" />
               </div>
-              <h3 className="text-2xl font-bold text-[#0f172a]">Current Focus</h3>
+              <h3 className="text-2xl font-bold text-[#0f172a]">Engineering Strengths</h3>
             </div>
             <ul className="space-y-5">
               {[
-                "Backend system design",
-                "AI security & guardrails",
-                "Scalable APIs",
-                "LLM orchestration systems",
-                "Production-ready software engineering"
+                "Designed transactional backend services",
+                "Implemented Kubernetes security controls",
+                "Validated distributed-system behavior",
+                "Integrated AI guardrails and agent workflows",
+                "Automated CI, load, and failure testing"
               ].map((focus, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <div className="mt-1 p-1 bg-[#ffffff] rounded border border-[#e2e8f0]" aria-hidden="true">

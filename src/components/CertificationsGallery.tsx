@@ -65,8 +65,8 @@ export function CertificationsGallery() {
     <section className="py-24 relative">
       <div className="container mx-auto px-6 max-w-6xl">
         <SectionHeader 
-          title="Verified Learning" 
-          subtitle="Professional credentials and hackathon participation validating my expertise."
+          title="Certifications" 
+          subtitle="Selected credentials relevant to security, systems, and software engineering."
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -109,7 +109,7 @@ export function CertificationsGallery() {
         </div>
 
         <div className="tech-card p-6 sm:p-8 rounded-2xl">
-          <h4 className="text-sm font-bold text-[#334155] uppercase tracking-wider mb-6 text-center">Supporting Credentials</h4>
+          <h4 className="text-sm font-bold text-[#334155] uppercase tracking-wider mb-6 text-center">Additional Credentials</h4>
           <div className="flex flex-wrap justify-center gap-3">
             {supportingCerts.map((cert, idx) => (
               <motion.button 
