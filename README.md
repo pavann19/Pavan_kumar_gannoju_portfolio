@@ -1,34 +1,32 @@
 # Pavan Kumar Gannoju — Portfolio
 
-Welcome to the source code of my personal portfolio website, focused on backend, platform, Kubernetes, Azure, and AI-security engineering evidence.
+Source code for my personal portfolio website.
 
-## 🚀 Live Site
-**[View the deployed portfolio here](https://pavann19.github.io/Pavan_kumar_gannoju_portfolio/)**
+Live site: https://pavann19.github.io/Pavan_kumar_gannoju_portfolio/
 
-> **Note:** The site is deployed via GitHub Pages.
+## Positioning
 
-## 🛠️ Featured Projects & Research
-My portfolio highlights my focus on dependable AI, runtime verification, and LLM security:
-- **[SentinAL — Secure AI Desktop Orchestration](https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration)**: My thesis project (4-person team), where I led the security and governance layer. It achieved 99.33% intent classification accuracy and 94.2% fast-path resolution on held-out queries.
-- **[Gatekeeper](https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway)**: A solo-built LLM guardrail gateway achieving 98 req/sec throughput and P95 latency of 33ms, highlighting critical blind spots in AI safety classifiers.
-- **Research**: Two unpublished manuscripts from my industry R&D work at Prodigal AI Technologies on zero-shot voice cloning (MoE) and AI tamper-proofing/adversarial defense.
+Backend / Platform Engineer focused on Java, Go, Kubernetes, Azure, AI-security systems, and evidence-backed engineering.
 
-## 💻 Tech Stack
-This portfolio site is built with modern web technologies:
-- **Framework**: Next.js (React)
-- **Styling**: Tailwind CSS
-- **Deployment**: GitHub Pages (via GitHub Actions)
+## Featured Projects
 
-## ⚙️ Running Locally
+1. LedgerLine — Java/Spring Boot financial ledger with PostgreSQL invariants, Kafka projections, k6 evidence, and Azure correctness run.
+2. ModelGate — Go/Kubernetes admission controller for signed images and verified model artifacts, with cosign, envtest, kind smoke tests, and Azure ACR evidence.
+3. SentinAL — Windows-only safe desktop-agent prototype with validation, bounded actions, and postcondition verification.
+4. QuorumKV — Go/gRPC replicated key-value store with WAL, Raft integration, fault injection, and Porcupine checks.
+5. Gatekeeper — AI-security guardrail gateway with prompt-injection, PII, evaluation, and benchmarking evidence.
+6. Agentic-OS — QEMU-only Rust/x86_64 capability-based OS project.
 
-First, install dependencies:
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- GitHub Pages
+
+## Running Locally
+
 ```bash
 npm install
-```
-
-Then, run the development server:
-```bash
 npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
