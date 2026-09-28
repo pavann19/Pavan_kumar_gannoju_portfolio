@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Pavan Kumar Gannoju | Software Engineer",
-  description: "Software Engineer | Backend Systems | Distributed Correctness | Security. Portfolio of Pavan Kumar Gannoju.",
+  description: "Backend / Platform Engineer portfolio for Java, Go, Kubernetes, Azure, and AI-security systems by Pavan Kumar Gannoju.",
 };
 
 export default function RootLayout({

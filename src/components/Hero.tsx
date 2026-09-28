@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FileText, ChevronDown } from "lucide-react";
 import { MagneticButton } from "./ui/MagneticButton";
@@ -22,7 +22,6 @@ const fadeUp = {
 };
 
 export function Hero() {
-  const shouldReduceMotion = useReducedMotion();
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-tech-grid">
       <motion.div 
@@ -33,7 +32,7 @@ export function Hero() {
       >
         {/* Badge */}
         <motion.div variants={fadeUp} className="px-4 py-2 mb-8 rounded-full border border-[#e2e8f0] bg-[#f8fafc] shadow-sm">
-             <span className="text-sm font-medium text-[#334155]">Graduated April 2026 · Pursuing Master's in Germany, Summer 2027</span>
+             <span className="text-sm font-medium text-[#334155]">Java · Go · Kubernetes · Azure · AI Security</span>
         </motion.div>
 
         {/* Name */}
@@ -43,13 +42,13 @@ export function Hero() {
 
         {/* Tagline */}
         <motion.h2 variants={fadeUp} className="text-lg sm:text-xl md:text-2xl font-semibold text-[#64748b] mb-8 px-4">
-          Software Engineer · Backend Systems · Distributed Correctness · Security
+          Backend / Platform Engineer
         </motion.h2>
 
         {/* Bio + Stats */}
         <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6 space-y-4">
           <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
-            Computer Science (AI/ML) graduate building backend and systems software, from an LLM guardrail gateway to a capability-based OS, and verifying it with tests, fuzzing and CI.
+            Building CI-backed backend, platform, and AI-security systems with honest evidence: Azure correctness runs, Kubernetes admission tests, fault injection, and QEMU-only systems work where applicable.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm font-mono">
             <span className="px-4 py-2 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a]">CGPA 8.01/10</span>
@@ -64,9 +63,14 @@ export function Hero() {
             View Projects
           </MagneticButton>
           
-          <MagneticButton variant="secondary" href={assetPath("/Pavan_Kumar_Gannoju_CV.pdf")} download="Pavan_Kumar_Gannoju_CV.pdf" target="_blank" rel="noopener noreferrer">
+          <MagneticButton variant="secondary" href={assetPath("/Pavan_Kumar_Gannoju_Backend_Germany_CV.pdf")} download="Pavan_Kumar_Gannoju_Backend_Germany_CV.pdf" target="_blank" rel="noopener noreferrer">
             <FileText className="w-5 h-5" />
             Download CV
+          </MagneticButton>
+
+          <MagneticButton variant="secondary" href={assetPath("/Pavan_Kumar_Gannoju_AI_Security_Platform_CV.pdf")} download="Pavan_Kumar_Gannoju_AI_Security_Platform_CV.pdf" target="_blank" rel="noopener noreferrer">
+            <FileText className="w-5 h-5" />
+            AI Security / Platform CV
           </MagneticButton>
 
           <MagneticButton variant="glass" className="px-4" href="https://github.com/pavann19" target="_blank" rel="noopener noreferrer" aria-label="GitHub">

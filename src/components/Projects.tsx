@@ -1,108 +1,71 @@
 "use client";
 
-import React from 'react';
 import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
 import { MagneticButton } from "./ui/MagneticButton";
 import { FaGithub } from "react-icons/fa";
-import { Network, Lock, Database, Bot, Cpu, ShieldCheck, ArrowRight } from "lucide-react";
-
-const ArchitectureDiagram = ({ flow }: { flow: string }) => {
-  const steps = flow.split(' → ');
-  return (
-    <div className="flex flex-wrap items-center gap-2 mt-4">
-      {steps.map((step, i) => (
-        <React.Fragment key={i}>
-          <div className="bg-[#f8fafc] border border-[#e2e8f0] px-3 py-2 rounded shadow-sm text-sm font-mono text-[#334155] whitespace-nowrap">
-            {step}
-          </div>
-          {i < steps.length - 1 && (
-            <ArrowRight className="w-4 h-4 text-[#cbd5e1] flex-shrink-0" />
-          )}
-        </React.Fragment>
-      ))}
-    </div>
-  );
-};
+import { ShieldCheck, ServerCog, Database, Network, Lock, Cpu, ExternalLink } from "lucide-react";
 
 const featuredProjects = [
   {
-    title: "Gatekeeper — Fail-Closed AI Security Gateway",
-    icon: <Lock className="w-8 h-8 text-[#2563eb]" />,
-    description: "Solo-built gateway that screens prompts for injection and PII before they reach an LLM, using a learned fusion of 8 detectors with German-language calibration. Profiling showed the ensemble oversubscribing CPU under concurrency; pinning torch threads and re-running the same workload raised throughput from about 10.3 to 16.0 rps and cut p95 from about 2.1 s to 1.3 s at 16 concurrent requests (p99 did not improve; one dev laptop). Trivy and SBOM run in CI.",
-    stats: [
-      { label: "Throughput @16", value: "16.0 rps" },
-      { label: "p95 @16", value: "1.3 s" },
-      { label: "Detectors", value: "8" }
-    ],
-    architecture: "Client → Auth & Rate Limit → PII + Symbolic Filter → Semantic Cache → 8-Detector Fusion → Policy Decision",
-    tech: ["Python", "FastAPI", "PyTorch", "Redis", "Prometheus"],
-    link: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway"
-  },
-  {
-    title: "Agentic-OS — Capability-Based OS in Rust",
-    icon: <Cpu className="w-8 h-8 text-[#2563eb]" />,
-    description: "From-scratch x86_64 UEFI kernel where every resource is reached through an explicit, revocable capability. GitHub Actions builds it, runs host tests, boots it in QEMU and asserts that revocation is enforced; ext2 parsers are fuzzed. A CI-only kernel crash was traced to a timer handler that never sent the LAPIC end-of-interrupt. Runs under QEMU only; docs/VERIFICATION.md lists which subsystems are verified in CI.",
-    stats: [
-      { label: "Core subsystems in CI", value: "4" },
-      { label: "Fuzz targets", value: "3" },
-      { label: "Real-hardware runs", value: "0" }
-    ],
-    architecture: "UEFI Boot → Kernel → Capability Table → Syscall / IPC → User-Space Drivers",
-    tech: ["Rust", "no_std", "UEFI", "QEMU", "GitHub Actions"],
-    link: "https://github.com/pavann19/Agentic-OS"
-  },
-  {
-    title: "LedgerLine — Double-Entry Ledger",
+    title: "LedgerLine",
     icon: <Database className="w-8 h-8 text-[#2563eb]" />,
-    description: "Ledger where the database enforces zero-sum postings and non-negative balances. Four transfer strategies (unprotected, pessimistic, optimistic, serializable) were benchmarked with k6 on a laptop with raw output committed; the deliberately broken variant produced measurable balance drift. Transactional outbox to Kafka to a deduplicating projection, tested against a real Kafka container. The AWS deployment is defined in Terraform but has not been run yet.",
-    stats: [
-      { label: "Pessimistic p95 (hot)", value: "171 ms" },
-      { label: "Optimistic p95 (hot)", value: "1.4 s" },
-      { label: "Broken: failed reqs", value: "89%" }
-    ],
-    architecture: "Client → Idempotent Transfer API → PostgreSQL (postings + outbox) → Outbox Relay → Kafka → Projection Service",
-    tech: ["Java 21", "Spring Boot", "PostgreSQL", "Kafka", "Testcontainers", "k6"],
-    link: "https://github.com/pavann19/LedgerLine"
+    problem: "Financial backend correctness system for idempotent transfers, double-entry invariants, and replay-safe projections.",
+    tech: "Java 21, Spring Boot, PostgreSQL, Kafka, Docker, k6, Azure",
+    evidence: "Azure correctness run passed smoke checks, 7,508/7,508 successful HTTP transfers, 0.00% k6 failure rate, p95 258.2ms, PostgreSQL invariant checks, and resource-group cleanup confirmed.",
+    boundary: "Low-cost Azure correctness evidence, not production capacity planning.",
+    github: "https://github.com/pavann19/LedgerLine",
+    docs: "https://github.com/pavann19/LedgerLine/blob/main/docs/experiments/03-cloud-load.md"
   },
   {
-    title: "QuorumKV — Replicated Key-Value Store",
-    icon: <Network className="w-8 h-8 text-[#2563eb]" />,
-    description: "Key-value store in Go on hashicorp/raft, with my own write-ahead log and fault-injection harness. Five fault scenarios (leader and minority partitions, rolling restarts, network delay, double-leader attempt) are recorded and checked with Porcupine, and the checker itself is validated against known-bad histories. Histories are small and benchmarks run on localhost processes.",
-    stats: [
-      { label: "Crash-recovery trials", value: "100/100" },
-      { label: "Fault scenarios", value: "5" },
-      { label: "Checker tests", value: "12" }
-    ],
-    architecture: "Client → gRPC → Raft Leader → Replicated Log → WAL + Store",
-    tech: ["Go", "gRPC", "Raft", "Porcupine"],
-    link: "https://github.com/pavann19/QuorumKV"
-  },
-  {
-    title: "ModelGate — Kubernetes Admission Control",
+    title: "ModelGate",
     icon: <ShieldCheck className="w-8 h-8 text-[#2563eb]" />,
-    description: "Admission webhook that admits only cosign-signed images and hash-verified safetensors model artifacts, and denies privileged and host-access pods. Adversarial testing found two real bypasses (post-admission image swap, ephemeral containers), both fixed; fuzzing the pickle detector broke two attempted fixes before the third held. CI runs unit, envtest, real cosign, fuzz and kind-cluster jobs.",
-    stats: [
-      { label: "CI jobs", value: "5" },
-      { label: "Bypasses fixed", value: "2" },
-      { label: "Bypass tests", value: "4" }
-    ],
-    architecture: "kubectl apply → API Server → ModelGate Webhook → Signature + Artifact + Policy Checks → Admit / Deny",
-    tech: ["Go", "Kubernetes", "controller-runtime", "cosign", "envtest"],
-    link: "https://github.com/pavann19/ModelGate"
+    problem: "Kubernetes admission controller that blocks unsigned images, privileged pods, host access, and unsafe model artifacts before they enter a cluster.",
+    tech: "Go, Kubernetes admission webhooks, CRDs, cosign, kind, Helm, Kustomize, Azure ACR",
+    evidence: "CI exercises envtest, real cosign integration, pickle fuzzing, and kind smoke tests; ACR evidence records immutable Azure registry image digest/provenance for the selected commit.",
+    boundary: "ACR proves image publication provenance; live admission behavior is proven in kind, not AKS or managed production.",
+    github: "https://github.com/pavann19/ModelGate",
+    docs: "https://github.com/pavann19/ModelGate/blob/main/docs/AZURE_ACR_EVIDENCE.md"
   },
   {
-    title: "SentinAL — Secure AI Desktop Orchestration",
-    icon: <Bot className="w-8 h-8 text-[#2563eb]" />,
-    description: "Thesis project led as a 5-member team: a desktop agent that treats the LLM as untrusted. Every action passes an allowlist, filesystem sandbox and confirmation gate outside the model, and task success is scored by checking OS state rather than the agent's own report. Runs fully offline (SENTINAL_OFFLINE=1).",
-    stats: [
-      { label: "E2E task success", value: "96.7%" },
-      { label: "Fast-path, no LLM", value: "88.45%" },
-      { label: "Tasks scored", value: "120" }
-    ],
-    architecture: "Request → Intent Router → Privacy Router → Validation Gate → Execution → Postcondition Check",
-    tech: ["Python", "FastAPI", "LLM APIs", "OpenTelemetry"],
-    link: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration"
+    title: "SentinAL",
+    icon: <Network className="w-8 h-8 text-[#2563eb]" />,
+    problem: "Bounded safe-agent prototype for translating user intent into controlled Windows desktop actions with validation and auditability.",
+    tech: "Python, FastAPI, SQLite, Windows automation, local/LLM-assisted intent handling",
+    evidence: "Windows-focused prototype with offline demo paths, allowed-vs-denied command boundaries, postcondition checks, and explicit safety verification docs.",
+    boundary: "Windows-only bounded prototype; not a general autonomous OS agent.",
+    github: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration",
+    docs: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration"
+  },
+  {
+    title: "QuorumKV",
+    icon: <ServerCog className="w-8 h-8 text-[#2563eb]" />,
+    problem: "Distributed key-value store focused on consensus boundaries, durable writes, and failure behavior that can be explained under interview scrutiny.",
+    tech: "Go, gRPC, HashiCorp Raft, WAL, fault injection, Porcupine checks",
+    evidence: "Normal CI keeps benchmarks separated behind an opt-in build tag; tests cover fsync-before-ack behavior, fault injection, and linearizability-style checks.",
+    boundary: "Distributed-systems evidence project, not a claimed production database.",
+    github: "https://github.com/pavann19/QuorumKV",
+    docs: "https://github.com/pavann19/QuorumKV/blob/main/DEMO.md"
+  },
+  {
+    title: "Gatekeeper",
+    icon: <Lock className="w-8 h-8 text-[#334155]" />,
+    problem: "LLM guardrail gateway for policy checks, classifier routing, and safety evaluation around high-risk model requests.",
+    tech: "Python, FastAPI, LLM security, classifier evaluation, benchmarking",
+    evidence: "Security-depth project with public code, guardrail architecture, and benchmark-oriented evaluation work.",
+    boundary: "Role-specific AI-security project; keep claims tied to the current public repository state.",
+    github: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway",
+    docs: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway"
+  },
+  {
+    title: "Agentic-OS",
+    icon: <Cpu className="w-8 h-8 text-[#334155]" />,
+    problem: "Native Rust OS exploration for capability-scoped agent interfaces, typed introspection, auditability, and policy boundaries.",
+    tech: "Rust, QEMU, kernel development, serial tests, systems safety",
+    evidence: "QEMU-backed build and boot evidence with systems/security documentation and explicit physical-hardware readiness boundaries.",
+    boundary: "QEMU-only systems differentiator; no physical-hardware readiness claim.",
+    github: "https://github.com/pavann19/Agentic-OS",
+    docs: "https://github.com/pavann19/Agentic-OS"
   }
 ];
 
@@ -112,69 +75,50 @@ export function Projects() {
       <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeader 
           title="Featured Projects" 
-          subtitle="Engineering large-scale architectures, secure access systems, and AI-integrated backends."
+          subtitle="Flagship work ordered for backend, platform, AI-security, and systems roles. Each card separates evidence from what is not claimed."
         />
 
-        <div className="space-y-12">
+        <div className="grid lg:grid-cols-2 gap-6">
           {featuredProjects.map((project, idx) => (
-            <GlassCard key={idx} className="p-0 overflow-hidden group bg-[#f8fafc] border-[#e2e8f0]" delay={idx * 0.1}>
-              <div className="flex flex-col lg:flex-row">
-                
-                {/* Left Content Area */}
-                <div className="w-full lg:w-[45%] p-6 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#e2e8f0] flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="p-4 bg-[#ffffff] rounded-xl border border-[#e2e8f0]" aria-hidden="true">
-                        {project.icon}
-                      </div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] tracking-tight">{project.title}</h3>
-                    </div>
-                    
-                    <p className="text-lg text-[#334155] leading-relaxed mb-8">
-                      {project.description}
-                    </p>
-
-                    {project.stats && (
-                      <div className="grid grid-cols-3 gap-4 mb-8">
-                        {project.stats.map((stat, sIdx) => (
-                          <div key={sIdx} className="p-3 bg-[#ffffff] rounded-lg border border-[#e2e8f0] text-center">
-                            <div className="text-xl sm:text-2xl font-bold font-mono text-[#0f172a]">{stat.value}</div>
-                            <div className="text-xs font-semibold text-[#64748b] uppercase tracking-wider mt-1">{stat.label}</div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="space-y-8 mt-4">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((t, tIdx) => (
-                        <span key={tIdx} className="px-3 py-1 text-xs font-mono rounded-lg bg-[#ffffff] text-[#334155] border border-[#e2e8f0]">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-
-                    <MagneticButton variant="secondary" className="w-fit" href={project.link} target="_blank" rel="noopener noreferrer">
-                      <FaGithub className="w-5 h-5" />
-                      View Source
-                    </MagneticButton>
-                  </div>
+            <GlassCard key={project.title} className="p-6 sm:p-8 flex flex-col gap-6 bg-[#f8fafc] border-[#e2e8f0]" delay={idx * 0.08}>
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-[#ffffff] rounded-lg border border-[#e2e8f0] shrink-0" aria-hidden="true">
+                  {project.icon}
                 </div>
-
-                {/* Right Architecture Area */}
-                <div className="w-full lg:w-[55%] p-6 sm:p-8 lg:p-12 bg-[#ffffff] flex items-center justify-center relative overflow-hidden">
-                  <div className="bg-tech-grid absolute inset-0" />
-                  
-                  <div className="relative z-10 w-full p-4 sm:p-6 rounded-xl border border-[#e2e8f0] bg-[#f8fafc] shadow-lg">
-                    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#e2e8f0]">
-                      <Network className="w-5 h-5 text-[#64748b]" aria-hidden="true"/>
-                      <span className="text-sm font-semibold text-[#334155] uppercase tracking-wider">Architecture Flow</span>
-                    </div>
-                    
-                    <ArchitectureDiagram flow={project.architecture} />
-                  </div>
+                <div>
+                  <p className="text-xs font-mono text-[#64748b] mb-1">0{idx + 1}</p>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] tracking-tight">{project.title}</h3>
                 </div>
+              </div>
+
+              <dl className="space-y-4 text-sm sm:text-base">
+                <div>
+                  <dt className="font-semibold text-[#0f172a]">One-line problem</dt>
+                  <dd className="text-[#334155] leading-relaxed mt-1">{project.problem}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-[#0f172a]">Tech stack</dt>
+                  <dd className="text-[#334155] leading-relaxed mt-1">{project.tech}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-[#0f172a]">Verified evidence</dt>
+                  <dd className="text-[#334155] leading-relaxed mt-1">{project.evidence}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-[#0f172a]">Boundary</dt>
+                  <dd className="text-[#334155] leading-relaxed mt-1">{project.boundary}</dd>
+                </div>
+              </dl>
+
+              <div className="flex flex-wrap gap-3 mt-auto pt-2">
+                <MagneticButton variant="secondary" className="w-fit" href={project.github} target="_blank" rel="noopener noreferrer">
+                  <FaGithub className="w-5 h-5" />
+                  GitHub
+                </MagneticButton>
+                <MagneticButton variant="glass" className="w-fit" href={project.docs} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-5 h-5" />
+                  Docs / Evidence
+                </MagneticButton>
               </div>
             </GlassCard>
           ))}

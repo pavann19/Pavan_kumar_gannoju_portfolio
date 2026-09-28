@@ -1,6 +1,6 @@
 # Pavan Kumar Gannoju — Portfolio
 
-Welcome to the source code of my personal portfolio website, built to showcase my academic research, software engineering experience, and technical projects. I am a Master's applicant in Computer Science / AI Security (B.Tech CSE, AI & ML, graduated April 2026), specifically targeting Summer 2027 admissions in Germany.
+Welcome to the source code of my personal portfolio website, focused on backend, platform, Kubernetes, Azure, and AI-security engineering evidence.
 
 ## 🚀 Live Site
 **[View the deployed portfolio here](https://pavann19.github.io/Pavan_kumar_gannoju_portfolio/)**
