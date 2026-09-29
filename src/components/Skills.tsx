@@ -24,7 +24,7 @@ const skillsData = [
   {
     title: "AI Systems",
     icon: <BrainCircuit className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["RAG", "LLM Guardrails", "Agentic Workflows", "Model Security", "PyTorch"]
+    skills: ["LLM Guardrails", "Agent Safety", "Policy Gates", "Model Artifact Security", "Evaluation Harnesses"]
   },
   {
     title: "Security & Validation",
@@ -34,7 +34,7 @@ const skillsData = [
   {
     title: "Datastores & Search",
     icon: <Wrench className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["PostgreSQL", "MySQL", "SQLite", "FAISS"]
+    skills: ["PostgreSQL", "MySQL", "SQLite", "Audit Logs"]
   }
 ];
 

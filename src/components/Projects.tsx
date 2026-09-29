@@ -6,7 +6,7 @@ import { MagneticButton } from "./ui/MagneticButton";
 import { FaGithub } from "react-icons/fa";
 import { ShieldCheck, ServerCog, Database, Network, Lock, Cpu, ExternalLink } from "lucide-react";
 
-const featuredProjects = [
+const flagshipProjects = [
   {
     title: "LedgerLine",
     icon: <Database className="w-8 h-8 text-[#2563eb]" />,
@@ -77,8 +77,11 @@ const featuredProjects = [
     ],
     note: "Engineering project for distributed-systems behavior and failure semantics.",
     github: "https://github.com/pavann19/QuorumKV",
-    docs: "https://github.com/pavann19/QuorumKV/blob/main/DEMO.md"
-  },
+    docs: "https://github.com/pavann19/QuorumKV/blob/main/docs/DEMO.md"
+  }
+];
+
+const roleSpecificProjects = [
   {
     title: "Gatekeeper",
     icon: <Lock className="w-8 h-8 text-[#334155]" />,
@@ -117,69 +120,87 @@ const featuredProjects = [
   }
 ];
 
+function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[number] | (typeof roleSpecificProjects)[number]; idx: number }) {
+  return (
+    <GlassCard key={project.title} className="p-6 sm:p-8 flex flex-col gap-6 bg-[#f8fafc] border-[#e2e8f0]" delay={idx * 0.08}>
+      <div className="flex items-start gap-4">
+        <div className="p-3 bg-[#ffffff] rounded-lg border border-[#e2e8f0] shrink-0" aria-hidden="true">
+          {project.icon}
+        </div>
+        <div>
+          <p className="text-xs font-mono text-[#64748b] mb-1">0{idx + 1}</p>
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] tracking-tight">{project.title}</h3>
+        </div>
+      </div>
+
+      <p className="text-[#334155] leading-relaxed">{project.tagline}</p>
+
+      <p className="text-sm font-mono text-[#334155] bg-[#ffffff] border border-[#e2e8f0] rounded-lg px-4 py-3">
+        {project.tech}
+      </p>
+
+      <div className="grid sm:grid-cols-3 gap-3">
+        {project.metrics.map((metric) => (
+          <div key={`${project.title}-${metric.label}`} className="bg-[#ffffff] border border-[#e2e8f0] rounded-lg p-4">
+            <div className="text-xl font-bold font-mono text-[#0f172a] leading-tight">{metric.value}</div>
+            <div className="text-xs text-[#64748b] font-semibold uppercase tracking-wider mt-2">{metric.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <ul className="space-y-3">
+        {project.outcomes.map((outcome) => (
+          <li key={`${project.title}-${outcome}`} className="text-sm text-[#334155] leading-relaxed flex gap-3">
+            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#2563eb] shrink-0" />
+            <span>{outcome}</span>
+          </li>
+        ))}
+      </ul>
+
+      <details className="rounded-lg border border-[#e2e8f0] bg-[#ffffff] px-4 py-3 text-sm text-[#334155]">
+        <summary className="cursor-pointer font-semibold text-[#0f172a]">Evidence & limitations</summary>
+        <p className="mt-3 leading-relaxed">{project.note}</p>
+      </details>
+
+      <div className="flex flex-wrap gap-3 mt-auto pt-2">
+        <MagneticButton variant="secondary" className="w-fit" href={project.github} target="_blank" rel="noopener noreferrer">
+          <FaGithub className="w-5 h-5" />
+          GitHub
+        </MagneticButton>
+        <MagneticButton variant="glass" className="w-fit" href={project.docs} target="_blank" rel="noopener noreferrer">
+          <ExternalLink className="w-5 h-5" />
+          Docs / Evidence
+        </MagneticButton>
+      </div>
+    </GlassCard>
+  );
+}
+
 export function Projects() {
   return (
     <section id="projects" className="py-24 relative bg-[#ffffff]">
       <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeader 
           title="Featured Projects" 
-          subtitle="Backend, platform, distributed-systems, and AI-security projects with measurable engineering outcomes."
+          subtitle="Default flagship projects for backend, platform, distributed-systems, and AI-security applications."
         />
 
         <div className="grid lg:grid-cols-2 gap-6">
-          {featuredProjects.map((project, idx) => (
-            <GlassCard key={project.title} className="p-6 sm:p-8 flex flex-col gap-6 bg-[#f8fafc] border-[#e2e8f0]" delay={idx * 0.08}>
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#ffffff] rounded-lg border border-[#e2e8f0] shrink-0" aria-hidden="true">
-                  {project.icon}
-                </div>
-                <div>
-                  <p className="text-xs font-mono text-[#64748b] mb-1">0{idx + 1}</p>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] tracking-tight">{project.title}</h3>
-                </div>
-              </div>
-
-              <p className="text-[#334155] leading-relaxed">{project.tagline}</p>
-
-              <p className="text-sm font-mono text-[#334155] bg-[#ffffff] border border-[#e2e8f0] rounded-lg px-4 py-3">
-                {project.tech}
-              </p>
-
-              <div className="grid sm:grid-cols-3 gap-3">
-                {project.metrics.map((metric) => (
-                  <div key={`${project.title}-${metric.label}`} className="bg-[#ffffff] border border-[#e2e8f0] rounded-lg p-4">
-                    <div className="text-xl font-bold font-mono text-[#0f172a] leading-tight">{metric.value}</div>
-                    <div className="text-xs text-[#64748b] font-semibold uppercase tracking-wider mt-2">{metric.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <ul className="space-y-3">
-                {project.outcomes.map((outcome) => (
-                  <li key={`${project.title}-${outcome}`} className="text-sm text-[#334155] leading-relaxed flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#2563eb] shrink-0" />
-                    <span>{outcome}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <details className="rounded-lg border border-[#e2e8f0] bg-[#ffffff] px-4 py-3 text-sm text-[#334155]">
-                <summary className="cursor-pointer font-semibold text-[#0f172a]">Evidence & limitations</summary>
-                <p className="mt-3 leading-relaxed">{project.note}</p>
-              </details>
-
-              <div className="flex flex-wrap gap-3 mt-auto pt-2">
-                <MagneticButton variant="secondary" className="w-fit" href={project.github} target="_blank" rel="noopener noreferrer">
-                  <FaGithub className="w-5 h-5" />
-                  GitHub
-                </MagneticButton>
-                <MagneticButton variant="glass" className="w-fit" href={project.docs} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-5 h-5" />
-                  Docs / Evidence
-                </MagneticButton>
-              </div>
-            </GlassCard>
+          {flagshipProjects.map((project, idx) => (
+            <ProjectCard key={project.title} project={project} idx={idx} />
           ))}
+        </div>
+
+        <div className="mt-16">
+          <SectionHeader
+            title="Role-Specific Depth"
+            subtitle="Additional projects used selectively for AI-security, Rust, and low-level systems roles."
+          />
+          <div className="grid lg:grid-cols-2 gap-6">
+            {roleSpecificProjects.map((project, idx) => (
+              <ProjectCard key={project.title} project={project} idx={idx + flagshipProjects.length} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
