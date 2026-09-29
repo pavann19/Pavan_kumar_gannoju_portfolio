@@ -23,13 +23,13 @@ export function About() {
             </div>
             <div className="space-y-6 text-[#334155] leading-relaxed text-lg font-medium">
               <p>
-                I build backend and platform systems where correctness, reliability, and security matter. My work spans transactional APIs, replicated services, Kubernetes admission control, LLM guardrails, and safe agent runtimes.
+                I work on the parts of backend engineering that are easy to get wrong and hard to debug when you do. Distributed consistency, failure recovery, admission control, LLM guardrails — systems where the cost of a mistake is not a typo, it's a production incident.
               </p>
               <p>
-                I design and implement systems with measurable validation: automated tests, CI, fault injection, load experiments, fuzzing, and cloud-based deployments. The goal is practical engineering that a reviewer can inspect, run, and discuss.
+                Everything I build has validation attached to it. Automated tests, CI, fault injection, load runs, fuzzing — not because it's best practice, but because I don't trust systems I can't break on purpose.
               </p>
               <p>
-                I am strongest at the intersection of backend engineering, platform infrastructure, distributed-systems behavior, and secure AI applications.
+                The overlap between backend correctness, platform security, and AI safety is where I do my best work. That's not a pivot — it's the same problem at different layers.
               </p>
             </div>
           </GlassCard>
@@ -37,17 +37,17 @@ export function About() {
           <GlassCard className="md:col-span-5 p-6 sm:p-8 md:p-10" delay={0.2}>
             <div className="flex items-center gap-3 mb-8">
               <div className="p-3 bg-[#ffffff] rounded-xl border border-[#e2e8f0]" aria-hidden="true">
-                <Target className="w-6 h-6 text-[#334155]" />
+                <Target className="w-6 h-6 text-[#2563eb]" />
               </div>
               <h3 className="text-2xl font-bold text-[#0f172a]">Engineering Strengths</h3>
             </div>
             <ul className="space-y-5">
               {[
-                "Designed transactional backend services",
-                "Implemented Kubernetes security controls",
-                "Validated distributed-system behavior",
-                "Integrated AI guardrails and agent workflows",
-                "Automated CI, load, and failure testing"
+                "Transactional backends that hold under load",
+                "Kubernetes admission control and policy enforcement",
+                "Distributed systems that fail predictably",
+                "AI guardrails that actually reject bad inputs",
+                "CI pipelines with real fault injection and load tests"
               ].map((focus, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <div className="mt-1 p-1 bg-[#ffffff] rounded border border-[#e2e8f0]" aria-hidden="true">
