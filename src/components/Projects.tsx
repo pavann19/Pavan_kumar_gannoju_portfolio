@@ -96,7 +96,7 @@ const roleSpecificProjects = [
       "Implemented request screening, detector routing, semantic cache behavior, and policy decision logic.",
       "Measured latency and throughput under fixed workloads to identify concurrency bottlenecks."
     ],
-    note: "AI-security depth project for guardrail and infrastructure roles.",
+    note: "Built to answer one question: what happens when the model is wrong? Turns out, a lot.",
     github: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway",
     docs: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway"
   },
@@ -114,7 +114,7 @@ const roleSpecificProjects = [
       "Implemented kernel-level capability concepts, typed interfaces, and systems-safety documentation.",
       "Automated QEMU boot checks and host-side tests for reproducible systems validation."
     ],
-    note: "QEMU-only systems project.",
+    note: "Runs in QEMU. Written in Rust. Built because I wanted to know what's actually underneath.",
     github: "https://github.com/pavann19/Agentic-OS",
     docs: "https://github.com/pavann19/Agentic-OS"
   }
@@ -182,7 +182,7 @@ export function Projects() {
       <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeader 
           title="Featured Projects" 
-          subtitle="Default flagship projects for backend, platform, distributed-systems, and AI-security applications."
+          subtitle="Things I built to prove a point. Every one ships, runs, and has evidence."
         />
 
         <div className="grid lg:grid-cols-2 gap-6">
@@ -194,7 +194,7 @@ export function Projects() {
         <div className="mt-16">
           <SectionHeader
             title="Role-Specific Depth"
-            subtitle="Additional projects used selectively for AI-security, Rust, and low-level systems roles."
+            subtitle="Pulled out when the role demands depth. Not for show — for the right conversation."
           />
           <div className="grid lg:grid-cols-2 gap-6">
             {roleSpecificProjects.map((project, idx) => (
