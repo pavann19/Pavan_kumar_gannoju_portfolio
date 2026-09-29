@@ -123,8 +123,9 @@ const roleSpecificProjects = [
 function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[number] | (typeof roleSpecificProjects)[number]; idx: number }) {
   const cardNumber = String(idx + 1).padStart(2, "0");
   return (
-    <GlassCard className="p-8 sm:p-10 flex flex-col gap-5 bg-[#f8fafc] border-[#e2e8f0]" delay={idx * 0.08}>
-      {/* Header */}
+    <GlassCard className="p-8 sm:p-10 flex flex-col bg-[#f8fafc] border-[#e2e8f0]" delay={idx * 0.08}>
+
+      {/* ── Identity ── */}
       <div className="flex items-start gap-4">
         <div className="p-3 bg-[#ffffff] rounded-xl border border-[#e2e8f0] shrink-0" aria-hidden="true">
           {project.icon}
@@ -135,16 +136,16 @@ function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[numb
         </div>
       </div>
 
-      {/* Tagline */}
-      <p className="text-[#475569] leading-relaxed text-base">{project.tagline}</p>
+      <p className="text-[#475569] leading-relaxed text-base mt-4">{project.tagline}</p>
 
-      {/* Tech stack */}
+      <hr className="border-[#e2e8f0] my-5" />
+
+      {/* ── Context ── */}
       <p className="text-sm font-mono text-[#334155] bg-[#ffffff] border border-[#e2e8f0] rounded-xl px-4 py-3 leading-relaxed">
         {project.tech}
       </p>
 
-      {/* Metrics */}
-      <div className="grid sm:grid-cols-3 gap-3">
+      <div className="grid sm:grid-cols-3 gap-3 mt-4">
         {project.metrics.map((metric) => (
           <div key={`${project.title}-${metric.label}`} className="bg-[#ffffff] border border-[#e2e8f0] rounded-xl p-4">
             <div className="text-xl font-bold font-mono text-[#0f172a] leading-tight">{metric.value}</div>
@@ -153,7 +154,9 @@ function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[numb
         ))}
       </div>
 
-      {/* Outcomes */}
+      <hr className="border-[#e2e8f0] my-5" />
+
+      {/* ── What was built ── */}
       <ul className="space-y-4">
         {project.outcomes.map((outcome) => (
           <li key={`${project.title}-${outcome}`} className="text-sm text-[#334155] leading-relaxed flex gap-3 items-start">
@@ -163,14 +166,15 @@ function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[numb
         ))}
       </ul>
 
-      {/* Evidence */}
+      <hr className="border-[#e2e8f0] my-5" />
+
+      {/* ── Evidence & actions ── */}
       <details className="rounded-xl border border-[#e2e8f0] bg-[#ffffff] px-5 py-4 text-sm text-[#334155]">
         <summary className="cursor-pointer font-semibold text-[#0f172a] select-none">Evidence &amp; limitations</summary>
         <p className="mt-3 leading-relaxed text-[#475569]">{project.note}</p>
       </details>
 
-      {/* Actions */}
-      <div className="flex flex-wrap gap-3 mt-auto pt-1">
+      <div className="flex flex-wrap gap-3 mt-6">
         <MagneticButton variant="secondary" className="w-fit" href={project.github} target="_blank" rel="noopener noreferrer">
           <FaGithub className="w-5 h-5" />
           GitHub
@@ -180,6 +184,7 @@ function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[numb
           Docs / Evidence
         </MagneticButton>
       </div>
+
     </GlassCard>
   );
 }
