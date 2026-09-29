@@ -11,7 +11,7 @@ export function GithubActivity() {
       <div className="container mx-auto px-6 max-w-5xl">
         <SectionHeader 
           title="GitHub" 
-          subtitle="Public repositories with implementation details, runbooks, CI workflows, and engineering notes."
+          subtitle="Everything is public. The code is the CV."
         />
 
         <GlassCard className="p-8 md:p-12 text-center" delay={0.1}>
@@ -23,27 +23,27 @@ export function GithubActivity() {
             <div className="space-y-4">
               <h3 className="text-3xl font-bold text-[#0f172a]">@pavann19</h3>
               <p className="text-[#64748b] max-w-lg mx-auto leading-relaxed">
-                My public repositories show how I structure backend services, validate distributed systems, document platform work, and package security-focused AI infrastructure.
+                I don't explain what I build in READMEs and then hide the implementation. The repos have runbooks, CI, failure tests, and evidence. Open any of them.
               </p>
             </div>
             
             <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
-              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
+              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#e2e8f0] flex items-center gap-2">
                 <FaTerminal className="w-3 h-3" /> Python
               </span>
-              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
+              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#e2e8f0] flex items-center gap-2">
                 <FaTerminal className="w-3 h-3" /> TypeScript
               </span>
-              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
+              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#e2e8f0] flex items-center gap-2">
                 <FaTerminal className="w-3 h-3" /> Java
               </span>
-              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
+              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#e2e8f0] flex items-center gap-2">
                 <FaTerminal className="w-3 h-3" /> Go
               </span>
-              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
+              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#e2e8f0] flex items-center gap-2">
                 <FaTerminal className="w-3 h-3" /> Rust
               </span>
-              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#f8fafc] flex items-center gap-2">
+              <span className="px-4 py-2 bg-[#ffffff] rounded-full text-xs font-mono text-[#2563eb] border border-[#e2e8f0] flex items-center gap-2">
                 <FaTerminal className="w-3 h-3" /> React & Next.js
               </span>
             </div>

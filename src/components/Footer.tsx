@@ -8,7 +8,7 @@ export function Footer() {
         <div className="flex flex-col items-center md:items-start gap-1">
           <span className="text-[#0f172a] text-sm font-semibold">Pavan Kumar Gannoju</span>
           <p className="text-[#64748b] text-xs">
-            © {new Date().getFullYear()} · Built with Next.js
+            © {new Date().getFullYear()} · Pavan Kumar Gannoju
           </p>
         </div>
         <div className="flex gap-6">
