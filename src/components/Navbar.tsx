@@ -98,6 +98,8 @@ export function Navbar() {
         <button 
           className="md:hidden relative z-20 p-2 text-[#0f172a]"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
         </button>
