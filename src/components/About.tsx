@@ -10,7 +10,7 @@ export function About() {
       <div className="container mx-auto px-6 max-w-6xl">
         <SectionHeader 
           title="About Me" 
-          subtitle="Backend, infrastructure, distributed systems, and secure AI applications."
+          subtitle="Most engineers avoid the hard problems. I specifically look for them."
         />
 
         <div className="grid md:grid-cols-12 gap-8">
