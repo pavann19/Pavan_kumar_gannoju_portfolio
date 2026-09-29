@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -18,6 +18,13 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 180,
+    damping: 24,
+    restDelta: 0.001,
+  });
+
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -31,9 +38,9 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
 
-      const sections = navItems.map(item => item.href.substring(1));
+      const sections = navItems.map((item) => item.href.substring(1));
       let current = "";
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -54,39 +61,55 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 border-b ${
-        scrolled 
-          ? "py-4 bg-[#ffffff]/90 backdrop-blur-xl border-[#e2e8f0] shadow-lg" 
-          : "py-6 bg-transparent border-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "py-3 bg-white/70 backdrop-blur-2xl backdrop-saturate-[190%] border-b border-white/60 shadow-[0_10px_35px_-5px_rgba(15,23,42,0.06),0_1px_3px_0_rgba(15,23,42,0.04),inset_0_1px_0_0_rgba(255,255,255,0.9)]"
+          : "py-5 bg-white/30 backdrop-blur-md backdrop-saturate-150 border-b border-white/20"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="#home" className="group flex items-center gap-1.5 text-2xl font-black tracking-tight text-[#0f172a] relative z-20">
-          <span className="text-[#0f172a] group-hover:text-[#2563eb] transition-colors">Pavan</span>
-          <span className="w-2.5 h-2.5 rounded-full bg-[#2563eb] group-hover:scale-125 transition-transform duration-300" />
+        {/* Brand with Apple-style Live Breathing Beacon */}
+        <Link
+          href="#home"
+          className="group flex items-center gap-2 text-2xl font-black tracking-tight text-[#0f172a] relative z-20"
+        >
+          <span className="tracking-tight text-[#0f172a] group-hover:text-[#2563eb] transition-colors">
+            Pavan
+          </span>
+          <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2563eb] shadow-[0_0_8px_rgba(37,99,235,0.8)]" />
+          </span>
         </Link>
 
-        <nav className={`hidden md:flex items-center gap-2 px-6 py-2 rounded-full transition-all duration-500 ${
-          scrolled ? "bg-[#f8fafc] border border-[#e2e8f0]" : "bg-transparent"
-        }`}>
+        {/* Apple Dynamic Island / Floating Glass Capsule Nav */}
+        <nav
+          className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-500 ${
+            scrolled
+              ? "bg-white/60 backdrop-blur-xl border border-white/80 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.04)]"
+              : "bg-white/40 backdrop-blur-md border border-white/50 shadow-sm"
+          }`}
+        >
           {navItems.map((item) => {
             const isActive = activeSection === item.href.substring(1);
             return (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors ${
-                  isActive ? "text-[#0f172a]" : "text-[#334155] hover:text-[#0f172a]"
+                className={`relative px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 ${
+                  isActive
+                    ? "text-[#2563eb] font-semibold"
+                    : "text-[#475569] hover:text-[#0f172a] hover:bg-slate-900/[0.03]"
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeNavIndicator"
-                    className="absolute inset-0 bg-[#e2e8f0] rounded-full z-[-1]"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className="absolute inset-0 bg-white/95 rounded-full z-[-1] border border-blue-500/15 shadow-[0_2px_10px_rgba(37,99,235,0.12),inset_0_1px_0_rgba(255,255,255,1)]"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
                 {item.name}
@@ -95,34 +118,84 @@ export function Navbar() {
           })}
         </nav>
 
-        <button 
-          className="md:hidden relative z-20 p-2 text-[#0f172a]"
+        {/* Right CTA - iOS Glass Action Pill (Desktop) */}
+        <div className="hidden md:flex items-center">
+          <Link
+            href="#contact"
+            className="group inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-wide rounded-full bg-blue-600/10 hover:bg-[#2563eb] text-[#2563eb] hover:text-white border border-blue-500/20 hover:border-[#2563eb] backdrop-blur-md shadow-[0_2px_8px_rgba(37,99,235,0.08)] hover:shadow-[0_4px_14px_rgba(37,99,235,0.35)] transition-all duration-300 active:scale-95"
+          >
+            <span>Let&apos;s Connect</span>
+            <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </div>
+
+        {/* Mobile Menu Glass Button */}
+        <button
+          className="md:hidden relative z-20 p-2.5 rounded-full bg-white/60 backdrop-blur-md border border-slate-200/80 text-[#0f172a] shadow-sm active:scale-90 transition-transform"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X /> : <Menu />}
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
 
-        <div className={`fixed inset-0 bg-[#ffffff]/95 backdrop-blur-xl z-10 flex flex-col items-center justify-center transition-all duration-500 md:hidden overflow-y-auto py-20 ${
-          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}>
-          <div className="flex flex-col items-center gap-8 my-auto">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`text-2xl font-bold transition-colors ${
-                  activeSection === item.href.substring(1) ? "text-[#2563eb]" : "text-[#0f172a] hover:text-[#2563eb]"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+        {/* Mobile Fullscreen Liquid Glass Sheet */}
+        <div
+          className={`fixed inset-0 bg-white/85 backdrop-blur-3xl backdrop-saturate-[180%] z-10 flex flex-col items-center justify-center transition-all duration-500 md:hidden overflow-y-auto py-20 ${
+            mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <div className="flex flex-col items-center gap-6 my-auto w-full px-8 max-w-sm">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.substring(1);
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`w-full text-center py-3.5 px-6 rounded-2xl text-xl font-bold transition-all duration-300 border ${
+                    isActive
+                      ? "bg-blue-600/10 text-[#2563eb] border-blue-500/20 shadow-sm"
+                      : "bg-white/50 text-[#0f172a] border-slate-200/60 hover:bg-white/80 hover:text-[#2563eb]"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+
+            <Link
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center mt-4 py-3.5 px-6 rounded-2xl text-base font-semibold bg-[#2563eb] text-white shadow-[0_4px_16px_rgba(37,99,235,0.35)] active:scale-95 transition-transform"
+            >
+              Get in Touch
+            </Link>
           </div>
         </div>
       </div>
+
+      {/* --- UNDER THE NAV BAR: Apple iOS 27 Glassmorphism Optical Effects --- */}
+      {/* 1. Prismatic Chromatic Light Refraction Edge */}
+      <div
+        className={`absolute bottom-0 inset-x-0 h-[1px] transition-opacity duration-500 pointer-events-none ${
+          scrolled ? "opacity-100" : "opacity-50"
+        } bg-gradient-to-r from-transparent via-blue-500/40 via-indigo-500/35 via-cyan-400/30 to-transparent`}
+      />
+
+      {/* 2. Liquid Glass Caustic Under-Glow Aura */}
+      <div
+        className={`absolute -bottom-5 inset-x-0 h-5 pointer-events-none transition-opacity duration-700 bg-gradient-to-b from-blue-500/[0.04] via-indigo-500/[0.015] to-transparent blur-[2px] ${
+          scrolled ? "opacity-100" : "opacity-0"
+        }`}
+      />
+
+      {/* 3. Dynamic Liquid Light Scroll Beam (Reading / Scroll Progress) */}
+      <motion.div
+        style={{ scaleX }}
+        className="absolute bottom-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-blue-600 via-indigo-500 via-sky-400 to-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.8),0_0_4px_rgba(56,189,248,0.6)] pointer-events-none"
+      />
     </motion.header>
   );
 }
+
