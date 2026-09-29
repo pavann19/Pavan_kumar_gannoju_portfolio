@@ -84,7 +84,7 @@ const flagshipProjects = [
 const roleSpecificProjects = [
   {
     title: "Gatekeeper",
-    icon: <Lock className="w-8 h-8 text-[#334155]" />,
+    icon: <Lock className="w-8 h-8 text-[#2563eb]" />,
     tagline: "LLM guardrail gateway for prompt-risk detection, policy decisions, and safe request routing.",
     tech: "Python, FastAPI, LLM security, classifier evaluation, benchmarking",
     metrics: [
@@ -102,7 +102,7 @@ const roleSpecificProjects = [
   },
   {
     title: "Agentic-OS",
-    icon: <Cpu className="w-8 h-8 text-[#334155]" />,
+    icon: <Cpu className="w-8 h-8 text-[#2563eb]" />,
     tagline: "Rust operating-system prototype for capability-scoped interfaces, policy, and auditability.",
     tech: "Rust, QEMU, kernel development, serial tests, systems safety",
     metrics: [
@@ -182,25 +182,13 @@ export function Projects() {
       <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeader 
           title="Featured Projects" 
-          subtitle="Things I built to prove a point. Every one ships, runs, and has evidence."
+          subtitle="Real environments. Every project ships, runs, and has evidence."
         />
 
         <div className="grid lg:grid-cols-2 gap-6">
-          {flagshipProjects.map((project, idx) => (
+          {[...flagshipProjects, ...roleSpecificProjects].map((project, idx) => (
             <ProjectCard key={project.title} project={project} idx={idx} />
           ))}
-        </div>
-
-        <div className="mt-16">
-          <SectionHeader
-            title="Role-Specific Depth"
-            subtitle="Pulled out when the role demands depth. Not for show — for the right conversation."
-          />
-          <div className="grid lg:grid-cols-2 gap-6">
-            {roleSpecificProjects.map((project, idx) => (
-              <ProjectCard key={project.title} project={project} idx={idx + flagshipProjects.length} />
-            ))}
-          </div>
         </div>
       </div>
     </section>
