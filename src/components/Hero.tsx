@@ -30,29 +30,24 @@ export function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Badge */}
         <motion.div variants={fadeUp} className="px-4 py-2 mb-8 rounded-full border border-[#e2e8f0] bg-[#f8fafc] shadow-sm">
              <span className="text-sm font-medium text-[#334155]">Java · Go · Kubernetes · Azure · AI Security</span>
         </motion.div>
 
-        {/* Name */}
         <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#0f172a] mb-6 px-4">
           Pavan Kumar Gannoju
         </motion.h1>
 
-        {/* Tagline */}
         <motion.h2 variants={fadeUp} className="text-lg sm:text-xl md:text-2xl font-semibold text-[#64748b] mb-8 px-4">
           Backend & Platform Engineer
         </motion.h2>
 
-        {/* Bio + Stats */}
         <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6">
           <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
             I build reliable backend and infrastructure systems using Java, Go, Kubernetes, and cloud-native tooling, with deep work across distributed systems and AI security.
           </p>
         </motion.div>
 
-        {/* CTA */}
         <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
           <MagneticButton variant="primary" href="#projects">
             View Projects
@@ -73,7 +68,6 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div 
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}

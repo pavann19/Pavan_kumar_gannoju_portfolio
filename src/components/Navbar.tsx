@@ -33,14 +33,12 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      // Scroll Spy Logic
       const sections = navItems.map(item => item.href.substring(1));
       let current = "";
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // if the top of the section is above the middle of the screen
           if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
             current = section;
           }
@@ -50,7 +48,6 @@ export function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    // trigger once to set initial state
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -72,7 +69,6 @@ export function Navbar() {
           <span className="w-2.5 h-2.5 rounded-full bg-[#2563eb] group-hover:scale-125 transition-transform duration-300" />
         </Link>
 
-        {/* Desktop Nav */}
         <nav className={`hidden md:flex items-center gap-2 px-6 py-2 rounded-full transition-all duration-500 ${
           scrolled ? "bg-[#f8fafc] border border-[#e2e8f0]" : "bg-transparent"
         }`}>
@@ -99,7 +95,6 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Mobile Toggle */}
         <button 
           className="md:hidden relative z-20 p-2 text-[#0f172a]"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -107,7 +102,6 @@ export function Navbar() {
           {mobileMenuOpen ? <X /> : <Menu />}
         </button>
 
-        {/* Mobile Menu */}
         <div className={`fixed inset-0 bg-[#ffffff]/95 backdrop-blur-xl z-10 flex flex-col items-center justify-center transition-all duration-500 md:hidden overflow-y-auto py-20 ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}>

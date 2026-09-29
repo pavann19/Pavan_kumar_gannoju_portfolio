@@ -49,14 +49,12 @@ export function Experience() {
         />
 
         <div className="relative">
-          {/* Timeline Line */}
           <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-[#e2e8f0] rounded-full" />
 
           <div className="space-y-16">
             {experiences.map((exp, idx) => (
               <div key={idx} className={`relative flex flex-col md:flex-row ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''} gap-8 items-start`}>
                 
-                {/* Timeline Dot */}
                 <div className="absolute left-8 md:left-1/2 -translate-x-1/2 mt-1.5 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-[#f8fafc] border border-[#1d4ed8]">
                   <div className="w-2.5 h-2.5 bg-[#1d4ed8] rounded-full" />
                 </div>

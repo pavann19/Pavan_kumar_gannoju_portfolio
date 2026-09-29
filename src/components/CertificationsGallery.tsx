@@ -45,7 +45,6 @@ const supportingCerts = [
 export function CertificationsGallery() {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
 
-  // Close modal on Escape key
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') setSelectedCert(null);
   }, []);
@@ -126,7 +125,6 @@ export function CertificationsGallery() {
         </div>
       </div>
 
-      {/* Modal for PDF/Image preview */}
       <AnimatePresence>
         {selectedCert && (
           <motion.div 

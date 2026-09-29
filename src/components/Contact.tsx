@@ -19,17 +19,16 @@ export function Contact() {
 
     emailjs
       .sendForm(
-        "service_ip7ds88", // Service ID
-        "template_1uf6496", // Template ID
+        "service_ip7ds88",
+        "template_1uf6496",
         formRef.current,
-        "N4DtI3p9JrVOZRKQL" // Public Key
+        "N4DtI3p9JrVOZRKQL"
       )
       .then(
         () => {
           setStatus("success");
           if (formRef.current) formRef.current.reset();
           
-          // Hide success message after 5 seconds
           setTimeout(() => {
             setStatus("idle");
           }, 5000);
@@ -38,7 +37,6 @@ export function Contact() {
           console.error("EmailJS Error:", error);
           setStatus("error");
           
-          // Hide error message after 5 seconds
           setTimeout(() => {
             setStatus("idle");
           }, 5000);
@@ -55,7 +53,6 @@ export function Contact() {
         />
 
         <div className="flex flex-col md:flex-row gap-12">
-          {/* Contact Info */}
           <div className="w-full md:w-1/3">
             <GlassCard className="p-6 sm:p-8 h-full" delay={0.1}>
               <h3 className="text-xl font-bold text-[#0f172a] mb-8">Contact Details</h3>
@@ -76,7 +73,6 @@ export function Contact() {
             </GlassCard>
           </div>
 
-          {/* Form */}
           <div className="w-full md:w-2/3">
             <GlassCard className="p-6 sm:p-8 md:p-12" delay={0.2}>
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">

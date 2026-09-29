@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface GlassCardProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
   hoverEffect?: boolean;
   className?: string;
@@ -23,7 +23,7 @@ export function GlassCard({ children, hoverEffect = true, className, delay = 0, 
         hoverEffect && "hover:-translate-y-1 hover:shadow-lg hover:shadow-black/40 hover:border-[#cbd5e1]",
         className
       )}
-      {...props as any}
+      {...props}
     >
       <div className="relative z-10 h-full w-full">
         {children}

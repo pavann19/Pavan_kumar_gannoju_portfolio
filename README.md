@@ -1,32 +1,41 @@
-# Pavan Kumar Gannoju — Portfolio
+# Pavan Kumar Gannoju Portfolio
 
-Source code for my personal portfolio website.
+Source for my personal engineering portfolio.
 
 Live site: https://pavann19.github.io/Pavan_kumar_gannoju_portfolio/
 
-## Positioning
+## Profile
 
-Backend & Platform Engineer building reliable backend, infrastructure, distributed-systems, and AI-security projects with Java, Go, Kubernetes, and Azure.
+Backend / Platform Engineer
 
-## Featured Projects
+Java · Go · Kubernetes · Azure · AI Security
 
-1. LedgerLine — Java/Spring Boot financial ledger with PostgreSQL invariants, Kafka projections, k6 evidence, and Azure correctness run.
-2. ModelGate — Go/Kubernetes admission controller for signed images and verified model artifacts, with cosign, envtest, kind smoke tests, and Azure ACR evidence.
-3. SentinAL — Windows-only safe desktop-agent prototype with validation, bounded actions, and postcondition verification.
-4. QuorumKV — Go/gRPC replicated key-value store with WAL, Raft integration, fault injection, and Porcupine checks.
-5. Gatekeeper — AI-security guardrail gateway with prompt-injection, PII, evaluation, and benchmarking evidence.
-6. Agentic-OS — QEMU-only Rust/x86_64 capability-based OS project.
+## Featured Work
 
-## Tech Stack
+- LedgerLine: Java/Spring Boot ledger with PostgreSQL invariants, Kafka projections, k6 validation, and Azure run evidence.
+- ModelGate: Go/Kubernetes admission controller for signed images and safe model artifacts with cosign, kind, and Azure ACR evidence.
+- SentinAL: Windows-only safe desktop-agent prototype with validation gates and postcondition checks.
+- QuorumKV: Go/gRPC replicated key-value store with WAL, Raft integration, fault injection, and Porcupine checks.
+- Gatekeeper: LLM guardrail gateway for prompt-risk detection, policy decisions, and safe request routing.
+- Agentic-OS: QEMU-only Rust/x86_64 operating-system prototype.
 
-- Next.js
-- React
+## Stack
+
+- Next.js 16
+- React 19
 - TypeScript
 - Tailwind CSS
 - GitHub Pages
 
-## Running Locally
+## Local Development
 
 ```bash
-npm install
+npm ci
 npm run dev
+```
+
+## Production Build
+
+```bash
+npm run build
+```

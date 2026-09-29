@@ -6,22 +6,18 @@
 }
 
 :root {
-  /* Core Colors */
-  --bg-primary: #ffffff; /* Slate 900 */
-  --bg-secondary: #f8fafc; /* Slate 800 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
   
-  /* Text Colors (WCAG AA Compliant) */
-  --text-primary: #0f172a; /* Slate 50 (High contrast) */
-  --text-secondary: #334155; /* Slate 300 (Good contrast > 4.5:1) */
-  --text-muted: #64748b; /* Slate 400 (For decorative/non-essential text only) */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
   
-  /* Accent Colors */
-  --accent-primary: #1d4ed8; /* Blue 500 */
+  --accent-primary: #1d4ed8;
   --accent-muted: rgba(59, 130, 246, 0.15);
   
-  /* UI Elements */
-  --border-color: #e2e8f0; /* Slate 700 */
-  --border-hover: #cbd5e1; /* Slate 600 */
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
 }
 
 html, body {
@@ -32,7 +28,6 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Base Card Styling (Replacing Glassmorphism) */
 .tech-card {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
@@ -46,19 +41,16 @@ html, body {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Selection styling */
 ::selection {
   background: rgba(59, 130, 246, 0.3);
   color: #fff;
 }
 
-/* Base Headings */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   font-weight: 600;
 }
 
-/* Grid Background (Subtle) — uses pseudo-element so children stay fully opaque */
 .bg-tech-grid {
   position: relative;
 }

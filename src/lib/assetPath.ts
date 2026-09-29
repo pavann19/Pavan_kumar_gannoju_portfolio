@@ -9,7 +9,6 @@
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export function assetPath(path: string): string {
-  // If already prefixed or is an external URL, return as-is
   if (path.startsWith('http') || path.startsWith(basePath + '/')) {
     return path;
   }
