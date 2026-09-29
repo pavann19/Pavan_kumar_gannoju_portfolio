@@ -3,7 +3,7 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -118,17 +118,6 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Right CTA - iOS Glass Action Pill (Desktop) */}
-        <div className="hidden md:flex items-center">
-          <Link
-            href="#contact"
-            className="group inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-wide rounded-full bg-blue-600/10 hover:bg-[#2563eb] text-[#2563eb] hover:text-white border border-blue-500/20 hover:border-[#2563eb] backdrop-blur-md shadow-[0_2px_8px_rgba(37,99,235,0.08)] hover:shadow-[0_4px_14px_rgba(37,99,235,0.35)] transition-all duration-300 active:scale-95"
-          >
-            <span>Let&apos;s Connect</span>
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
-        </div>
-
         {/* Mobile Menu Glass Button */}
         <button
           className="md:hidden relative z-20 p-2.5 rounded-full bg-white/60 backdrop-blur-md border border-slate-200/80 text-[#0f172a] shadow-sm active:scale-90 transition-transform"
@@ -163,14 +152,6 @@ export function Navbar() {
                 </Link>
               );
             })}
-
-            <Link
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center mt-4 py-3.5 px-6 rounded-2xl text-base font-semibold bg-[#2563eb] text-white shadow-[0_4px_16px_rgba(37,99,235,0.35)] active:scale-95 transition-transform"
-            >
-              Get in Touch
-            </Link>
           </div>
         </div>
       </div>
