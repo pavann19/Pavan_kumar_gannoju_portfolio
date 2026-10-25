@@ -13,17 +13,17 @@ const flagshipProjects = [
     tagline: "Reliable transactional ledger for idempotent transfers and replay-safe financial projections.",
     tech: "Java 21, Spring Boot, PostgreSQL, Kafka, Docker, k6, Azure",
     metrics: [
-      { value: "7,508 / 7,508", label: "successful HTTP transfers" },
-      { value: "0.00%", label: "k6 failure rate" },
-      { value: "258 ms", label: "p95 latency" }
+      { value: "53 + 4", label: "Java + scan-policy tests" },
+      { value: "5,235", label: "successful Azure transfers" },
+      { value: "0", label: "statement / summary drift" }
     ],
     outcomes: [
       "Implemented double-entry invariants, idempotency, transactional outbox, and Kafka-backed projections.",
-      "Validated Azure deployment flow with smoke checks, load execution, and PostgreSQL invariant checks."
+      "Verified a temporary Azure deployment with zero HTTP failures, replay checks, and 10,484 ledger postings matching projected statements."
     ],
-    note: "Tested on a low-cost Azure environment; performance numbers are validation results, not production capacity claims.",
+    note: "Verified 24 Oct 2026; temporary Azure resources deleted. Portfolio demonstration, not production banking or a capacity guarantee.",
     github: "https://github.com/pavann19/LedgerLine",
-    docs: "https://github.com/pavann19/LedgerLine/blob/main/docs/experiments/03-cloud-load.md"
+    docs: "https://github.com/pavann19/LedgerLine/blob/main/docs/EVIDENCE.md"
   },
   {
     title: "ModelGate",
