@@ -123,7 +123,7 @@ export function Contact() {
                   {status === "success" ? (
                     <div className="flex items-center gap-2 text-green-400 font-medium px-6 py-3 border border-green-400/30 bg-green-400/10 rounded-full animate-in fade-in zoom-in duration-300">
                       <CheckCircle className="w-5 h-5" />
-                      Got it — I'll read it.
+                      Got it — I&apos;ll read it.
                     </div>
                   ) : status === "error" ? (
                     <div className="flex items-center gap-2 text-red-400 font-medium px-6 py-3 border border-red-400/30 bg-red-400/10 rounded-full animate-in fade-in zoom-in duration-300">

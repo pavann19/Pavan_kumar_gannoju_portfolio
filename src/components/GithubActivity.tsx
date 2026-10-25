@@ -23,7 +23,7 @@ export function GithubActivity() {
             <div className="space-y-4">
               <h3 className="text-3xl font-bold text-[#0f172a]">@pavann19</h3>
               <p className="text-[#64748b] max-w-lg mx-auto leading-relaxed">
-                I don't explain what I build in READMEs and then hide the implementation. The repos have runbooks, CI, failure tests, and evidence. Open any of them.
+                I don&apos;t explain what I build in READMEs and then hide the implementation. The repos have runbooks, CI, failure tests, and evidence. Open any of them.
               </p>
             </div>
             

@@ -23,13 +23,13 @@ export function About() {
             </div>
             <div className="space-y-6 text-[#334155] leading-relaxed text-lg font-medium">
               <p>
-                I work on the parts of backend engineering that are easy to get wrong and hard to debug when you do. Distributed consistency, failure recovery, admission control, LLM guardrails — systems where the cost of a mistake is not a typo, it's a production incident.
+                I work on the parts of backend engineering that are easy to get wrong and hard to debug when you do. Distributed consistency, failure recovery, admission control, LLM guardrails — systems where the cost of a mistake is not a typo, it&apos;s a production incident.
               </p>
               <p>
-                Everything I build has validation attached to it. Automated tests, CI, fault injection, load runs, fuzzing — not because it's best practice, but because I don't trust systems I can't break on purpose.
+                Everything I build has validation attached to it. Automated tests, CI, fault injection, load runs, fuzzing — not because it&apos;s best practice, but because I don&apos;t trust systems I can&apos;t break on purpose.
               </p>
               <p>
-                The overlap between backend correctness, platform security, and AI safety is where I do my best work. That's not a pivot — it's the same problem at different layers.
+                The overlap between backend correctness, platform security, and AI safety is where I do my best work. That&apos;s not a pivot — it&apos;s the same problem at different layers.
               </p>
             </div>
           </GlassCard>
