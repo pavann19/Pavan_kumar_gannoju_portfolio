@@ -65,10 +65,10 @@ export function CertificationsGallery() {
       <div className="container mx-auto px-6 max-w-6xl">
         <SectionHeader 
           title="Certifications" 
-          subtitle="Selected credentials relevant to security, systems, and software engineering."
+          subtitle="Credentials I earned, not collected. The ones that changed how I think are at the top."
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {featuredCerts.map((cert, idx) => {
             const cardContent = (
               <>
@@ -89,9 +89,9 @@ export function CertificationsGallery() {
                   onClick={() => setSelectedCert(assetPath(cert.file!))}
                   className="block group focus:outline-none text-left w-full h-full"
                 >
-                  <GlassCard className="p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-4 h-full transition-colors" delay={idx * 0.1}>
+                  <GlassCard className="p-8 flex flex-col items-center justify-center text-center gap-4 h-full transition-colors" delay={idx * 0.1}>
                     {cardContent}
-                    <span className="text-xs font-mono text-[#2563eb] opacity-75 group-hover:opacity-100 transition-opacity mt-2">
+                    <span className="text-xs font-mono text-[#2563eb] opacity-60 group-hover:opacity-100 transition-opacity mt-2">
                       View Certificate →
                     </span>
                   </GlassCard>
@@ -100,15 +100,19 @@ export function CertificationsGallery() {
             }
 
             return (
-              <GlassCard key={idx} className="p-6 sm:p-8 text-center flex flex-col items-center justify-center gap-4 h-full" delay={idx * 0.1}>
+              <GlassCard key={idx} className="p-8 text-center flex flex-col items-center justify-center gap-4 h-full" delay={idx * 0.1}>
                 {cardContent}
+                <span className="text-xs font-mono text-[#94a3b8] mt-1">Award — no file</span>
               </GlassCard>
             );
           })}
         </div>
 
         <div className="tech-card p-6 sm:p-8 rounded-2xl">
-          <h4 className="text-sm font-bold text-[#334155] uppercase tracking-wider mb-6 text-center">Additional Credentials</h4>
+          <div className="flex items-center justify-between mb-6">
+            <h4 className="text-sm font-bold text-[#334155] uppercase tracking-wider">More credentials</h4>
+            <p className="text-xs text-[#94a3b8] font-mono">Click any to open the certificate</p>
+          </div>
           <div className="flex flex-wrap justify-center gap-3">
             {supportingCerts.map((cert, idx) => (
               <motion.button 

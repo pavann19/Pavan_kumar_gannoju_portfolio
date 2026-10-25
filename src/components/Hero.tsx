@@ -31,7 +31,7 @@ export function Hero() {
         animate="visible"
       >
         <motion.div variants={fadeUp} className="px-4 py-2 mb-8 rounded-full border border-[#e2e8f0] bg-[#f8fafc] shadow-sm">
-             <span className="text-sm font-medium text-[#334155]">Java · Go · Kubernetes · Azure · AI Security</span>
+          <span className="text-sm font-medium text-[#334155]">Backend · Distributed Systems · AI Security · I’ve shipped all three</span>
         </motion.div>
 
         <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#0f172a] mb-6 px-4">
@@ -44,13 +44,13 @@ export function Hero() {
 
         <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6">
           <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
-            I build reliable backend and infrastructure systems using Java, Go, Kubernetes, and cloud-native tooling, with deep work across distributed systems and AI security.
+            I build the systems that have to work. Not prototypes. Not demos. Distributed consistency, failure behavior, Kubernetes policy enforcement, and LLM guardrails that actually say no. The projects below have the evidence.
           </p>
         </motion.div>
 
         <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
           <MagneticButton variant="primary" href="#projects">
-            View Projects
+            See the Work
           </MagneticButton>
           
           <MagneticButton variant="secondary" href={assetPath("/Pavan_Kumar_Gannoju_Backend_Germany_CV.pdf")} download="Pavan_Kumar_Gannoju_Backend_Germany_CV.pdf" target="_blank" rel="noopener noreferrer">

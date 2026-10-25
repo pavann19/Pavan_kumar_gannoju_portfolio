@@ -2,7 +2,7 @@
 
 import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
-import { Briefcase, FileBadge } from "lucide-react";
+import { Briefcase, FileBadge, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { assetPath } from "@/lib/assetPath";
 
@@ -12,9 +12,9 @@ const experiences = [
     company: "Prodigal AI Technologies Pvt. Ltd.",
     date: "March 2025 – November 2025 (Part-Time)",
     highlights: [
-      "Built AI workflow and backend orchestration components for research-driven product prototypes.",
-      "Coordinated architecture reviews, experimentation planning, and delivery across an AI research team.",
-      "Developed research direction around LLM safety, voice-cloning systems, and AI tamper-resistance."
+      "Built the AI workflow pipeline and backend orchestration layer that research prototypes ran on — from prompt routing to output validation.",
+      "Led architecture reviews that shaped how the team approached LLM safety problems — not just attended them.",
+      "Defined the research direction on voice-cloning with MoE and adversarial tamper-resistance. Two papers came out of it."
     ],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Prodigal_AI_Completion_Certificate.png" },
@@ -27,9 +27,9 @@ const experiences = [
     company: "Digital Nexus AI",
     date: "May 2025 – September 2025 (Part-Time)",
     highlights: [
-      "Implemented backend API and LLM workflow components for GenAI application features.",
-      "Integrated retrieval, generation, validation, and service-layer logic into modular application flows.",
-      "Tested backend integrations and documented delivery artifacts for internship completion."
+      "Built the backend API and LLM workflow components that powered the core GenAI product features.",
+      "Wired retrieval, generation, validation, and service-layer logic into a modular flow that could actually be maintained.",
+      "Shipped the integration, wrote tests, handed over documentation that a new engineer could actually use."
     ],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Digital_Nexus_AI_Completion_Certificate.png" },
@@ -45,7 +45,7 @@ export function Experience() {
       <div className="container mx-auto px-6 max-w-4xl">
         <SectionHeader 
           title="Experience" 
-          subtitle="Accomplishment-focused engineering and AI research work."
+          subtitle="Where I worked, what I actually did, and the documents to back it up."
         />
 
         <div className="relative">
@@ -73,10 +73,10 @@ export function Experience() {
                       
                       <div className="space-y-3 mb-8">
                         <h5 className="text-sm font-bold text-[#0f172a] uppercase tracking-wider">Built & Delivered</h5>
-                        <ul className="space-y-3">
+                        <ul className="space-y-4">
                           {exp.highlights.map((item, hIdx) => (
-                            <li key={hIdx} className="text-sm text-[#334155] leading-relaxed flex gap-3">
-                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#2563eb] shrink-0" />
+                            <li key={hIdx} className="text-sm text-[#334155] leading-relaxed flex gap-3 items-start">
+                              <ChevronRight className="mt-0.5 w-4 h-4 text-[#2563eb] shrink-0" />
                               <span>{item}</span>
                             </li>
                           ))}

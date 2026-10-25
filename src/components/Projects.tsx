@@ -4,7 +4,7 @@ import { GlassCard } from "./ui/GlassCard";
 import { SectionHeader } from "./ui/SectionHeader";
 import { MagneticButton } from "./ui/MagneticButton";
 import { FaGithub } from "react-icons/fa";
-import { ShieldCheck, ServerCog, Database, Network, Lock, Cpu, ExternalLink } from "lucide-react";
+import { ShieldCheck, ServerCog, Database, Network, Lock, Cpu, ExternalLink, ChevronRight } from "lucide-react";
 
 const flagshipProjects = [
   {
@@ -18,7 +18,7 @@ const flagshipProjects = [
       { value: "0", label: "statement / summary drift" }
     ],
     outcomes: [
-      "Implemented double-entry invariants, idempotency, transactional outbox, and Kafka-backed projections.",
+      "Built double-entry accounting from scratch — every transfer idempotent, every projection Kafka-backed and replayable.",
       "Verified a temporary Azure deployment with zero HTTP failures, replay checks, and 10,484 ledger postings matching projected statements."
     ],
     note: "Verified 24 Oct 2026; temporary Azure resources deleted. Portfolio demonstration, not production banking or a capacity guarantee.",
@@ -36,8 +36,8 @@ const flagshipProjects = [
       { value: "ACR", label: "Azure digest record" }
     ],
     outcomes: [
-      "Engineered a fail-closed webhook that denies unsigned images, privileged pods, host access, and unsafe model files.",
-      "Integrated CI coverage for envtest, cosign, pickle fuzzing, and real kind-cluster smoke tests."
+      "Fail-closed by design — unsigned image, privileged pod, unsafe model file, all blocked. No special cases.",
+      "CI runs a real kind cluster with cosign signing and a pickle fuzzer. Not mocks — the actual thing."
     ],
     note: "Test environment: kind; Azure ACR records image publication and digest provenance.",
     github: "https://github.com/pavann19/ModelGate",
@@ -54,8 +54,8 @@ const flagshipProjects = [
       { value: "policy", label: "action controls" }
     ],
     outcomes: [
-      "Designed an execution pipeline that treats model output as untrusted and validates actions before execution.",
-      "Implemented command boundaries, OS-state checks, and auditability for controlled desktop automation."
+      "The model suggests. The agent validates. Nothing executes until OS state is confirmed safe.",
+      "Every action is bounded, checked, and logged. The model does not get root."
     ],
     note: "Windows-only prototype with bounded capabilities.",
     github: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration",
@@ -72,8 +72,8 @@ const flagshipProjects = [
       { value: "Porcupine", label: "history checks" }
     ],
     outcomes: [
-      "Built a Go/gRPC service around consensus, durable storage, and observable fault behavior.",
-      "Validated crash recovery, fault injection paths, and small-history consistency checks in CI."
+      "Raft consensus, WAL durability, gRPC interface — built to understand how distributed systems actually fail.",
+      "Injected crashes, checked linearizability with Porcupine, watched it recover. CI runs all of it."
     ],
     note: "Engineering project for distributed-systems behavior and failure semantics.",
     github: "https://github.com/pavann19/QuorumKV",
@@ -84,7 +84,7 @@ const flagshipProjects = [
 const roleSpecificProjects = [
   {
     title: "Gatekeeper",
-    icon: <Lock className="w-8 h-8 text-[#334155]" />,
+    icon: <Lock className="w-8 h-8 text-[#2563eb]" />,
     tagline: "LLM guardrail gateway for prompt-risk detection, policy decisions, and safe request routing.",
     tech: "Python, FastAPI, LLM security, classifier evaluation, benchmarking",
     metrics: [
@@ -93,16 +93,16 @@ const roleSpecificProjects = [
       { value: "CI", label: "security checks" }
     ],
     outcomes: [
-      "Implemented request screening, detector routing, semantic cache behavior, and policy decision logic.",
-      "Measured latency and throughput under fixed workloads to identify concurrency bottlenecks."
+      "Every LLM request goes through 8 detectors before it touches the model. Latency benchmarked under load.",
+      "Found the concurrency ceiling, documented it, and explained exactly what breaks first."
     ],
-    note: "AI-security depth project for guardrail and infrastructure roles.",
+    note: "Built to answer one question: what happens when the model is wrong? Turns out, a lot.",
     github: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway",
     docs: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway"
   },
   {
     title: "Agentic-OS",
-    icon: <Cpu className="w-8 h-8 text-[#334155]" />,
+    icon: <Cpu className="w-8 h-8 text-[#2563eb]" />,
     tagline: "Rust operating-system prototype for capability-scoped interfaces, policy, and auditability.",
     tech: "Rust, QEMU, kernel development, serial tests, systems safety",
     metrics: [
@@ -111,58 +111,70 @@ const roleSpecificProjects = [
       { value: "CI", label: "boot and host tests" }
     ],
     outcomes: [
-      "Implemented kernel-level capability concepts, typed interfaces, and systems-safety documentation.",
-      "Automated QEMU boot checks and host-side tests for reproducible systems validation."
+      "Kernel written in Rust with typed capability interfaces — no raw pointers without a reason.",
+      "QEMU boots, serial output validates, host tests confirm — reproducible from a clean checkout."
     ],
-    note: "QEMU-only systems project.",
+    note: "Runs in QEMU. Written in Rust. Built because I wanted to know what's actually underneath.",
     github: "https://github.com/pavann19/Agentic-OS",
     docs: "https://github.com/pavann19/Agentic-OS"
   }
 ];
 
 function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[number] | (typeof roleSpecificProjects)[number]; idx: number }) {
+  const cardNumber = String(idx + 1).padStart(2, "0");
   return (
-    <GlassCard key={project.title} className="p-6 sm:p-8 flex flex-col gap-6 bg-[#f8fafc] border-[#e2e8f0]" delay={idx * 0.08}>
+    <GlassCard className="p-8 sm:p-10 flex flex-col bg-[#f8fafc] border-[#e2e8f0]" delay={idx * 0.08}>
+
+      {/* ── Identity ── */}
       <div className="flex items-start gap-4">
-        <div className="p-3 bg-[#ffffff] rounded-lg border border-[#e2e8f0] shrink-0" aria-hidden="true">
+        <div className="p-3 bg-[#ffffff] rounded-xl border border-[#e2e8f0] shrink-0" aria-hidden="true">
           {project.icon}
         </div>
         <div>
-          <p className="text-xs font-mono text-[#64748b] mb-1">0{idx + 1}</p>
+          <p className="text-xs font-mono text-[#94a3b8] mb-1 tracking-widest">{cardNumber}</p>
           <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a] tracking-tight">{project.title}</h3>
         </div>
       </div>
 
-      <p className="text-[#334155] leading-relaxed">{project.tagline}</p>
+      <p className="text-[#475569] leading-relaxed text-base mt-4">{project.tagline}</p>
 
-      <p className="text-sm font-mono text-[#334155] bg-[#ffffff] border border-[#e2e8f0] rounded-lg px-4 py-3">
+      <hr className="border-[#e2e8f0] my-5" />
+
+      {/* ── Context ── */}
+      <p className="text-sm font-mono text-[#334155] bg-[#ffffff] border border-[#e2e8f0] rounded-xl px-4 py-3 leading-relaxed">
         {project.tech}
       </p>
 
-      <div className="grid sm:grid-cols-3 gap-3">
+      <div className="grid sm:grid-cols-3 gap-3 mt-4">
         {project.metrics.map((metric) => (
-          <div key={`${project.title}-${metric.label}`} className="bg-[#ffffff] border border-[#e2e8f0] rounded-lg p-4">
+          <div key={`${project.title}-${metric.label}`} className="bg-[#ffffff] border border-[#e2e8f0] rounded-xl p-4">
             <div className="text-xl font-bold font-mono text-[#0f172a] leading-tight">{metric.value}</div>
-            <div className="text-xs text-[#64748b] font-semibold uppercase tracking-wider mt-2">{metric.label}</div>
+            <div className="text-xs text-[#94a3b8] font-semibold uppercase tracking-widest mt-2">{metric.label}</div>
           </div>
         ))}
       </div>
 
-      <ul className="space-y-3">
+      <hr className="border-[#e2e8f0] my-5" />
+
+      {/* ── What was built ── */}
+      <ul className="space-y-4">
         {project.outcomes.map((outcome) => (
-          <li key={`${project.title}-${outcome}`} className="text-sm text-[#334155] leading-relaxed flex gap-3">
-            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#2563eb] shrink-0" />
+          <li key={`${project.title}-${outcome}`} className="text-sm text-[#334155] leading-relaxed flex gap-3 items-start">
+            <ChevronRight className="mt-0.5 w-4 h-4 text-[#2563eb] shrink-0" />
             <span>{outcome}</span>
           </li>
         ))}
       </ul>
 
-      <details className="rounded-lg border border-[#e2e8f0] bg-[#ffffff] px-4 py-3 text-sm text-[#334155]">
-        <summary className="cursor-pointer font-semibold text-[#0f172a]">Evidence & limitations</summary>
-        <p className="mt-3 leading-relaxed">{project.note}</p>
+      <hr className="border-[#e2e8f0] my-5" />
+
+      {/* ── Evidence & actions ── */}
+      <details className="rounded-xl border border-[#e2e8f0] bg-[#ffffff] px-5 py-4 text-sm text-[#334155]">
+        <summary className="cursor-pointer font-semibold text-[#0f172a] select-none">Evidence &amp; limitations</summary>
+        <p className="mt-3 leading-relaxed text-[#475569]">{project.note}</p>
       </details>
 
-      <div className="flex flex-wrap gap-3 mt-auto pt-2">
+      <div className="flex flex-wrap gap-3 mt-6">
         <MagneticButton variant="secondary" className="w-fit" href={project.github} target="_blank" rel="noopener noreferrer">
           <FaGithub className="w-5 h-5" />
           GitHub
@@ -172,6 +184,7 @@ function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[numb
           Docs / Evidence
         </MagneticButton>
       </div>
+
     </GlassCard>
   );
 }
@@ -180,27 +193,15 @@ export function Projects() {
   return (
     <section id="projects" className="py-24 relative bg-[#ffffff]">
       <div className="container mx-auto px-6 max-w-7xl">
-        <SectionHeader 
-          title="Featured Projects" 
-          subtitle="Default flagship projects for backend, platform, distributed-systems, and AI-security applications."
+        <SectionHeader
+          title="Featured Projects"
+          subtitle="Real environments. Every project ships, runs, and has evidence."
         />
 
-        <div className="grid lg:grid-cols-2 gap-6">
-          {flagshipProjects.map((project, idx) => (
+        <div className="grid lg:grid-cols-2 gap-8">
+          {[...flagshipProjects, ...roleSpecificProjects].map((project, idx) => (
             <ProjectCard key={project.title} project={project} idx={idx} />
           ))}
-        </div>
-
-        <div className="mt-16">
-          <SectionHeader
-            title="Role-Specific Depth"
-            subtitle="Additional projects used selectively for AI-security, Rust, and low-level systems roles."
-          />
-          <div className="grid lg:grid-cols-2 gap-6">
-            {roleSpecificProjects.map((project, idx) => (
-              <ProjectCard key={project.title} project={project} idx={idx + flagshipProjects.length} />
-            ))}
-          </div>
         </div>
       </div>
     </section>

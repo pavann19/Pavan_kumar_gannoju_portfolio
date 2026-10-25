@@ -14,7 +14,7 @@ const skillsData = [
   {
     title: "Backend",
     icon: <Server className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["Spring Boot", "FastAPI", "REST APIs", "Kafka", "PostgreSQL", "JWT"]
+    skills: ["Spring Boot", "FastAPI", "REST APIs", "Kafka", "JWT", "gRPC"]
   },
   {
     title: "Cloud & Infrastructure",
@@ -32,9 +32,9 @@ const skillsData = [
     skills: ["cosign", "Trivy", "Fuzzing", "Property-Based Testing", "k6", "Porcupine"]
   },
   {
-    title: "Datastores & Search",
-    icon: <Wrench className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["PostgreSQL", "MySQL", "SQLite", "Audit Logs"]
+    title: "Datastores",
+    icon: <Database className="w-6 h-6 text-[#2563eb]" />,
+    skills: ["PostgreSQL", "MySQL", "SQLite", "Redis", "FAISS", "Qdrant"]
   }
 ];
 
@@ -44,7 +44,7 @@ export function Skills() {
       <div className="container mx-auto px-6 max-w-6xl">
         <SectionHeader 
           title="Technical Skills" 
-          subtitle="Core tools I use to build backend, platform, distributed-systems, and AI-security projects."
+          subtitle="Every tool here has been used in anger. None added for decoration."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
