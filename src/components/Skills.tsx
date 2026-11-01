@@ -19,7 +19,7 @@ const skillsData = [
   {
     title: "Cloud & Infrastructure",
     icon: <Database className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["Docker", "Kubernetes", "Azure", "GitHub Actions", "Terraform"]
+    skills: ["Docker", "Kubernetes", "Azure", "GitHub Actions", "Terraform", "Helm", "Kustomize"]
   },
   {
     title: "AI Systems",
@@ -29,7 +29,7 @@ const skillsData = [
   {
     title: "Security & Validation",
     icon: <Wrench className="w-6 h-6 text-[#2563eb]" />,
-    skills: ["cosign", "Trivy", "Fuzzing", "Property-Based Testing", "k6", "Porcupine"]
+    skills: ["cosign", "Trivy", "Fuzzing", "Property-Based Testing", "k6", "Porcupine", "Fault Injection"]
   },
   {
     title: "Datastores",
@@ -44,7 +44,7 @@ export function Skills() {
       <div className="container mx-auto px-6 max-w-6xl">
         <SectionHeader 
           title="Technical Skills" 
-          subtitle="Every tool here has been used in anger. None added for decoration."
+          subtitle="Everything listed here appears in a project or internship on this page."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
