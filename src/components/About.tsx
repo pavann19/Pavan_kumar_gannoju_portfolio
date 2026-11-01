@@ -10,7 +10,7 @@ export function About() {
       <div className="container mx-auto px-6 max-w-6xl">
         <SectionHeader 
           title="About Me" 
-          subtitle="Most engineers avoid the hard problems. I specifically look for them."
+          subtitle="I like the parts of backend engineering that fail quietly and are hard to debug."
         />
 
         <div className="grid md:grid-cols-12 gap-8">
@@ -23,13 +23,13 @@ export function About() {
             </div>
             <div className="space-y-6 text-[#334155] leading-relaxed text-lg font-medium">
               <p>
-                I work on the parts of backend engineering that are easy to get wrong and hard to debug when you do. Distributed consistency, failure recovery, admission control, LLM guardrails — systems where the cost of a mistake is not a typo, it&apos;s a production incident.
+                My work sits where backend correctness, platform security and AI safety overlap: distributed consistency, failure recovery, admission control and LLM guardrails. In these systems a mistake is not a typo. It is a production incident.
               </p>
               <p>
-                Everything I build has validation attached to it. Automated tests, CI, fault injection, load runs, fuzzing — not because it&apos;s best practice, but because I don&apos;t trust systems I can&apos;t break on purpose.
+                Every project I build ships with validation: automated tests, CI, fault injection, load runs and fuzzing. I want to know how a system fails before anyone depends on it.
               </p>
               <p>
-                The overlap between backend correctness, platform security, and AI safety is where I do my best work. That&apos;s not a pivot — it&apos;s the same problem at different layers.
+                The three areas are the same problem at different layers: a system should behave predictably when its inputs, its network or its model cannot be trusted.
               </p>
             </div>
           </GlassCard>
@@ -43,11 +43,11 @@ export function About() {
             </div>
             <ul className="space-y-5">
               {[
-                "Transactional backends that hold under load",
+                "Transactional backends with idempotent writes and replayable state",
                 "Kubernetes admission control and policy enforcement",
-                "Distributed systems that fail predictably",
-                "AI guardrails that actually reject bad inputs",
-                "CI pipelines with real fault injection and load tests"
+                "Replicated systems tested with crash and fault injection",
+                "LLM guardrails evaluated against real traffic and load",
+                "CI pipelines that run fault injection, fuzzing and load tests"
               ].map((focus, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <div className="mt-1 p-1 bg-[#ffffff] rounded border border-[#e2e8f0]" aria-hidden="true">
