@@ -31,7 +31,7 @@ export function Hero() {
         animate="visible"
       >
         <motion.div variants={fadeUp} className="px-4 py-2 mb-8 rounded-full border border-[#e2e8f0] bg-[#f8fafc] shadow-sm">
-          <span className="text-sm font-medium text-[#334155]">Backend · Distributed Systems · AI Security · I’ve shipped all three</span>
+          <span className="text-sm font-medium text-[#334155]">Backend · Distributed Systems · AI Security</span>
         </motion.div>
 
         <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-[#0f172a] mb-6 px-4">
@@ -44,7 +44,7 @@ export function Hero() {
 
         <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6">
           <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
-            I build the systems that have to work. Not prototypes. Not demos. Distributed consistency, failure behavior, Kubernetes policy enforcement, and LLM guardrails that actually say no. The projects below have the evidence.
+            I build backend and platform systems, then try to break them. A transactional ledger, a Raft-replicated key-value store, a Kubernetes admission controller, and an LLM guardrail gateway. Each project links to its tests, CI runs and evidence.
           </p>
         </motion.div>
 
