@@ -11,17 +11,18 @@ const flagshipProjects = [
     title: "LedgerLine",
     icon: <Database className="w-8 h-8 text-[#2563eb]" />,
     tagline: "Reliable transactional ledger for idempotent transfers and replay-safe financial projections.",
-    tech: "Java 21, Spring Boot, PostgreSQL, Kafka, Docker, k6, Azure",
+    tech: "Java 21, Spring Boot, PostgreSQL, Kafka, Spring Security (OAuth2 resource server), Docker, k6, Azure",
     metrics: [
-      { value: "53 + 4", label: "Java + scan-policy tests" },
-      { value: "5,235", label: "successful Azure transfers" },
-      { value: "0", label: "statement / summary drift" }
+      { value: "323–330", label: "transfers per second (Azure)" },
+      { value: "341–362 ms", label: "p95 latency" },
+      { value: "0", label: "HTTP failures" }
     ],
     outcomes: [
-      "Built double-entry accounting from scratch — every transfer idempotent, every projection Kafka-backed and replayable.",
-      "Verified a temporary Azure deployment with zero HTTP failures, replay checks, and 10,484 ledger postings matching projected statements."
+      "Built double-entry accounting from scratch: idempotent transfers, with Kafka-backed projections fed by a transactional outbox and replayable.",
+      "Sustained 323–330 transfers/second at 341–362 ms p95 with zero HTTP failures across two 150-second Azure load runs, reconciling all 126,781 timed-load responses against database transactions, outbox rows and audit rows.",
+      "Recovered projections after injected consumer and Kafka outages in 20.5 and 9.3 seconds, and restored 253,652 ledger postings with all 11 table fingerprints matching."
     ],
-    note: "Verified 24 Oct 2026; temporary Azure resources deleted. Portfolio demonstration, not production banking or a capacity guarantee.",
+    note: "Azure load runs verified 26 Oct 2026 on Premium SSD v2 storage (3,000 IOPS). Earlier runs on lower-IOPS disks missed the latency gates, so these results reflect a storage change, not a code-only improvement. OAuth2 covers resource-server validation only (no login or token issuance), and the benchmarks predate that security work. Portfolio demonstration, not production banking or a capacity guarantee.",
     github: "https://github.com/pavann19/LedgerLine",
     docs: "https://github.com/pavann19/LedgerLine/blob/main/docs/EVIDENCE.md"
   },
@@ -31,15 +32,17 @@ const flagshipProjects = [
     tagline: "Kubernetes admission controller for signed images, safe model artifacts, and workload policy enforcement.",
     tech: "Go, Kubernetes admission webhooks, CRDs, cosign, kind, Helm, Kustomize, Azure ACR",
     metrics: [
-      { value: "kind", label: "admission validation" },
-      { value: "cosign", label: "image verification" },
-      { value: "ACR", label: "Azure digest record" }
+      { value: "85.7%", label: "lower p95 admission latency" },
+      { value: "420/420", label: "invalid requests rejected" },
+      { value: "60/60", label: "requests blocked during outages" }
     ],
     outcomes: [
-      "Fail-closed by design — unsigned image, privileged pod, unsafe model file, all blocked. No special cases.",
-      "CI runs a real kind cluster with cosign signing and a pickle fuzzer. Not mocks — the actual thing."
+      "Fail-closed by design: unsigned images, privileged pods and unsafe model files are blocked, including when a dependency is down. Recovery took 5.9, 3.0 and 6.0 seconds.",
+      "Rejected 420/420 invalid requests and admitted 120/120 valid ones in local validation, using real cosign signature verification, with race-detector and envtest suites passing.",
+      "Cut p95 admission latency from 4.203 s to 600.8 ms for eight same-image containers at four workers.",
+      "CI runs a real kind cluster with cosign signing and a pickle fuzzer."
     ],
-    note: "Test environment: kind; Azure ACR records image publication and digest provenance.",
+    note: "Validated locally on kind (6/6 checklist items). Latency figure is for eight same-image containers at four workers, not a production load test. Azure ACR records image publication and digest provenance.",
     github: "https://github.com/pavann19/ModelGate",
     docs: "https://github.com/pavann19/ModelGate/blob/main/docs/AZURE_ACR_EVIDENCE.md"
   },
@@ -67,15 +70,16 @@ const flagshipProjects = [
     tagline: "Replicated key-value store with durable writes, Raft replication, and failure-behavior testing.",
     tech: "Go, gRPC, HashiCorp Raft, WAL, fault injection, Porcupine checks",
     metrics: [
-      { value: "Raft", label: "replication layer" },
-      { value: "WAL", label: "durable write path" },
-      { value: "Porcupine", label: "history checks" }
+      { value: "100/100", label: "WAL crash trials passed" },
+      { value: "1.995 s", label: "median leader failover" },
+      { value: "2,304/2,304", label: "concurrent writes verified" }
     ],
     outcomes: [
-      "Raft consensus, WAL durability, gRPC interface — built to understand how distributed systems actually fail.",
-      "Injected crashes, checked linearizability with Porcupine, watched it recover. CI runs all of it."
+      "Raft consensus (HashiCorp Raft), WAL durability and a gRPC interface, built to understand how distributed systems fail. Linearizability checked with Porcupine.",
+      "Validated five injected fault scenarios across 607 recorded RPC attempts, plus snapshot installation, restart and exact state-equality checks.",
+      "Passed 100/100 populated WAL crash trials, recovering to a consistent state each time. Leader failover measured at 1.995 s median and 2.429 s p90 across ten trials, with zero errors under concurrent load."
     ],
-    note: "Engineering project for distributed-systems behavior and failure semantics.",
+    note: "Local validation (6/6 checklist items passed), not a production deployment. Failover measured over ten trials. Engineering project for distributed-systems behavior and failure semantics.",
     github: "https://github.com/pavann19/QuorumKV",
     docs: "https://github.com/pavann19/QuorumKV/blob/main/docs/DEMO.md"
   }
