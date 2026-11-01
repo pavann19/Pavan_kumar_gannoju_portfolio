@@ -44,7 +44,7 @@ export function Hero() {
 
         <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 px-6">
           <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
-            I build backend and platform systems, then try to break them. A transactional ledger, a Raft-replicated key-value store, a Kubernetes admission controller, and an LLM guardrail gateway. Each project links to its tests, CI runs and evidence.
+            I build backend and platform systems focused on correctness, security and recovery. My projects cover transactional ledgers, replicated storage, Kubernetes admission control and bounded AI agents, with reproducible tests and documented failure behavior.
           </p>
         </motion.div>
 

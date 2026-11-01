@@ -26,7 +26,7 @@ export function About() {
                 My work sits where backend correctness, platform security and AI safety overlap: distributed consistency, failure recovery, admission control and LLM guardrails. In these systems a mistake is not a typo. It is a production incident.
               </p>
               <p>
-                Every project I build ships with validation: automated tests, CI, fault injection, load runs and fuzzing. I want to know how a system fails before anyone depends on it.
+                I use automated tests, CI, fault injection, load experiments and fuzzing to investigate how systems fail. Each project documents the checks performed, the results and the limits of that evidence.
               </p>
               <p>
                 The three areas are the same problem at different layers: a system should behave predictably when its inputs, its network or its model cannot be trusted.
@@ -46,7 +46,7 @@ export function About() {
                 "Transactional backends with idempotent writes and replayable state",
                 "Kubernetes admission control and policy enforcement",
                 "Replicated systems tested with crash and fault injection",
-                "LLM guardrails evaluated against real traffic and load",
+                "LLM guardrails evaluated with labelled and adversarial fixtures",
                 "CI pipelines that run fault injection, fuzzing and load tests"
               ].map((focus, i) => (
                 <li key={i} className="flex items-start gap-4">

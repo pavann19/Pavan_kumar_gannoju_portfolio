@@ -5,46 +5,69 @@ import { SectionHeader } from "./ui/SectionHeader";
 import { MagneticButton } from "./ui/MagneticButton";
 import { FaGithub } from "react-icons/fa";
 import { ShieldCheck, ServerCog, Database, Network, Lock, Cpu, ExternalLink, ChevronRight } from "lucide-react";
+import type { ReactNode } from "react";
 
-const flagshipProjects = [
+type Project = {
+  title: string;
+  icon: ReactNode;
+  tagline: string;
+  tech: string;
+  metrics: { value: string; label: string }[];
+  outcomes: string[];
+  note: string;
+  github: string;
+  docs: string;
+  verification?: { sha: string; source: string; ci: string };
+};
+
+const flagshipProjects: Project[] = [
   {
     title: "LedgerLine",
     icon: <Database className="w-8 h-8 text-[#2563eb]" />,
     tagline: "Reliable transactional ledger for idempotent transfers and replay-safe financial projections.",
     tech: "Java 21, Spring Boot, PostgreSQL, Kafka, Spring Security (OAuth2 resource server), Docker, k6, Azure",
     metrics: [
-      { value: "323–330", label: "transfers per second (Azure)" },
-      { value: "341–362 ms", label: "p95 latency" },
-      { value: "0", label: "HTTP failures" }
+      { value: "323–330", label: "transfers/s · Oct 26 Azure runs" },
+      { value: "341–362 ms", label: "p95 · same Azure runs" },
+      { value: "0", label: "HTTP failures · same runs" }
     ],
     outcomes: [
-      "Built double-entry accounting from scratch: idempotent transfers, with Kafka-backed projections fed by a transactional outbox and replayable.",
-      "Sustained 323–330 transfers/second at 341–362 ms p95 with zero HTTP failures across two 150-second Azure load runs, reconciling all 126,781 timed-load responses against database transactions, outbox rows and audit rows.",
-      "Recovered projections after injected consumer and Kafka outages in 20.5 and 9.3 seconds, and restored 253,652 ledger postings with all 11 table fingerprints matching."
+      "Implemented balanced integer-minor-unit postings, principal-scoped idempotency and a transactional outbox feeding replayable Kafka projections.",
+      "Added durable poison-event quarantine, restricted reconciliation views and a separate read-only incident worker; hosted CI checks the Java services, worker and both service images.",
+      "Earlier Azure validation recovered projections after consumer and Kafka outages in 20.5 and 9.3 seconds, and restored 253,652 ledger postings with all 11 table fingerprints matching."
     ],
-    note: "Azure load runs verified 26 Oct 2026 on Premium SSD v2 storage (3,000 IOPS). Earlier runs on lower-IOPS disks missed the latency gates, so these results reflect a storage change, not a code-only improvement. OAuth2 covers resource-server validation only (no login or token issuance), and the benchmarks predate that security work. Portfolio demonstration, not production banking or a capacity guarantee.",
+    note: "The metrics describe two 150-second Azure runs on 26 Oct 2026 with Premium SSD v2 storage (3,000 IOPS), not the current candidate. Code and storage changed; no code-only gain is claimed. The later local hot-account workload missed its original latency limits despite a passing many-account run. Current candidate CI passes; a 24-hour soak and production operation remain unverified. OAuth2 validates access tokens; it does not provide login or token issuance.",
     github: "https://github.com/pavann19/LedgerLine",
-    docs: "https://github.com/pavann19/LedgerLine/blob/main/docs/EVIDENCE.md"
+    docs: "https://github.com/pavann19/LedgerLine/blob/43c8a0c6fe6541bda1cb7f6f647337a47ceab5f3/docs/RECOVERY_AND_RECONCILIATION.md",
+    verification: {
+      sha: "43c8a0c",
+      source: "https://github.com/pavann19/LedgerLine/tree/43c8a0c6fe6541bda1cb7f6f647337a47ceab5f3",
+      ci: "https://github.com/pavann19/LedgerLine/actions/runs/41318940329"
+    }
   },
   {
     title: "ModelGate",
     icon: <ShieldCheck className="w-8 h-8 text-[#2563eb]" />,
-    tagline: "Kubernetes admission controller for signed images, safe model artifacts, and workload policy enforcement.",
+    tagline: "Kubernetes admission control for signed images, model-artifact checks and namespace-scoped workload policy.",
     tech: "Go, Kubernetes admission webhooks, CRDs, cosign, kind, Helm, Kustomize, Azure ACR",
     metrics: [
-      { value: "85.7%", label: "lower p95 admission latency" },
-      { value: "420/420", label: "invalid requests rejected" },
-      { value: "60/60", label: "requests blocked during outages" }
+      { value: "cosign", label: "digest-bound image signatures" },
+      { value: "kind", label: "admission and lifecycle checks" },
+      { value: "CI", label: "trust, fuzz and worker checks" }
     ],
     outcomes: [
-      "Fail-closed by design: unsigned images, privileged pods and unsafe model files are blocked, including when a dependency is down. Recovery took 5.9, 3.0 and 6.0 seconds.",
-      "Rejected 420/420 invalid requests and admitted 120/120 valid ones in local validation, using real cosign signature verification, with race-detector and envtest suites passing.",
-      "Cut p95 admission latency from 4.203 s to 600.8 ms for eight same-image containers at four workers.",
-      "CI runs a real kind cluster with cosign signing and a pickle fuzzer."
+      "Enforced namespace-scoped policy with digest-bound signature verification, workload restrictions and fail-closed behavior on trust failures.",
+      "Added serving readiness, bounded graceful termination and a durable proposal-only worker outside the admission decision path.",
+      "Hosted CI passes real cosign integration, envtest, kind, Helm, fuzz and worker checks, including Linux FIFO rejection regressions."
     ],
-    note: "Validated locally on kind (6/6 checklist items). Latency figure is for eight same-image containers at four workers, not a production load test. Azure ACR records image publication and digest provenance.",
+    note: "Policy exemptions and installation exclusions are documented explicitly. The local observation stopped at the user-requested 15 hours; the original 24-hour gate is incomplete. A distinct-image load control regressed. Azure ACR evidence records image publication, not a managed deployment. Production operation and host-level high availability remain unverified.",
     github: "https://github.com/pavann19/ModelGate",
-    docs: "https://github.com/pavann19/ModelGate/blob/main/docs/AZURE_ACR_EVIDENCE.md"
+    docs: "https://github.com/pavann19/ModelGate/blob/e9af94fae32a9ffe10ba1641e2565ddac4605696/docs/ADMISSION_LIFECYCLE.md",
+    verification: {
+      sha: "e9af94f",
+      source: "https://github.com/pavann19/ModelGate/tree/e9af94fae32a9ffe10ba1641e2565ddac4605696",
+      ci: "https://github.com/pavann19/ModelGate/actions/runs/41319123152"
+    }
   },
   {
     title: "SentinAL",
@@ -70,24 +93,29 @@ const flagshipProjects = [
     title: "QuorumKV",
     icon: <ServerCog className="w-8 h-8 text-[#2563eb]" />,
     tagline: "Replicated key-value store with durable writes, Raft replication, and failure-behavior testing.",
-    tech: "Go, gRPC, HashiCorp Raft, WAL, fault injection, Porcupine checks",
+    tech: "Go, gRPC, HashiCorp Raft, WAL, mTLS, fault injection, Porcupine checks",
     metrics: [
       { value: "100/100", label: "WAL crash trials passed" },
-      { value: "1.995 s", label: "median leader failover" },
-      { value: "2,304/2,304", label: "concurrent writes verified" }
+      { value: "mTLS", label: "peer and client authorization" },
+      { value: "CI", label: "Linux / Windows worker checks" }
     ],
     outcomes: [
-      "Raft consensus (HashiCorp Raft), WAL durability and a gRPC interface, built to understand how distributed systems fail. Linearizability checked with Porcupine.",
-      "Validated five injected fault scenarios across 607 recorded RPC attempts, plus snapshot installation, restart and exact state-equality checks.",
-      "Passed 100/100 populated WAL crash trials, recovering to a consistent state each time. Leader failover measured at 1.995 s median and 2.429 s p90 across ten trials, with zero errors under concurrent load."
+      "Built the WAL, store adapter and observed-execution harness around HashiCorp Raft; histories retain acknowledgements, retries and uncertain write outcomes.",
+      "Added authenticated peer/client transport, bounded requests and exact-state snapshot/restore checks, with real process failover and certificate-rotation tests.",
+      "Separated durable diagnostics from consensus and repaired checkpoint publication with crash/concurrency regressions. Hosted core, fault, race, worker and checkpoint jobs pass."
     ],
-    note: "Local validation (6/6 checklist items passed), not a production deployment. Failover measured over ten trials. Engineering project for distributed-systems behavior and failure semantics.",
+    note: "The 100 WAL trials exercise populated process-kill recovery, not hardware power loss. Fault checks cover finite observed histories, not proof of every execution. The earlier endurance run failed after about eight hours; checkpoint repair and smoke checks do not establish a completed 24-hour run. Default diagnostics use deterministic offline analysis; live model quality remains unverified.",
     github: "https://github.com/pavann19/QuorumKV",
-    docs: "https://github.com/pavann19/QuorumKV/blob/main/docs/DEMO.md"
+    docs: "https://github.com/pavann19/QuorumKV/blob/0d13601d67f9acf10ff62f38b39fac1c54b4cad7/docs/TRANSPORT_AND_RECOVERY.md",
+    verification: {
+      sha: "0d13601",
+      source: "https://github.com/pavann19/QuorumKV/tree/0d13601d67f9acf10ff62f38b39fac1c54b4cad7",
+      ci: "https://github.com/pavann19/QuorumKV/actions/runs/41203948838"
+    }
   }
 ];
 
-const roleSpecificProjects = [
+const roleSpecificProjects: Project[] = [
   {
     title: "Gatekeeper",
     icon: <Lock className="w-8 h-8 text-[#2563eb]" />,
@@ -128,7 +156,7 @@ const roleSpecificProjects = [
   }
 ];
 
-function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[number] | (typeof roleSpecificProjects)[number]; idx: number }) {
+function ProjectCard({ project, idx }: { project: Project; idx: number }) {
   const cardNumber = String(idx + 1).padStart(2, "0");
   return (
     <GlassCard className="p-8 sm:p-10 flex flex-col bg-[#f8fafc] border-[#e2e8f0]" delay={idx * 0.08}>
@@ -145,6 +173,13 @@ function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[numb
       </div>
 
       <p className="text-[#475569] leading-relaxed text-base mt-4">{project.tagline}</p>
+
+      {project.verification && (
+        <p className="text-xs text-[#475569] leading-relaxed mt-3">
+          Verified candidate <code>{project.verification.sha}</code> · CI checked 1 Nov 2026.
+          Feature branch; not merged into main.
+        </p>
+      )}
 
       <hr className="border-[#e2e8f0] my-5" />
 
@@ -183,10 +218,16 @@ function ProjectCard({ project, idx }: { project: (typeof flagshipProjects)[numb
       </details>
 
       <div className="flex flex-wrap gap-3 mt-6">
-        <MagneticButton variant="secondary" className="w-fit" href={project.github} target="_blank" rel="noopener noreferrer">
+        <MagneticButton variant="secondary" className="w-fit" href={project.verification?.source ?? project.github} target="_blank" rel="noopener noreferrer">
           <FaGithub className="w-5 h-5" />
-          GitHub
+          {project.verification ? "Verified candidate" : "GitHub"}
         </MagneticButton>
+        {project.verification && (
+          <MagneticButton variant="glass" className="w-fit" href={project.verification.ci} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} hosted CI evidence`}>
+            <ExternalLink className="w-5 h-5" />
+            CI evidence
+          </MagneticButton>
+        )}
         <MagneticButton variant="glass" className="w-fit" href={project.docs} target="_blank" rel="noopener noreferrer">
           <ExternalLink className="w-5 h-5" />
           Docs / Evidence
