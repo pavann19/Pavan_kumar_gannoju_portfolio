@@ -1,5 +1,7 @@
-import { Mail } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
+const EMAIL = "pavan9542644804@gmail.com";
 
 export function Footer() {
   return (
@@ -7,21 +9,23 @@ export function Footer() {
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-col items-center md:items-start gap-1">
           <span className="text-[#0f172a] text-sm font-semibold">Pavan Kumar Gannoju</span>
-          <p className="text-[#64748b] text-xs">
-            © {new Date().getFullYear()} · Pavan Kumar Gannoju
-          </p>
+          <p className="text-[#64748b] text-xs">Backend &amp; Platform Engineer · Hyderabad, India</p>
+          <p className="text-[#64748b] text-xs">© {new Date().getFullYear()}</p>
         </div>
-        <div className="flex gap-6">
+        <div className="flex items-center gap-6">
+          <a href="#home" className="text-xs font-medium text-[#64748b] hover:text-[#0f172a] transition-colors">
+            Back to top ↑
+          </a>
           <a href="https://github.com/pavann19" target="_blank" rel="noopener noreferrer" className="text-[#64748b] hover:text-[#0f172a] transition-colors">
-            <FaGithub className="w-5 h-5" />
+            <FaGithub className="w-5 h-5" aria-hidden="true" />
             <span className="sr-only">GitHub</span>
           </a>
           <a href="https://www.linkedin.com/in/pavan-gannoju/" target="_blank" rel="noopener noreferrer" className="text-[#64748b] hover:text-[#0f172a] transition-colors">
-            <FaLinkedin className="w-5 h-5" />
+            <FaLinkedin className="w-5 h-5" aria-hidden="true" />
             <span className="sr-only">LinkedIn</span>
           </a>
-          <a href="mailto:pavan9542644804@gmail.com" className="text-[#64748b] hover:text-[#0f172a] transition-colors">
-            <Mail className="w-5 h-5" />
+          <a href={`mailto:${EMAIL}`} className="text-[#64748b] hover:text-[#0f172a] transition-colors">
+            <Mail className="w-5 h-5" aria-hidden="true" />
             <span className="sr-only">Email</span>
           </a>
         </div>
