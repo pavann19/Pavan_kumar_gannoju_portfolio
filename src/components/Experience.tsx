@@ -10,11 +10,11 @@ const experiences = [
     {
     role: "AI Intern → Research Team Lead",
     company: "Prodigal AI Technologies Pvt. Ltd.",
-    date: "March 2025 – November 2025 (Part-Time)",
+    date: "March 2025 – November 2025 | Remote | Part-Time",
     highlights: [
-      "Built the AI workflow pipeline and backend orchestration layer that research prototypes ran on — from prompt routing to output validation.",
-      "Led architecture reviews that shaped how the team approached LLM safety problems — not just attended them.",
-      "Defined the research direction on voice-cloning with MoE and adversarial tamper-resistance. Two papers came out of it."
+      "Built the AI workflow pipeline and backend orchestration layer that the team's research prototypes ran on, covering prompt routing through output validation.",
+      "Promoted from intern to team lead. Led a team of four, set the technical direction and ran the architecture reviews on LLM safety.",
+      "Defined the research direction on zero-shot voice cloning with Mixture-of-Experts and on adversarial tamper-resistance, which produced two research papers."
     ],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Prodigal_AI_Completion_Certificate.png" },
@@ -25,11 +25,11 @@ const experiences = [
   {
     role: "Gen AI/LLM Intern",
     company: "Digital Nexus AI",
-    date: "May 2025 – September 2025 (Part-Time)",
+    date: "May 2025 – September 2025 | Remote (Jersey City, NJ) | Part-Time",
     highlights: [
-      "Built the backend API and LLM workflow components that powered the core GenAI product features.",
-      "Wired retrieval, generation, validation, and service-layer logic into a modular flow that could actually be maintained.",
-      "Shipped the integration, wrote tests, handed over documentation that a new engineer could actually use."
+      "Built backend REST APIs in Python and FastAPI for the core GenAI product features.",
+      "Connected retrieval, generation, validation and service-layer logic into a modular pipeline that the team could maintain and extend.",
+      "Shipped the integration with tests and wrote handover documentation for the engineers who took it over."
     ],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Digital_Nexus_AI_Completion_Certificate.png" },
