@@ -52,15 +52,17 @@ const flagshipProjects = [
     tagline: "Safe Windows desktop-agent prototype with validation gates, audit logs, and post-action checks.",
     tech: "Python, FastAPI, SQLite, Windows automation, local/LLM-assisted intent handling",
     metrics: [
-      { value: "Windows", label: "runtime target" },
-      { value: "offline", label: "demo path" },
-      { value: "policy", label: "action controls" }
+      { value: "96.7%", label: "task success (95% CI 91.7–98.7%)" },
+      { value: "95.26%", label: "held-out accuracy" },
+      { value: "66/66", label: "fuzz cases blocked" }
     ],
     outcomes: [
-      "The model suggests. The agent validates. Nothing executes until OS state is confirmed safe.",
-      "Every action is bounded, checked, and logged. The model does not get root."
+      "The model suggests. The agent validates. Nothing executes until OS state is confirmed safe. Every action is bounded, checked and logged.",
+      "Reached 96.7% task success (95% CI 91.7–98.7%), 95.26% held-out accuracy and 83.68% out-of-distribution accuracy, with 88.45% of requests resolved on the fast path.",
+      "Backed by 972 automated tests at 87.39% coverage, plus a 66-test fuzz suite with a 100% block rate.",
+      "Led a four-person team on this B.Tech thesis project."
     ],
-    note: "Windows-only prototype with bounded capabilities.",
+    note: "Windows-only prototype with bounded capabilities. 4 of 7 planned phases complete; the base version is working and usable. Figures come from the project's own evaluation sets and test suites, and the 100% block rate is over the 66-test fuzz suite.",
     github: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration",
     docs: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration"
   },
@@ -90,17 +92,19 @@ const roleSpecificProjects = [
     title: "Gatekeeper",
     icon: <Lock className="w-8 h-8 text-[#2563eb]" />,
     tagline: "LLM guardrail gateway for prompt-risk detection, policy decisions, and safe request routing.",
-    tech: "Python, FastAPI, LLM security, classifier evaluation, benchmarking",
+    tech: "Python, FastAPI, Redis, LLM security, classifier evaluation",
     metrics: [
-      { value: "8", label: "detector fusion path" },
-      { value: "FastAPI", label: "gateway service" },
-      { value: "CI", label: "security checks" }
+      { value: "8", label: "detector fusion pipeline" },
+      { value: "100/100", label: "HIGH decisions kept under concurrent overwrite" },
+      { value: "5 of 100", label: "exact tenant-budget admissions" }
     ],
     outcomes: [
-      "Every LLM request goes through 8 detectors before it touches the model. Latency benchmarked under load.",
-      "Found the concurrency ceiling, documented it, and explained exactly what breaks first."
+      "Every request passes an eight-detector fusion pipeline that scores jailbreak, prompt-injection and harmful-content risk before it reaches the model, backed by more than 1,700 automated tests.",
+      "Preserved HIGH risk decisions through 100/100 concurrent LOW-overwrite attempts in local Redis validation, using atomic, monotonic cache updates.",
+      "Enforced shared tenant budgets across 2 Redis clients and 8 concurrent workers: exactly 5 of 100 competing attempts admitted, with zero lost updates across 100 quota writes.",
+      "Scored a 13,011-example corpus with all eight detectors: fusion ROC-AUC 0.942 (95% CI 0.938–0.946) and 72.6% recall at 5% false-positive rate."
     ],
-    note: "Built to answer one question: what happens when the model is wrong? Turns out, a lot.",
+    note: "Concurrency results are local Redis correctness checks on backend calls, not HTTP traffic or separate app replicas, and not production performance. Detection metrics are in-sample (the fusion model was fitted on the same corpus). API latency, throughput and held-out accuracy have not been measured yet.",
     github: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway",
     docs: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway"
   },
@@ -110,15 +114,15 @@ const roleSpecificProjects = [
     tagline: "Rust operating-system prototype for capability-scoped interfaces, policy, and auditability.",
     tech: "Rust, QEMU, kernel development, serial tests, systems safety",
     metrics: [
+      { value: "10/15", label: "planned phases complete" },
       { value: "Rust", label: "native kernel work" },
-      { value: "QEMU", label: "validated runtime" },
-      { value: "CI", label: "boot and host tests" }
+      { value: "QEMU", label: "validated runtime" }
     ],
     outcomes: [
-      "Kernel written in Rust with typed capability interfaces — no raw pointers without a reason.",
-      "QEMU boots, serial output validates, host tests confirm — reproducible from a clean checkout."
+      "Kernel written in Rust with typed capability interfaces, and no raw pointers without a reason.",
+      "QEMU boots, serial output validates and host tests confirm, reproducible from a clean checkout."
     ],
-    note: "Runs in QEMU. Written in Rust. Built because I wanted to know what's actually underneath.",
+    note: "Work in progress: 10 of 15 planned phases complete. Runs in QEMU.",
     github: "https://github.com/pavann19/Agentic-OS",
     docs: "https://github.com/pavann19/Agentic-OS"
   }
@@ -199,7 +203,7 @@ export function Projects() {
       <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeader
           title="Featured Projects"
-          subtitle="Real environments. Every project ships, runs, and has evidence."
+          subtitle="Each project links to its tests, validation results and known limits."
         />
 
         <div className="grid lg:grid-cols-2 gap-8">
