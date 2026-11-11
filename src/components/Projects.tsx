@@ -60,7 +60,7 @@ const flagshipProjects: Project[] = [
       "Added serving readiness, bounded graceful termination and a durable proposal-only worker outside the admission decision path.",
       "Hosted CI passes real cosign integration, envtest, kind, Helm, fuzz and worker checks, including Linux FIFO rejection regressions."
     ],
-    note: "Policy exemptions and installation exclusions are documented explicitly. The local observation stopped at the user-requested 15 hours; the original 24-hour gate is incomplete. A distinct-image load control regressed. Azure ACR evidence records image publication, not a managed deployment. Production operation and host-level high availability remain unverified.",
+    note: "Policy exemptions and installation exclusions are documented explicitly. The local observation stopped after 15 hours; the original 24-hour gate is incomplete. A distinct-image load control regressed. Azure ACR evidence records image publication, not a managed deployment. Production operation and host-level high availability remain unverified.",
     github: "https://github.com/pavann19/ModelGate",
     docs: "https://github.com/pavann19/ModelGate/blob/e9af94fae32a9ffe10ba1641e2565ddac4605696/docs/ADMISSION_LIFECYCLE.md",
     verification: {
