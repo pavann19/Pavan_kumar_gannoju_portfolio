@@ -20,7 +20,7 @@ const supportingProjects: SupportingProject[] = [
     results: [
       "Replaced serial per-chunk embedding with bounded concurrency: a 181-chunk ingest dropped from 378.7 s to 48.1 s (7.83×).",
       "Load-tested with concurrent HTTP traffic and found the ceiling is model generation, not the API layer. Fixed a mid-stream connection-reset bug that only appeared at scale.",
-      "266 tests at 98.55% coverage, with CI green on both Python versions."
+      "343 Python tests at 98% branch coverage, with CI green on both Python versions."
     ],
     tech: ["Python", "FastAPI", "FAISS", "Qdrant", "Ollama", "Docker", "Next.js"],
     link: "https://github.com/pavann19/enterprise-rag-system"
