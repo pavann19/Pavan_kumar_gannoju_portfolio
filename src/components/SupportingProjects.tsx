@@ -28,11 +28,6 @@ const supportingProjects: SupportingProject[] = [
   {
     title: "DDS — Driving Decision System",
     description: "Driving simulator with decision logic: OBD-II telemetry, XGBoost + SHAP behaviour analytics, Frenet-frame path planning and IDM car-following, streamed live to a 3D browser HMI.",
-    results: [
-      "Cut p95 telemetry queue delay 91% (990 → 90 ms) with 16 in-process consumers by coalescing stale snapshots, while preserving route events and command acknowledgments.",
-      "Raised mean macro-F1 on OBD-II telemetry from 0.515 to 0.710 against a linear baseline across four forward-chaining folds.",
-      "Cut eight-view camera detector processing time 89% across 600 paired benchmark rounds, with outputs preserved on fixed fixtures."
-    ],
     tech: ["Python", "FastAPI", "XGBoost", "SHAP", "Three.js"],
     link: "https://github.com/pavann19/DDS"
   },
