@@ -80,12 +80,12 @@ const flagshipProjects: Project[] = [
       { value: "66/66", label: "fuzz cases blocked" }
     ],
     outcomes: [
-      "The model suggests. The agent validates. Nothing executes until OS state is confirmed safe. Every action is bounded, checked and logged.",
+      "Supported actions are validated before execution and, where a check exists, verified against OS state afterwards.",
       "Reached 96.7% task success (95% CI 91.7–98.7%), 95.26% held-out accuracy and 83.68% out-of-distribution accuracy, with 88.45% of requests resolved on the fast path.",
-      "Backed by 972 automated tests at 87.39% coverage, plus a 66-test fuzz suite with a 100% block rate.",
+      "Backed by 1,333 tests passed, 2 skipped, at 86.75% coverage (October 6, 2026 CI run), plus a 66-test fuzz suite with a 100% block rate.",
       "Led a four-person team on this B.Tech thesis project."
     ],
-    note: "Windows-only prototype with bounded capabilities. 4 of 7 planned phases complete; the base version is working and usable. Figures come from the project's own evaluation sets and test suites, and the 100% block rate is over the 66-test fuzz suite.",
+    note: "Windows-only prototype with bounded capabilities. Figures come from the project's own evaluation sets and test suites, and the 100% block rate is over the 66-test fuzz suite.",
     github: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration",
     docs: "https://github.com/pavann19/SentinAL-Desktop-AI-Orchestration"
   },
@@ -122,17 +122,12 @@ const roleSpecificProjects: Project[] = [
     tagline: "LLM guardrail gateway for prompt-risk detection, policy decisions, and safe request routing.",
     tech: "Python, FastAPI, Redis, LLM security, classifier evaluation",
     metrics: [
-      { value: "8", label: "detector fusion pipeline" },
-      { value: "100/100", label: "HIGH decisions kept under concurrent overwrite" },
-      { value: "5 of 100", label: "exact tenant-budget admissions" }
+      { value: "Up to eight", label: "configured detectors" }
     ],
     outcomes: [
-      "Every request passes an eight-detector fusion pipeline that scores jailbreak, prompt-injection and harmful-content risk before it reaches the model, backed by more than 1,700 automated tests.",
-      "Preserved HIGH risk decisions through 100/100 concurrent LOW-overwrite attempts in local Redis validation, using atomic, monotonic cache updates.",
-      "Enforced shared tenant budgets across 2 Redis clients and 8 concurrent workers: exactly 5 of 100 competing attempts admitted, with zero lost updates across 100 quota writes.",
-      "Scored a 13,011-example corpus with all eight detectors: fusion ROC-AUC 0.942 (95% CI 0.938–0.946) and 72.6% recall at 5% false-positive rate."
+      "Up to eight detectors contribute to each assessment, depending on configured assets. More than 1,800 automated tests."
     ],
-    note: "Concurrency results are local Redis correctness checks on backend calls, not HTTP traffic or separate app replicas, and not production performance. Detection metrics are in-sample (the fusion model was fitted on the same corpus). API latency, throughput and held-out accuracy have not been measured yet.",
+    note: "No current independent accuracy or latency headline is published; see the repository's evaluation notes.",
     github: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway",
     docs: "https://github.com/pavann19/Gatekeeper-AI-Infrastructure-and-Governance-Gateway"
   },
@@ -142,7 +137,6 @@ const roleSpecificProjects: Project[] = [
     tagline: "Rust operating-system prototype for capability-scoped interfaces, policy, and auditability.",
     tech: "Rust, QEMU, kernel development, serial tests, systems safety",
     metrics: [
-      { value: "10/15", label: "planned phases complete" },
       { value: "Rust", label: "native kernel work" },
       { value: "QEMU", label: "validated runtime" }
     ],
@@ -150,7 +144,7 @@ const roleSpecificProjects: Project[] = [
       "Kernel written in Rust with typed capability interfaces, and no raw pointers without a reason.",
       "QEMU boots, serial output validates and host tests confirm, reproducible from a clean checkout."
     ],
-    note: "Work in progress: 10 of 15 planned phases complete. Runs in QEMU.",
+    note: "Work in progress. Runs in QEMU.",
     github: "https://github.com/pavann19/Agentic-OS",
     docs: "https://github.com/pavann19/Agentic-OS"
   }
