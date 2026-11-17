@@ -18,7 +18,7 @@ const supportingProjects: SupportingProject[] = [
     title: "Enterprise RAG System",
     description: "RAG pipeline over policy documents for an FP&A backend. Swappable vector backends (NumPy, FAISS, Qdrant), schema-validated output, streaming, rate limiting and property-based tests.",
     results: [
-      "Replaced serial per-chunk embedding with bounded concurrency: a 181-chunk ingest dropped from 378.7 s to 48.1 s (7.83×).",
+      "Replaced serial per-chunk embedding with bounded concurrency: a 181-chunk ingest dropped from 378.7 s to 48.1 s (7.87×).",
       "Load-tested with concurrent HTTP traffic and found the ceiling is model generation, not the API layer. Fixed a mid-stream connection-reset bug that only appeared at scale.",
       "343 Python tests at 98% branch coverage, with CI green on both Python versions."
     ],
