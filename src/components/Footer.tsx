@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-col items-center md:items-start gap-1">
           <span className="text-[#0f172a] text-sm font-semibold">Pavan Kumar Gannoju</span>
-          <p className="text-[#64748b] text-xs">Backend &amp; Platform Engineer · Hyderabad, India</p>
+          <p className="text-[#64748b] text-xs">Backend &amp; Platform Engineer · Ilmenau, Germany</p>
           <p className="text-[#64748b] text-xs">© {new Date().getFullYear()}</p>
         </div>
         <div className="flex items-center gap-6">
