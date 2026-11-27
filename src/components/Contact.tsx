@@ -93,7 +93,7 @@ export function Contact() {
                   <div className="p-3 bg-[#f8fafc] rounded-xl border border-[#e2e8f0] shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
-                  <span className="font-medium text-sm">Hyderabad, India</span>
+                  <span className="font-medium text-sm">Ilmenau, Germany</span>
                 </div>
               </div>
             </GlassCard>
