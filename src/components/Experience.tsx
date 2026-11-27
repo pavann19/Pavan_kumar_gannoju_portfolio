@@ -8,13 +8,14 @@ import { assetPath } from "@/lib/assetPath";
 
 const experiences = [
     {
-    role: "AI Intern → Research Team Lead",
+    role: "AI Intern with Research Team Lead Responsibilities",
     company: "Prodigal AI Technologies Pvt. Ltd.",
-    date: "March 2025 – November 2025 | Remote | Part-Time",
+    date: "March 2025 – November 2025 | Remote",
     highlights: [
-      "Built the AI workflow pipeline and backend orchestration layer that the team's research prototypes ran on, covering prompt routing through output validation.",
-      "Promoted from intern to team lead. Led a team of four, set the technical direction and ran the architecture reviews on LLM safety.",
-      "Defined the research direction on zero-shot voice cloning with Mixture-of-Experts and on adversarial tamper-resistance, which produced two research papers."
+      "Led five fellow interns in generative-AI security R&D, coordinating experiments, implementation reviews and reproducible evaluation workflows.",
+      "Built modular Python/FastAPI backend services and retrieval pipelines for internal AI tooling; supported initial Docker/Kubernetes deployments and internal demonstrations.",
+      "Implemented and ran prompt-injection and data-poisoning experiments and contributed findings to confidential research manuscripts submitted for university review.",
+      "Built a biomedical RAG prototype using E5 embeddings, FAISS and Flan-T5; fine-tuned BERT and T5 using PyTorch and Hugging Face, including LoRA/QLoRA experiments."
     ],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Prodigal_AI_Completion_Certificate.png" },
@@ -25,11 +26,10 @@ const experiences = [
   {
     role: "Gen AI/LLM Intern",
     company: "Digital Nexus AI",
-    date: "May 2025 – September 2025 | Remote (Jersey City, NJ) | Part-Time",
+    date: "May 2025 – September 2025 | Remote (Jersey City, NJ)",
     highlights: [
-      "Built backend REST APIs in Python and FastAPI for the core GenAI product features.",
-      "Connected retrieval, generation, validation and service-layer logic into a modular pipeline that the team could maintain and extend.",
-      "Shipped the integration with tests and wrote handover documentation for the engineers who took it over."
+      "Individually built four internship prototypes: a task-breakdown agent, source-code documentation generator, codebase Q&A application and PDF chatbot.",
+      "Implemented LLM-assisted task decomposition, source-code processing and document retrieval for testing and demonstrations, integrating Python/FastAPI components where applicable."
     ],
     proofs: [
       { label: "Completion Certificate", file: "/proofs/Digital_Nexus_AI_Completion_Certificate.png" },
