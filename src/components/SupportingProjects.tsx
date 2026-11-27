@@ -18,9 +18,11 @@ const supportingProjects: SupportingProject[] = [
     title: "Enterprise RAG System",
     description: "RAG pipeline over policy documents for an FP&A backend. Swappable vector backends (NumPy, FAISS, Qdrant), schema-validated output, streaming, rate limiting and property-based tests.",
     results: [
-      "Replaced serial per-chunk embedding with bounded concurrency: a 181-chunk ingest dropped from 378.7 s to 48.1 s (7.87×).",
-      "Load-tested with concurrent HTTP traffic and found the ceiling is model generation, not the API layer. Fixed a mid-stream connection-reset bug that only appeared at scale.",
-      "343 Python tests at 98% branch coverage, with CI green on both Python versions."
+      "Reduced a 181-chunk ingest from 378.7 seconds to 48.1 seconds in a synthetic, single-machine benchmark by replacing serial per-chunk embedding calls with bounded concurrency against Ollama.",
+      "Validated ingestion of 1,408 chunks from 150 synthetic documents in 86.9 seconds by exercising the embedding and indexing pipeline with a generated corpus; used NumPy as the default vector backend with optional FAISS/Qdrant adapters.",
+      "Eliminated a reproduced ingestion failure caused by a mid-stream connection reset by extending HTTP retry handling to catch OSError alongside URLError and adding a regression test for the original failure shape.",
+      "Validated 40/40 successful requests across 10 concurrent clients with an increased request limit, while the default limit correctly rejected 11 requests with HTTP 429, by load-testing the running API and separating rate-limit enforcement from model-generation capacity.",
+      "Historical synthetic single-machine experiments; NumPy was the default vector backend. These checks do not establish independent retrieval/answer quality or production capacity."
     ],
     tech: ["Python", "FastAPI", "FAISS", "Qdrant", "Ollama", "Docker", "Next.js"],
     link: "https://github.com/pavann19/enterprise-rag-system"
